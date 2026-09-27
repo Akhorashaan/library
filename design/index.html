@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="ru" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Картотека — дизайн</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=PT+Mono&family=PT+Sans:ital,wght@0,400;0,700;1,400&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="prototype.css">
+</head>
+<body>
+
+<div class="theme-toggle" role="group" aria-label="Тема">
+  <button id="t-light" aria-pressed="true">День</button>
+  <button id="t-dark" aria-pressed="false">Ночь</button>
+</div>
+
+<div class="wrap">
+
+  <header class="page-head">
+    <div class="kicker">Домашняя библиотека · Дизайн-система и экраны</div>
+    <h1>Картотека</h1>
+    <p>Метафора — библиотечный карточный ящик: бумага, чернила, штампы, машинописные метаданные. Структура современного приложения, материалы из шестидесятых. Всё держится на четырёх шрифтах с полной кириллицей и десятке цветов.</p>
+  </header>
+
+  <!-- 01 ПАЛИТРА -->
+  <section>
+    <div class="sec-label"><span class="num">01</span><h2>Палитра</h2>
+      <span class="note">переключите «Ночь» — пересчитывается вся страница</span></div>
+    <div class="swatches">
+      <div class="sw"><div class="chip" style="background:var(--board)"></div><div class="meta"><b>--board</b><span>фон, картон ящика</span></div></div>
+      <div class="sw"><div class="chip" style="background:var(--paper)"></div><div class="meta"><b>--paper</b><span>каталожная карточка</span></div></div>
+      <div class="sw"><div class="chip" style="background:var(--paper-raised)"></div><div class="meta"><b>--paper-raised</b><span>модалка, поле ввода</span></div></div>
+      <div class="sw"><div class="chip" style="background:var(--ink)"></div><div class="meta"><b>--ink</b><span>основной текст</span></div></div>
+      <div class="sw"><div class="chip" style="background:var(--ink-soft)"></div><div class="meta"><b>--ink-soft</b><span>метаданные</span></div></div>
+      <div class="sw"><div class="chip" style="background:var(--rule)"></div><div class="meta"><b>--rule</b><span>разлиновка, границы</span></div></div>
+      <div class="sw"><div class="chip" style="background:var(--stamp)"></div><div class="meta"><b>--stamp</b><span>акцент · прочитано</span></div></div>
+      <div class="sw"><div class="chip" style="background:var(--stamp-ink)"></div><div class="meta"><b>--stamp-ink</b><span>читаю · ссылки</span></div></div>
+      <div class="sw"><div class="chip" style="background:var(--sage)"></div><div class="meta"><b>--sage</b><span>успех · в наличии</span></div></div>
+      <div class="sw"><div class="chip" style="background:var(--amber)"></div><div class="meta"><b>--amber</b><span>отдана кому-то</span></div></div>
+    </div>
+  </section>
+
+  <!-- 02 ТИПОГРАФИКА -->
+  <section>
+    <div class="sec-label"><span class="num">02</span><h2>Типографика</h2>
+      <span class="note">PT Serif / Sans / Mono — одна суперсемья Паратайпа</span></div>
+
+    <div class="type-row"><div class="tag">Display<br>Old Standard TT</div>
+      <div><div style="font-family:var(--font-display);font-size:42px;line-height:1.04">Записки из подполья</div>
+      <p style="font-family:var(--font-mono);font-size:10px;color:var(--ink-faint);margin-top:8px;letter-spacing:.05em">Титулы экранов и названия на карточке книги. Старопечатный контраст, высокая плотность.</p></div></div>
+
+    <div class="type-row"><div class="tag">Serif<br>PT Serif</div>
+      <div><div style="font-family:var(--font-serif);font-size:19px;font-weight:700">Мастер и Маргарита</div>
+      <div style="font-family:var(--font-serif);font-size:15px;color:var(--ink-soft);margin-top:5px">Названия книг в списках, аннотации, личные заметки — <em>курсивом</em>.</div></div></div>
+
+    <div class="type-row"><div class="tag">Sans<br>PT Sans</div>
+      <div><div style="font-size:15px">Хром интерфейса: кнопки, авторы, подписи, навигация.</div>
+      <p style="font-size:13px;color:var(--ink-soft);margin-top:4px">Нейтральный, не спорит с серифом за внимание.</p></div></div>
+
+    <div class="type-row"><div class="tag">Mono<br>PT Mono</div>
+      <div><div style="font-family:var(--font-mono);font-size:15px;letter-spacing:.05em">ISBN 978-5-389-07435-4</div>
+      <div style="font-family:var(--font-mono);font-size:10px;letter-spacing:var(--tracking-stamp);text-transform:uppercase;color:var(--ink-soft);margin-top:7px">Шифры · номера · штампы · полки · даты</div></div></div>
+  </section>
+
+  <!-- 03 ЭЛЕМЕНТЫ -->
+  <section>
+    <div class="sec-label"><span class="num">03</span><h2>Элементы</h2>
+      <span class="note">статус — это оттиск штампа, а не цветная точка</span></div>
+    <div class="specimens">
+      <div class="spec"><h3>Штампы статуса</h3><div class="spec-body">
+        <span class="stamp stamp--read">Прочитано</span>
+        <span class="stamp stamp--now">Читаю</span>
+        <span class="stamp stamp--queue">В очереди</span>
+        <span class="stamp stamp--lent">Отдана · Мише</span>
+        <span class="stamp stamp--have">В наличии</span>
+      </div></div>
+
+      <div class="spec"><h3>Кнопки</h3><div class="spec-body">
+        <button class="btn btn--stamp">Сканировать</button>
+        <button class="btn btn--primary">Добавить</button>
+        <button class="btn btn--ghost">Не та книга</button>
+        <button class="btn btn--quiet btn--sm">Ввести вручную</button>
+      </div></div>
+
+      <div class="spec"><h3>Поля</h3>
+        <div style="display:grid;gap:12px">
+          <div class="field"><label for="f-isbn">ISBN</label>
+            <input id="f-isbn" class="input" value="978-5-389-07435-4" readonly></div>
+          <div class="field"><label for="f-shelf">Полка</label>
+            <input id="f-shelf" class="input" placeholder="напр. 3–2 — шкаф 3, ряд 2"></div>
+        </div>
+      </div>
+
+      <div class="spec"><h3>Обложки без картинки</h3><div class="spec-body">
+        <div class="cover c-a" style="width:54px;height:80px"><div class="t">Бесы</div><div class="a">Достоевский</div></div>
+        <div class="cover c-b" style="width:54px;height:80px"><div class="t">Солярис</div><div class="a">Лем</div></div>
+        <div class="cover c-e" style="width:54px;height:80px"><div class="t">Колымские рассказы</div><div class="a">Шаламов</div></div>
+        <p style="font-size:12px;color:var(--ink-soft);flex:1;min-width:150px">Заглушка типографская. Цвет переплёта выводится из автора, поэтому одна и та же книга всегда одного цвета, а полка автора читается как единый блок.</p>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- 04 ЭКРАНЫ -->
+  <section>
+    <div class="sec-label"><span class="num">04</span><h2>Экраны</h2>
+      <span class="note">mobile-first · прокрутите вбок</span></div>
+
+    <div class="screens">
+
+      <!-- ЭКРАН 01: КАТАЛОГ -->
+      <figure class="screen">
+        <figcaption><b>01</b> · Каталог</figcaption>
+        <div class="phone">
+          <div class="app-bar">
+            <div><div class="title">Картотека</div><div class="sub">342 книги · 4 шкафа</div></div>
+            <div style="display:flex;gap:7px">
+              <button class="icon-btn" aria-label="Вид"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></button>
+              <button class="icon-btn" aria-label="Ещё"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg></button>
+            </div>
+          </div>
+          <div class="search-row">
+            <div class="search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><span>автор, название, серия…</span></div>
+          </div>
+          <div class="facets">
+            <span class="facet" data-on>Все <b>342</b></span>
+            <span class="facet">Читаю <b>3</b></span>
+            <span class="facet">В очереди <b>12</b></span>
+            <span class="facet">Прочитано <b>158</b></span>
+            <span class="facet">Отдано <b>4</b></span>
+          </div>
+          <div class="body">
+            <div class="drawer">
+              <div class="drawer-tab"><span>Шкаф 3 · ряд 2</span><hr></div>
+
+              <article class="cat-card">
+                <div class="cover c-a"><div class="t">Братья Карамазовы</div><div class="a">Достоевский</div></div>
+                <div class="info">
+                  <div class="bt">Братья Карамазовы</div>
+                  <div class="ba">Фёдор Достоевский</div>
+                  <div class="bm"><span>ДО 14</span><i>·</i><span>Азбука, 2021</span><i>·</i><span>832 с.</span></div>
+                </div>
+                <div class="right"><span class="shelfmark">3–2</span><span class="stamp stamp--read stamp--mini">Прочитано</span></div>
+              </article>
+
+              <article class="cat-card">
+                <div class="cover c-b"><div class="t">Солярис</div><div class="a">Станислав Лем</div></div>
+                <div class="info">
+                  <div class="bt">Солярис</div>
+                  <div class="ba">Станислав Лем</div>
+                  <div class="bm"><span>ЛЕ 07</span><i>·</i><span>АСТ, 2019</span><i>·</i><span>288 с.</span></div>
+                </div>
+                <div class="right"><span class="shelfmark">3–2</span><span class="stamp stamp--now stamp--mini">Читаю</span></div>
+              </article>
+
+              <article class="cat-card">
+                <div class="cover c-c"><div class="t">Хазарский словарь</div><div class="a">Милорад Павич</div></div>
+                <div class="info">
+                  <div class="bt">Хазарский словарь</div>
+                  <div class="ba">Милорад Павич</div>
+                  <div class="bm"><span>ПА 03</span><i>·</i><span>Азбука, 2018</span><i>·</i><span>384 с.</span></div>
+                </div>
+                <div class="right"><span class="shelfmark">3–2</span><span class="stamp stamp--queue stamp--mini">В очереди</span></div>
+              </article>
+
+              <article class="cat-card">
+                <div class="cover c-f"><div class="t">Осень патриарха</div><div class="a">Г. Г. Маркес</div></div>
+                <div class="info">
+                  <div class="bt">Осень патриарха</div>
+                  <div class="ba">Габриэль Гарсиа Маркес</div>
+                  <div class="bm"><span>МА 21</span><i>·</i><span>АСТ, 2020</span><i>·</i><span>320 с.</span></div>
+                </div>
+                <div class="right"><span class="shelfmark">3–2</span><span class="stamp stamp--lent stamp--mini">У Миши</span></div>
+              </article>
+
+              <div class="drawer-tab"><span>Шкаф 3 · ряд 3</span><hr></div>
+
+              <article class="cat-card">
+                <div class="cover c-e"><div class="t">Колымские рассказы</div><div class="a">Варлам Шаламов</div></div>
+                <div class="info">
+                  <div class="bt">Колымские рассказы</div>
+                  <div class="ba">Варлам Шаламов</div>
+                  <div class="bm"><span>ША 12</span><i>·</i><span>Азбука, 2022</span><i>·</i><span>608 с.</span></div>
+                </div>
+                <div class="right"><span class="shelfmark">3–3</span><span class="stamp stamp--read stamp--mini">Прочитано</span></div>
+              </article>
+
+              <article class="cat-card">
+                <div class="cover c-d"><div class="t">Бесконечная шутка</div><div class="a">Д. Ф. Уоллес</div></div>
+                <div class="info">
+                  <div class="bt">Бесконечная шутка</div>
+                  <div class="ba">Дэвид Фостер Уоллес</div>
+                  <div class="bm"><span>УО 01</span><i>·</i><span>АСТ, 2018</span><i>·</i><span>1280 с.</span></div>
+                </div>
+                <div class="right"><span class="shelfmark">3–3</span><span class="stamp stamp--queue stamp--mini">В очереди</span></div>
+              </article>
+            </div>
+          </div>
+          <nav class="tabbar">
+            <a href="#" data-on><svg viewBox="0 0 24 24"><path d="M4 5h6v14H4zM14 5h6v14h-6z"/></svg><span>Каталог</span></a>
+            <a href="#"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg><span>Список</span></a>
+            <a href="#" class="scan"><span class="disc"><svg viewBox="0 0 24 24"><path d="M3 8V5a2 2 0 012-2h3M21 8V5a2 2 0 00-2-2h-3M3 16v3a2 2 0 002 2h3M21 16v3a2 2 0 01-2 2h-3M7 8v8M10 8v8M13.5 8v8M17 8v8"/></svg></span><span>Скан</span></a>
+            <a href="#"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg><span>История</span></a>
+            <a href="#"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c1.5-3.5 4-5 7-5s5.5 1.5 7 5"/></svg><span>Дом</span></a>
+          </nav>
+        </div>
+      </figure>
+
+      <!-- ЭКРАН 02: СКАНЕР -->
+      <figure class="screen">
+        <figcaption><b>02</b> · Сканер штрих-кода</figcaption>
+        <div class="phone">
+          <div class="body">
+            <div class="scanner">
+              <div class="top"><button>Отмена</button><span>Штрих-код</span><button>Вспышка</button></div>
+              <div class="viewport">
+                <div class="book-ghost"></div>
+                <div class="frame"><i></i><i></i><i></i><i></i><div class="beam"></div></div>
+                <div class="barcode" id="bc"></div>
+              </div>
+              <p class="hint">Наведите на штрих-код с задней обложки.<br>Он же ISBN — распознаётся сам.</p>
+              <div class="actions">
+                <button class="btn btn--ghost">Фото из галереи</button>
+                <button class="btn btn--ghost">Ввести ISBN</button>
+              </div>
+
+              <div class="sheet">
+                <div class="grip"></div>
+                <div class="found"><svg viewBox="0 0 24 24"><path d="M4 12.5l5.5 5.5L20 7"/></svg>Найдено за 0,4 с</div>
+                <div class="hit">
+                  <div class="cover c-b"><div class="t">Солярис</div><div class="a">Станислав Лем</div></div>
+                  <div>
+                    <div class="bt">Солярис</div>
+                    <div class="ba">Станислав Лем · пер. Г. Гудимовой</div>
+                    <div class="bm">ISBN 978-5-17-118986-3<br>АСТ, 2019 · 288 с. · твёрдый переплёт</div>
+                  </div>
+                </div>
+                <div class="row">
+                  <button class="btn btn--stamp">В каталог</button>
+                  <button class="btn btn--ghost">Исправить</button>
+                </div>
+                <p class="src">источник: Google Books · обложка сохранена локально</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </figure>
+
+      <!-- ЭКРАН 03: КАРТОЧКА КНИГИ -->
+      <figure class="screen">
+        <figcaption><b>03</b> · Карточка книги</figcaption>
+        <div class="phone">
+          <div class="app-bar">
+            <button class="icon-btn" aria-label="Назад"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+            <div class="label-mono">ША 12</div>
+            <button class="icon-btn" aria-label="Правка"><svg viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/></svg></button>
+          </div>
+          <div class="body">
+            <div class="book-body">
+              <div class="book-hero">
+                <div class="cover c-e"><div class="t">Колымские рассказы</div><div class="a">Варлам Шаламов</div></div>
+                <div style="flex:1;min-width:0">
+                  <div class="bt">Колымские рассказы</div>
+                  <div class="ba">Варлам Шаламов</div>
+                  <span class="stamp stamp--read">Прочитано · 12.03.26</span>
+                </div>
+              </div>
+
+              <div style="padding:0 16px 40px">
+                <div class="ledger">
+                  <h3>Издание</h3>
+                  <dl>
+                    <dt>Издательство</dt><dd>Азбука-Аттикус</dd>
+                    <dt>Год</dt><dd>2022</dd>
+                    <dt>Страниц</dt><dd>608</dd>
+                    <dt>Переплёт</dt><dd>Твёрдый</dd>
+                    <dt>ISBN</dt><dd class="mono">978-5-389-07435-4</dd>
+                  </dl>
+                </div>
+
+                <div class="ledger">
+                  <h3>Экземпляр</h3>
+                  <dl>
+                    <dt>Место</dt><dd class="mono">Шкаф 3 · ряд 3</dd>
+                    <dt>Состояние</dt><dd>Отличное</dd>
+                    <dt>Куплена</dt><dd class="mono">04.11.2022</dd>
+                    <dt>У кого</dt><dd>Дома</dd>
+                  </dl>
+                </div>
+
+                <div class="ledger">
+                  <h3>Чтение</h3>
+                  <div class="progress">
+                    <div class="bar"><i style="width:100%"></i></div>
+                    <div class="lbl"><span>608 из 608</span><span>21.01.26 — 12.03.26</span></div>
+                  </div>
+                  <div style="display:flex;justify-content:space-between;align-items:center;margin:14px 0 12px">
+                    <span class="label-mono">Оценка</span>
+                    <span class="rating">
+                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .9-5 4.9 1.2 7L12 18l-6.2 3.3L7 14.3l-5-4.9 7-.9z"/></svg>
+                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .9-5 4.9 1.2 7L12 18l-6.2 3.3L7 14.3l-5-4.9 7-.9z"/></svg>
+                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .9-5 4.9 1.2 7L12 18l-6.2 3.3L7 14.3l-5-4.9 7-.9z"/></svg>
+                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .9-5 4.9 1.2 7L12 18l-6.2 3.3L7 14.3l-5-4.9 7-.9z"/></svg>
+                      <svg viewBox="0 0 24 24" fill="currentColor" opacity=".24"><path d="M12 2l3 6.5 7 .9-5 4.9 1.2 7L12 18l-6.2 3.3L7 14.3l-5-4.9 7-.9z"/></svg>
+                    </span>
+                  </div>
+                  <p class="note">«Лагерь — отрицательная школа жизни целиком и полностью». Читать по одному рассказу за раз, залпом нельзя.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </figure>
+
+      <!-- ЭКРАН 04: СПИСОК ЧТЕНИЯ -->
+      <figure class="screen">
+        <figcaption><b>04</b> · Список чтения</figcaption>
+        <div class="phone">
+          <div class="list-head">
+            <h2>Список чтения</h2>
+            <p>1 в работе · 12 в очереди · 24 за год</p>
+          </div>
+          <div class="body">
+            <div class="queue">
+              <div class="drawer-tab"><span>Сейчас читаю</span><hr></div>
+              <div class="now">
+                <div class="cover c-b"><div class="t">Солярис</div><div class="a">Станислав Лем</div></div>
+                <div style="flex:1;min-width:0">
+                  <div class="bt">Солярис</div>
+                  <div class="ba">Станислав Лем</div>
+                  <div class="progress" style="margin-top:11px">
+                    <div class="bar"><i></i></div>
+                    <div class="lbl"><span>124 из 288</span><span>5 дней</span></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="drawer-tab"><span>Дальше · порядок можно менять</span><hr></div>
+
+              <div class="q-item"><span class="n">1</span>
+                <div class="cover c-c"><div class="t">Хазарский словарь</div><div class="a">Павич</div></div>
+                <div style="flex:1;min-width:0"><div class="bt">Хазарский словарь</div><div class="ba">Милорад Павич</div></div>
+                <span class="grab" aria-hidden="true"><i></i><i></i><i></i></span></div>
+
+              <div class="q-item"><span class="n">2</span>
+                <div class="cover c-d"><div class="t">Бесконечная шутка</div><div class="a">Уоллес</div></div>
+                <div style="flex:1;min-width:0"><div class="bt">Бесконечная шутка</div><div class="ba">Дэвид Фостер Уоллес</div></div>
+                <span class="grab" aria-hidden="true"><i></i><i></i><i></i></span></div>
+
+              <div class="q-item"><span class="n">3</span>
+                <div class="cover c-a"><div class="t">Бесы</div><div class="a">Достоевский</div></div>
+                <div style="flex:1;min-width:0"><div class="bt">Бесы</div><div class="ba">Фёдор Достоевский</div></div>
+                <span class="grab" aria-hidden="true"><i></i><i></i><i></i></span></div>
+
+              <div class="q-item"><span class="n">4</span>
+                <div class="cover c-f"><div class="t">Осень патриарха</div><div class="a">Маркес</div></div>
+                <div style="flex:1;min-width:0"><div class="bt">Осень патриарха</div><div class="ba">Габриэль Гарсиа Маркес</div>
+                  <div style="margin-top:4px"><span class="stamp stamp--lent stamp--mini" style="transform:none">У Миши с 3 марта</span></div></div>
+                <span class="grab" aria-hidden="true"><i></i><i></i><i></i></span></div>
+
+              <div class="drawer-tab"><span>Прочитано в 2026</span><hr></div>
+              <div class="q-item"><span class="n" style="color:var(--stamp)">✓</span>
+                <div class="cover c-e"><div class="t">Колымские рассказы</div><div class="a">Шаламов</div></div>
+                <div style="flex:1;min-width:0"><div class="bt">Колымские рассказы</div><div class="ba">Варлам Шаламов · 12 марта</div></div>
+              </div>
+            </div>
+          </div>
+          <nav class="tabbar">
+            <a href="#"><svg viewBox="0 0 24 24"><path d="M4 5h6v14H4zM14 5h6v14h-6z"/></svg><span>Каталог</span></a>
+            <a href="#" data-on><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg><span>Список</span></a>
+            <a href="#" class="scan"><span class="disc"><svg viewBox="0 0 24 24"><path d="M3 8V5a2 2 0 012-2h3M21 8V5a2 2 0 00-2-2h-3M3 16v3a2 2 0 002 2h3M21 16v3a2 2 0 01-2 2h-3M7 8v8M10 8v8M13.5 8v8M17 8v8"/></svg></span><span>Скан</span></a>
+            <a href="#"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg><span>История</span></a>
+            <a href="#"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c1.5-3.5 4-5 7-5s5.5 1.5 7 5"/></svg><span>Дом</span></a>
+          </nav>
+        </div>
+      </figure>
+
+    </div>
+  </section>
+
+  <!-- 05 ДЕСКТОП -->
+  <section style="border-bottom:none">
+    <div class="sec-label"><span class="num">05</span><h2>Десктоп</h2>
+      <span class="note">тот же код, три колонки вместо одной</span></div>
+
+    <div class="desktop">
+      <aside class="dt-side">
+        <div class="brand">Картотека</div><p>342 книги</p>
+        <h4>Собрание</h4>
+        <ul>
+          <li data-on>Все книги <b>342</b></li>
+          <li>Читаю <b>3</b></li>
+          <li>Список чтения <b>12</b></li>
+          <li>Прочитано <b>158</b></li>
+          <li>Отдано <b>4</b></li>
+        </ul>
+        <h4>Шкафы</h4>
+        <ul>
+          <li>1 · проза <b>128</b></li>
+          <li>2 · нонфикшн <b>94</b></li>
+          <li>3 · русские <b>76</b></li>
+          <li>4 · разное <b>44</b></li>
+        </ul>
+        <h4>Метки</h4>
+        <ul>
+          <li>Перечитать <b>17</b></li>
+          <li>Подарено <b>9</b></li>
+        </ul>
+      </aside>
+
+      <main class="dt-main">
+        <div class="dt-toolbar">
+          <div class="search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><span>автор, название, серия…</span></div>
+          <button class="btn btn--stamp btn--sm">Сканировать</button>
+          <button class="btn btn--ghost btn--sm">ISBN</button>
+        </div>
+
+        <div class="drawer-tab" style="margin-top:0"><span>Шкаф 3 · ряд 2</span><hr></div>
+        <div class="spines">
+          <figure><div class="cover c-a"><div class="t">Братья Карамазовы</div><div class="a">Достоевский</div></div>
+            <figcaption><div class="bt">Братья Карамазовы</div><div class="ba">Достоевский</div></figcaption></figure>
+          <figure><div class="cover c-b"><div class="t">Солярис</div><div class="a">Лем</div></div>
+            <figcaption><div class="bt">Солярис</div><div class="ba">Лем</div></figcaption></figure>
+          <figure><div class="cover c-c"><div class="t">Хазарский словарь</div><div class="a">Павич</div></div>
+            <figcaption><div class="bt">Хазарский словарь</div><div class="ba">Павич</div></figcaption></figure>
+          <figure><div class="cover c-f"><div class="t">Осень патриарха</div><div class="a">Маркес</div></div>
+            <figcaption><div class="bt">Осень патриарха</div><div class="ba">Маркес</div></figcaption></figure>
+          <figure><div class="cover c-d"><div class="t">Бесконечная шутка</div><div class="a">Уоллес</div></div>
+            <figcaption><div class="bt">Бесконечная шутка</div><div class="ba">Уоллес</div></figcaption></figure>
+          <figure><div class="cover c-e"><div class="t">Колымские рассказы</div><div class="a">Шаламов</div></div>
+            <figcaption><div class="bt">Колымские рассказы</div><div class="ba">Шаламов</div></figcaption></figure>
+        </div>
+        <div class="shelf-rail"></div>
+
+        <div class="drawer-tab"><span>Шкаф 3 · ряд 3</span><hr></div>
+        <div class="spines">
+          <figure><div class="cover c-b"><div class="t">Бесы</div><div class="a">Достоевский</div></div>
+            <figcaption><div class="bt">Бесы</div><div class="ba">Достоевский</div></figcaption></figure>
+          <figure><div class="cover c-c"><div class="t">Generation «П»</div><div class="a">Пелевин</div></div>
+            <figcaption><div class="bt">Generation «П»</div><div class="ba">Пелевин</div></figcaption></figure>
+          <figure><div class="cover c-a"><div class="t">Обломов</div><div class="a">Гончаров</div></div>
+            <figcaption><div class="bt">Обломов</div><div class="ba">Гончаров</div></figcaption></figure>
+          <figure><div class="cover c-e"><div class="t">Тихий Дон</div><div class="a">Шолохов</div></div>
+            <figcaption><div class="bt">Тихий Дон</div><div class="ba">Шолохов</div></figcaption></figure>
+        </div>
+        <div class="shelf-rail"></div>
+      </main>
+
+      <aside class="dt-detail">
+        <div class="cover c-e"><div class="t">Колымские рассказы</div><div class="a">Варлам Шаламов</div></div>
+        <div class="bt">Колымские рассказы</div>
+        <div class="ba">Варлам Шаламов</div>
+        <span class="stamp stamp--read">Прочитано · 12.03.26</span>
+        <div class="ledger" style="margin-top:16px">
+          <h3>Издание</h3>
+          <dl>
+            <dt>Изд-во</dt><dd>Азбука</dd>
+            <dt>Год</dt><dd>2022</dd>
+            <dt>Страниц</dt><dd>608</dd>
+            <dt>ISBN</dt><dd class="mono" style="font-size:11px">978-5-389-07435-4</dd>
+          </dl>
+        </div>
+        <div class="ledger">
+          <h3>Экземпляр</h3>
+          <dl>
+            <dt>Место</dt><dd class="mono">Шкаф 3 · ряд 3</dd>
+            <dt>У кого</dt><dd>Дома</dd>
+          </dl>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+</div>
+
+<script>
+// Тема
+const root = document.documentElement;
+const bL = document.getElementById('t-light');
+const bD = document.getElementById('t-dark');
+function setTheme(t) {
+  root.setAttribute('data-theme', t);
+  bL.setAttribute('aria-pressed', String(t === 'light'));
+  bD.setAttribute('aria-pressed', String(t === 'dark'));
+}
+bL.onclick = () => setTheme('light');
+bD.onclick = () => setTheme('dark');
+
+// Правдоподобный EAN-13 в видоискателе сканера
+const bc = document.getElementById('bc');
+if (bc) {
+  const widths = [1,2,1,3,1,1,2,1,4,1,1,2,3,1,1,1,2,2,1,3,1,1,4,1,
+                  2,1,1,2,1,3,1,1,2,1,1,4,2,1,1,3,1,2,1,1];
+  widths.forEach((w, i) => {
+    const bar = document.createElement('b');
+    bar.style.flex = w + ' 0 0';
+    if (i % 2) bar.style.background = 'transparent';
+    bc.appendChild(bar);
+  });
+}
+</script>
+</body>
+</html>

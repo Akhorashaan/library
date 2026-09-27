@@ -1,0 +1,14 @@
+node_modules
+dist
+data
+.git
+.env
+.env.*
+*.db
+*.db-shm
+*.db-wal
+docs
+design
+scripts
+README.md
+*.tar.gz

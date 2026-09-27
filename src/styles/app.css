@@ -1,0 +1,627 @@
+@import './tokens.css';
+@import 'tailwindcss';
+
+/* Токены доступны и как утилиты Tailwind, и как обычные переменные. */
+@theme inline {
+  --color-board: var(--board);
+  --color-board-deep: var(--board-deep);
+  --color-paper: var(--paper);
+  --color-paper-raised: var(--paper-raised);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-faint: var(--ink-faint);
+  --color-rule: var(--rule);
+  --color-stamp: var(--stamp);
+  --color-stamp-ink: var(--stamp-ink);
+  --color-sage: var(--sage);
+  --color-amber: var(--amber);
+  --font-display: var(--font-display);
+  --font-serif: var(--font-serif);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+}
+
+/* ═══════════════════════════════ База ═══════════════════════════════ */
+
+*, *::before, *::after { box-sizing: border-box }
+
+html { -webkit-text-size-adjust: 100% }
+
+body {
+  margin: 0;
+  background: var(--board);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.5;
+  overscroll-behavior-y: none;
+}
+
+/* Зерно бумаги — одна текстура на всё приложение, поверх любого фона. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: var(--grain-opacity);
+  mix-blend-mode: var(--grain-blend);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+h1, h2, h3 { margin: 0; font-weight: 400 }
+p { margin: 0 }
+button { font: inherit; color: inherit; background: none; border: none; padding: 0; cursor: pointer }
+a { color: inherit; text-decoration: none }
+input, textarea, select { font: inherit; color: inherit }
+
+:focus-visible { outline: 2px solid var(--stamp); outline-offset: 2px }
+
+.scroll-hidden::-webkit-scrollbar { width: 0; height: 0 }
+.scroll-hidden { scrollbar-width: none }
+
+/* ═══════════════════════════ Каркас экрана ══════════════════════════ */
+
+.shell {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.app-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px 11px;
+  padding-top: max(14px, env(safe-area-inset-top));
+  background: var(--board);
+  border-bottom: 1px solid var(--rule);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+.app-bar .title { font-family: var(--font-display); font-size: 22px; letter-spacing: .02em; line-height: 1.1 }
+.app-bar .sub { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: var(--tracking-stamp); text-transform: uppercase; color: var(--ink-faint); margin-top: 2px }
+
+.icon-btn {
+  width: 34px; height: 34px;
+  display: grid; place-items: center;
+  border-radius: var(--radius);
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  color: var(--ink-soft);
+  flex: none;
+}
+.icon-btn svg { width: 17px; height: 17px; stroke: currentColor; fill: none; stroke-width: 1.6 }
+.icon-btn:active { background: var(--board-deep) }
+
+.page { flex: 1; padding-bottom: 96px }
+
+/* ═════════════════════════ Поиск и фасеты ═══════════════════════════ */
+
+.search {
+  display: flex; align-items: center; gap: 9px;
+  background: var(--paper-raised);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 9px 11px;
+}
+.search svg { width: 15px; height: 15px; stroke: var(--ink-faint); fill: none; stroke-width: 1.7; flex: none }
+.search input {
+  flex: 1; min-width: 0; border: none; background: none; outline: none;
+  font-family: var(--font-mono); font-size: 13px; letter-spacing: .02em;
+}
+.search input::placeholder { color: var(--ink-faint) }
+
+.facets { display: flex; gap: 7px; overflow-x: auto; padding: 11px 16px 12px }
+.facet {
+  flex: none;
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase;
+  padding: 5px 10px;
+  border: 1px solid var(--rule); border-radius: 99px;
+  color: var(--ink-soft); white-space: nowrap;
+}
+.facet b { font-weight: 400; color: var(--ink-faint); margin-left: 5px }
+.facet[data-on] { background: var(--ink); color: var(--paper); border-color: var(--ink) }
+.facet[data-on] b { color: var(--paper); opacity: .6 }
+
+/* ══════════════════════ Стопка «на разбор» ══════════════════════════ */
+
+/* Напоминание в каталоге: заметное, но не кричащее — это не ошибка. */
+.unresolved-banner {
+  display: flex; align-items: center; gap: 10px;
+  width: calc(100% - 32px); margin: 0 16px 12px;
+  padding: 10px 12px;
+  background: var(--amber-wash);
+  border: 1px solid var(--amber); border-left-width: 3px;
+  border-radius: var(--radius);
+  font-size: 13px; color: var(--ink); text-align: left;
+}
+.unresolved-banner .n {
+  font-family: var(--font-mono); font-size: 13px;
+  color: var(--amber); font-weight: 700;
+  min-width: 20px; text-align: center;
+}
+.unresolved-banner .arrow { margin-left: auto; color: var(--amber) }
+
+.hint-block {
+  font-family: var(--font-serif); font-size: 13.5px; line-height: 1.55;
+  color: var(--ink-soft); margin: 14px 0 12px;
+}
+
+.pending-card {
+  background: var(--paper);
+  border: 1px solid var(--rule); border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  padding: 12px; margin-bottom: 10px;
+}
+.pending-head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 10px; margin-bottom: 10px; flex-wrap: wrap;
+}
+.pending-isbn {
+  font-family: var(--font-mono); font-size: 15px;
+  letter-spacing: .06em; color: var(--ink);
+}
+.pending-meta {
+  font-family: var(--font-mono); font-size: 9.5px;
+  letter-spacing: .08em; text-transform: uppercase; color: var(--ink-faint);
+}
+.pending-actions { display: flex; align-items: center; gap: 8px; margin-top: 10px; flex-wrap: wrap }
+.pending-result {
+  font-family: var(--font-serif); font-size: 13px; font-style: italic;
+  color: var(--stamp); margin-top: 9px;
+}
+
+.manual-form {
+  display: grid; gap: 10px;
+  margin-top: 12px; padding-top: 12px;
+  border-top: 1px dashed var(--rule);
+}
+.manual-input { font-family: var(--font-sans); font-size: 14px; letter-spacing: 0 }
+.manual-row { display: grid; grid-template-columns: 1fr 74px 74px; gap: 8px }
+.manual-form .btn { justify-self: start }
+
+/* ═══════════════════════════ Фильтры ════════════════════════════════ */
+
+.filter-bar {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  padding: 0 16px 10px;
+}
+
+.filter-toggle {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-family: var(--font-mono); font-size: 10.5px;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--ink-soft);
+  border: 1px solid var(--rule); border-radius: var(--radius);
+  padding: 7px 11px;
+  background: var(--paper);
+}
+.filter-toggle svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 1.7 }
+.filter-toggle[data-on] { background: var(--ink); color: var(--paper); border-color: var(--ink) }
+.filter-toggle b {
+  font-weight: 400; font-size: 9px;
+  background: var(--stamp); color: #FBF7EE;
+  border-radius: 99px; min-width: 15px; height: 15px;
+  display: grid; place-items: center; padding: 0 4px;
+}
+
+.sort-select {
+  font-family: var(--font-mono); font-size: 10.5px;
+  letter-spacing: .06em; color: var(--ink-soft);
+  background: transparent; border: none;
+  border-bottom: 1px solid var(--rule);
+  padding: 6px 2px; cursor: pointer;
+}
+.sort-select:focus { outline: none; border-bottom-color: var(--stamp) }
+
+/* Раскрывающаяся панель — лист бумаги, подложенный под строку фильтров. */
+.filter-panel {
+  display: grid; gap: 12px;
+  margin: 0 16px 12px; padding: 14px;
+  background: var(--paper); border: 1px solid var(--rule);
+  border-radius: var(--radius); box-shadow: var(--shadow-card);
+}
+.filter-panel select.input { font-family: var(--font-sans); font-size: 13.5px; cursor: pointer }
+
+.active-filters { display: flex; gap: 7px; flex-wrap: wrap; padding: 0 16px 12px }
+.filter-pill {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 12px; color: var(--ink);
+  background: var(--stamp-wash);
+  border: 1px solid var(--stamp); border-radius: 99px;
+  padding: 4px 10px;
+  max-width: 100%;
+}
+.filter-pill span { color: var(--stamp); font-size: 15px; line-height: 1 }
+
+/* ═════════════════════════ Штампы статуса ═══════════════════════════ */
+
+.stamp {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: var(--tracking-stamp); text-transform: uppercase;
+  padding: 4px 9px;
+  border: 1.5px solid currentColor; border-radius: 2px;
+  transform: rotate(-2.5deg);
+  opacity: .92;
+}
+.stamp--read { color: var(--stamp); background: var(--stamp-wash) }
+.stamp--reading { color: var(--stamp-ink); background: var(--stamp-ink-wash) }
+.stamp--queued { color: var(--ink-soft); border-style: dashed }
+.stamp--abandoned { color: var(--ink-faint); border-style: dotted }
+.stamp--lent { color: var(--amber); background: var(--amber-wash) }
+.stamp--none { display: none }
+.stamp--mini { font-size: 8.5px; padding: 2.5px 6px; border-width: 1.2px }
+.stamp--flat { transform: none }
+
+/* ═══════════════════════════ Кнопки, поля ═══════════════════════════ */
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  font-size: 14px; padding: 10px 18px;
+  border-radius: var(--radius); border: 1px solid transparent;
+  transition: transform .12s;
+}
+.btn:active { transform: translateY(1px) }
+.btn:disabled { opacity: .45; cursor: not-allowed }
+.btn--primary { background: var(--ink); color: var(--paper); box-shadow: var(--shadow-card) }
+.btn--stamp { background: var(--stamp); color: #FBF7EE; box-shadow: var(--shadow-card) }
+.btn--ghost { border-color: var(--rule-strong); color: var(--ink) }
+.btn--quiet { color: var(--ink-soft) }
+.btn--danger { color: var(--stamp); border-color: var(--stamp) }
+.btn--sm { font-size: 12.5px; padding: 7px 13px }
+
+.field label, .label-mono {
+  display: block;
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: var(--tracking-stamp); text-transform: uppercase;
+  color: var(--ink-soft); margin-bottom: 6px;
+}
+.input {
+  width: 100%;
+  background: var(--paper-raised);
+  border: 1px solid var(--rule); border-radius: var(--radius);
+  padding: 10px 12px;
+  font-family: var(--font-mono); font-size: 14px; letter-spacing: .03em;
+}
+.input::placeholder { color: var(--ink-faint) }
+.input:focus { outline: none; border-color: var(--stamp); box-shadow: 0 0 0 3px var(--stamp-wash) }
+textarea.input { font-family: var(--font-serif); line-height: 1.55; resize: vertical; min-height: 78px }
+
+/* ═════════════════════ Обложка-заглушка (типографская) ══════════════ */
+
+.cover {
+  position: relative; flex: none;
+  border-radius: 2px; overflow: hidden;
+  background: linear-gradient(150deg, var(--c1, #5B5230), var(--c2, #332D18));
+  box-shadow: var(--shadow-card);
+  display: flex; flex-direction: column; justify-content: space-between;
+  color: #F6EFE0;
+}
+.cover::after {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 5px;
+  background: linear-gradient(90deg, rgba(0,0,0,.30), rgba(0,0,0,0));
+}
+.cover img { width: 100%; height: 100%; object-fit: cover; display: block }
+.cover .t {
+  font-family: var(--font-serif); font-weight: 700; line-height: 1.2;
+  text-shadow: 0 1px 1px rgba(0,0,0,.28);
+  overflow: hidden; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical;
+}
+.cover .a {
+  font-family: var(--font-mono); letter-spacing: .06em; text-transform: uppercase;
+  opacity: .82; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
+}
+
+/* ═════════════════════════ Каталожная карточка ══════════════════════ */
+
+.drawer { padding: 0 16px }
+
+.cat-card {
+  position: relative;
+  display: flex; gap: 12px;
+  background: var(--paper);
+  border: 1px solid var(--rule); border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  padding: 11px 12px; margin-bottom: 9px;
+  width: 100%; text-align: left;
+}
+/* Разлиновка гаснет под обложкой, чтобы не спорить с ней. */
+.cat-card::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  border-radius: var(--radius);
+  background: repeating-linear-gradient(to bottom, transparent 0, transparent 21px, var(--rule) 21px, var(--rule) 22px);
+  opacity: .30;
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 78px);
+  mask-image: linear-gradient(to right, transparent 0, #000 78px);
+}
+.cat-card > * { position: relative }
+.cat-card:active { background: var(--paper-raised) }
+.cat-card .cover { width: 42px; height: 62px; padding: 6px 5px }
+.cat-card .cover .t { font-size: 8px; padding-left: 4px }
+.cat-card .cover .a { font-size: 6px; padding-left: 4px }
+.cat-card .info { flex: 1; min-width: 0 }
+.cat-card .bt {
+  font-family: var(--font-serif); font-size: 15px; font-weight: 700; line-height: 1.24;
+  overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+}
+.cat-card .ba { font-size: 12.5px; color: var(--ink-soft); margin-top: 2px }
+.cat-card .bm {
+  font-family: var(--font-mono); font-size: 9.5px; color: var(--ink-faint);
+  margin-top: 7px; letter-spacing: .05em;
+  display: flex; gap: 8px; flex-wrap: wrap; min-width: 0;
+}
+.cat-card .bm i { font-style: normal; color: var(--rule-strong) }
+/* Штамп повёрнут, поэтому занимает чуть больше своей ширины — колонке нужен
+   запас, иначе «Брошена» упирается в край карточки. */
+.cat-card .right {
+  display: flex; flex-direction: column; align-items: flex-end; justify-content: space-between;
+  flex: none; gap: 8px; padding-right: 2px;
+}
+.cat-card .right .stamp { white-space: nowrap }
+
+.shelfmark {
+  font-family: var(--font-mono); font-size: 9px; letter-spacing: .1em;
+  color: var(--ink-faint);
+  border: 1px solid var(--rule); border-radius: 2px;
+  padding: 2px 5px; white-space: nowrap;
+}
+
+/* Язычок-разделитель, как картонка между секциями ящика. */
+.drawer-tab { display: flex; align-items: center; gap: 10px; margin: 16px 0 9px; min-width: 0 }
+.drawer-tab span {
+  flex: none;
+  font-family: var(--font-mono);
+  /* Не мельче 10.5px: кириллическая «Ш» в моноширинном ниже этого кегля
+     сливается в сплошной прямоугольник на экранах без retina. */
+  font-size: 10.5px;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft);
+  white-space: nowrap;
+}
+.drawer-tab hr { flex: 1; min-width: 12px; border: none; border-top: 1px solid var(--rule); margin: 0 }
+
+/* ═══════════════════════════ Нижняя навигация ═══════════════════════ */
+
+.tabbar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 30;
+  display: flex; align-items: flex-end; justify-content: space-around; gap: 4px;
+  padding: 9px 10px calc(12px + env(safe-area-inset-bottom));
+  background: var(--paper);
+  border-top: 1px solid var(--rule);
+}
+.tabbar a {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  font-family: var(--font-mono); font-size: 8.5px;
+  letter-spacing: .09em; text-transform: uppercase;
+  color: var(--ink-faint); padding: 3px 8px; flex: 1;
+}
+.tabbar a svg { width: 19px; height: 19px; stroke: currentColor; fill: none; stroke-width: 1.5 }
+.tabbar a[data-on] { color: var(--ink) }
+/* Скан приподнят над панелью: это главное действие приложения. */
+.tabbar .scan { flex: none; margin-top: -26px }
+.tabbar .scan .disc {
+  width: 54px; height: 54px; border-radius: 50%;
+  background: var(--stamp); color: #FBF7EE;
+  display: grid; place-items: center;
+  box-shadow: var(--shadow-lift); border: 2.5px solid var(--paper);
+}
+.tabbar .scan .disc svg { width: 23px; height: 23px; stroke-width: 1.7 }
+.tabbar .scan span { color: var(--stamp) }
+
+/* ═════════════════════════════ Сканер ═══════════════════════════════ */
+
+.scanner { position: fixed; inset: 0; z-index: 100; background: #0C0A07; color: #F3ECDD; display: flex; flex-direction: column }
+.scanner .top {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 16px; padding-top: max(16px, env(safe-area-inset-top));
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: var(--tracking-stamp); text-transform: uppercase; color: #9C917E;
+}
+.scanner .top button { color: #F3ECDD }
+.viewport { flex: 1; position: relative; display: grid; place-items: center; overflow: hidden; background: #0C0A07 }
+.viewport video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover }
+.frame { position: relative; width: min(74vw, 280px); height: min(42vw, 160px); z-index: 2 }
+.frame i { position: absolute; width: 30px; height: 30px; border: 2.5px solid var(--stamp) }
+.frame i:nth-child(1) { top: 0; left: 0; border-right: none; border-bottom: none }
+.frame i:nth-child(2) { top: 0; right: 0; border-left: none; border-bottom: none }
+.frame i:nth-child(3) { bottom: 0; left: 0; border-right: none; border-top: none }
+.frame i:nth-child(4) { bottom: 0; right: 0; border-left: none; border-top: none }
+.frame .beam {
+  position: absolute; left: 8px; right: 8px; height: 2px;
+  background: var(--stamp); box-shadow: 0 0 14px 2px rgba(168,52,42,.85);
+  animation: sweep 2.1s ease-in-out infinite;
+}
+@keyframes sweep { 0%, 100% { top: 14%; opacity: .35 } 50% { top: 84%; opacity: 1 } }
+@media (prefers-reduced-motion: reduce) { .frame .beam { animation: none; top: 50% } }
+.scanner .hint { text-align: center; font-family: var(--font-serif); font-size: 14px; color: #C9BCA3; padding: 18px 32px 10px; line-height: 1.45 }
+.scanner .actions { display: flex; gap: 9px; padding: 0 16px calc(20px + env(safe-area-inset-bottom)) }
+.scanner .actions .btn { flex: 1; border-color: #4A4235; color: #F3ECDD }
+
+/* Лист с найденной книгой — выезжает поверх сканера. */
+.sheet {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  background: var(--paper); color: var(--ink);
+  border-top: 1px solid var(--rule-strong);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  padding: 16px; padding-bottom: calc(16px + env(safe-area-inset-bottom));
+  box-shadow: 0 -14px 40px rgba(0,0,0,.5);
+  animation: rise .22s ease-out;
+  max-height: 88%; overflow-y: auto;
+}
+@keyframes rise { from { transform: translateY(100%) } to { transform: translateY(0) } }
+.sheet .grip { width: 34px; height: 3px; border-radius: 2px; background: var(--rule); margin: 0 auto 14px }
+.sheet .found {
+  font-family: var(--font-mono); font-size: 9.5px;
+  letter-spacing: var(--tracking-stamp); text-transform: uppercase;
+  margin-bottom: 11px; display: flex; align-items: center; gap: 6px;
+}
+.sheet .found svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2 }
+.sheet .hit { display: flex; gap: 13px; margin-bottom: 15px }
+.sheet .hit .cover { width: 62px; height: 92px; padding: 7px 6px }
+.sheet .hit .cover .t { font-size: 9px; padding-left: 4px }
+.sheet .hit .cover .a { font-size: 6.5px; padding-left: 4px }
+.sheet .hit .bt { font-family: var(--font-serif); font-size: 17px; font-weight: 700; line-height: 1.22 }
+.sheet .hit .ba { font-size: 13px; color: var(--ink-soft); margin-top: 3px }
+.sheet .hit .bm { font-family: var(--font-mono); font-size: 10px; color: var(--ink-faint); margin-top: 8px; line-height: 1.7 }
+.sheet-text {
+  font-family: var(--font-serif); font-size: 14px; line-height: 1.55;
+  color: var(--ink-soft); margin-bottom: 14px;
+}
+.sheet .row { display: flex; gap: 9px }
+.sheet .row .btn { flex: 1 }
+.src { font-family: var(--font-mono); font-size: 9px; color: var(--ink-faint); text-align: center; margin-top: 11px; letter-spacing: .05em }
+
+/* ═══════════════════════════ Карточка книги ═════════════════════════ */
+
+.book-hero {
+  padding: 20px 16px 16px;
+  background: var(--board-deep);
+  display: flex; gap: 16px; align-items: flex-end;
+  border-bottom: 1px solid var(--rule);
+}
+.book-hero .cover { width: 104px; height: 152px; padding: 9px 8px }
+.book-hero .cover .t { font-size: 11px; padding-left: 5px }
+.book-hero .cover .a { font-size: 7px; padding-left: 5px }
+.book-hero .bt { font-family: var(--font-display); font-size: 26px; line-height: 1.06 }
+.book-hero .ba { font-family: var(--font-serif); font-style: italic; font-size: 14px; color: var(--ink-soft); margin-top: 5px }
+
+.ledger {
+  position: relative;
+  background: var(--paper);
+  border: 1px solid var(--rule); border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  margin-top: 14px; padding: 13px 14px 20px;
+}
+/* Отверстие под стержень каталожного ящика. */
+.ledger::after {
+  content: ''; position: absolute; left: 50%; bottom: 6px; transform: translateX(-50%);
+  width: 9px; height: 9px; border-radius: 50%; border: 1px solid var(--rule); opacity: .7;
+}
+.ledger h3 {
+  font-family: var(--font-mono); font-size: 9.5px;
+  letter-spacing: var(--tracking-stamp); text-transform: uppercase; color: var(--ink-faint);
+  margin-bottom: 10px; padding-bottom: 7px; border-bottom: 1px solid var(--rule);
+}
+.ledger dl { display: grid; grid-template-columns: 104px 1fr; margin: 0 }
+.ledger dt {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--ink-faint); padding: 6px 0; border-bottom: 1px solid var(--rule);
+}
+.ledger dd { margin: 0; padding: 6px 0; font-size: 13.5px; border-bottom: 1px solid var(--rule) }
+.ledger dd.mono { font-family: var(--font-mono); font-size: 12px; letter-spacing: .04em }
+.ledger dl > *:nth-last-child(-n+2) { border-bottom: none }
+
+.progress .bar { height: 7px; background: var(--board-deep); border: 1px solid var(--rule); border-radius: 99px; overflow: hidden }
+.progress .bar i { display: block; height: 100%; background: var(--stamp-ink); transition: width .3s }
+.progress .lbl { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 9.5px; color: var(--ink-soft); margin-top: 6px; letter-spacing: .05em }
+
+.note { font-family: var(--font-serif); font-size: 13.5px; line-height: 1.62; color: var(--ink-soft); font-style: italic }
+.rating { display: flex; gap: 4px }
+.rating button { color: var(--stamp); line-height: 0 }
+.rating svg { width: 18px; height: 18px }
+
+/* ═══════════════════════════ Список чтения ══════════════════════════ */
+
+.now {
+  background: var(--paper-raised);
+  border: 1px solid var(--rule-strong); border-radius: var(--radius);
+  box-shadow: var(--shadow-lift);
+  padding: 13px; margin: 14px 0 6px;
+  display: flex; gap: 13px; width: 100%; text-align: left;
+}
+.now .cover { width: 56px; height: 82px; padding: 7px 6px }
+.now .cover .t { font-size: 8.5px; padding-left: 4px }
+.now .cover .a { font-size: 6px; padding-left: 4px }
+.now .bt { font-family: var(--font-serif); font-size: 15.5px; font-weight: 700; line-height: 1.22 }
+.now .ba { font-size: 12.5px; color: var(--ink-soft); margin-top: 2px }
+
+.q-item {
+  display: flex; align-items: center; gap: 11px;
+  background: var(--paper);
+  border: 1px solid var(--rule); border-radius: var(--radius);
+  padding: 9px 11px; margin-bottom: 7px;
+  width: 100%; text-align: left;
+  transition: box-shadow .15s, opacity .15s;
+}
+.q-item[data-dragging] { opacity: .4 }
+.q-item[data-over] { box-shadow: 0 -2px 0 var(--stamp) }
+.q-item .n { font-family: var(--font-mono); font-size: 13px; color: var(--ink-faint); width: 20px; flex: none }
+.q-item .cover { width: 32px; height: 47px; padding: 5px 4px }
+.q-item .cover .t { font-size: 6.5px; padding-left: 3px; -webkit-line-clamp: 3 }
+.q-item .cover .a { display: none }
+.q-item .bt { font-family: var(--font-serif); font-size: 13.5px; font-weight: 700; line-height: 1.24 }
+.q-item .ba { font-size: 11.5px; color: var(--ink-soft) }
+.q-item .grab { flex: none; display: grid; gap: 3px; color: var(--rule-strong); cursor: grab; padding: 6px }
+.q-item .grab i { display: block; width: 13px; height: 1px; background: currentColor }
+
+/* ════════════════════════════ Состояния ═════════════════════════════ */
+
+.series-label { color: var(--stamp); font-size: 12px; margin-top: 6px; line-height: 1.4 }
+.book-tags, .tag-list { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+.book-tags { color: var(--ink-soft); font-size: 11px; }
+.tag-filter { grid-column: 1 / -1; min-width: 0; border: 0; padding: 0; }
+.tag-filter legend { font-size: 12px; color: var(--ink-soft); }
+.organization-numbers { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
+.organization-numbers .input { min-width: 0; }
+.ledger .field { margin-bottom: 12px; }
+.drawer-tab span { white-space: normal; }
+.empty { text-align: center; padding: 56px 32px; color: var(--ink-soft) }
+.empty h3 { font-family: var(--font-display); font-size: 22px; color: var(--ink); margin-bottom: 8px }
+.empty p { font-family: var(--font-serif); font-size: 14.5px; line-height: 1.55 }
+
+.skeleton { background: var(--board-deep); border-radius: var(--radius); animation: pulse 1.4s ease-in-out infinite }
+@keyframes pulse { 0%, 100% { opacity: .55 } 50% { opacity: .9 } }
+
+/* ═══════════════════════════ Десктоп ════════════════════════════════ */
+
+@media (min-width: 900px) {
+  .shell { flex-direction: row; gap: 0; max-width: none }
+  .tabbar {
+    position: sticky; top: 0; left: auto; right: auto; bottom: auto;
+    height: 100dvh; width: 176px; flex: none;
+    flex-direction: column; justify-content: flex-start; align-items: stretch;
+    gap: 2px; padding: 20px 12px;
+    border-top: none; border-right: 1px solid var(--rule);
+    background: var(--board-deep);
+  }
+  /* В колонке flex:1 растянул бы пункты на всю высоту — здесь он вреден. */
+  .tabbar a {
+    flex: none;
+    flex-direction: row; justify-content: flex-start; align-items: center;
+    gap: 10px; font-size: 10px; padding: 10px; border-radius: var(--radius);
+  }
+  .tabbar a[data-on] { background: var(--paper); box-shadow: var(--shadow-card) }
+  /* На десктопе «Скан» — обычная кнопка в ряд с подписью, а не приподнятый круг. */
+  .tabbar .scan {
+    margin-top: 16px;
+    flex-direction: row; align-items: center; gap: 10px;
+    background: var(--stamp); color: #FBF7EE;
+    border-radius: var(--radius); padding: 0;
+    box-shadow: var(--shadow-card);
+  }
+  .tabbar .scan .disc {
+    width: auto; height: auto; border: none; box-shadow: none;
+    background: none; border-radius: 0; padding: 10px 0 10px 10px;
+  }
+  .tabbar .scan .disc svg { width: 19px; height: 19px }
+  .tabbar .scan > span:last-child { color: #FBF7EE; padding: 10px 12px 10px 0 }
+
+  .main-col { flex: 1; min-width: 0; display: flex; flex-direction: column; max-width: 1180px }
+  .page { padding-bottom: 32px }
+
+  /* Каталог на большом экране — колонки карточек. Ниже 420px метаданные
+     начинают переноситься и карточки прыгают по высоте. */
+  .drawer--grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+    gap: 0 14px;
+    align-items: start;
+  }
+  .drawer--grid .drawer-tab { grid-column: 1 / -1 }
+  .cat-card { align-items: flex-start }
+}

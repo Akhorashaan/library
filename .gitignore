@@ -1,0 +1,17 @@
+node_modules/
+dist/
+data/
+*.db
+*.db-shm
+*.db-wal
+.env
+.env.*
+!.env.example
+!.env.cloud.example
+*.tar.gz
+.DS_Store
+
+# Local reports about the owner's library and reading history
+docs/library-audit-*
+docs/library-enrichment-*
+docs/author-matching.md

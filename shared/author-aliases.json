@@ -1,0 +1,23 @@
+[
+  {
+    "id": "james-tynion-iv",
+    "name": "Джеймс Тайнион IV",
+    "aliases": ["James Tynion IV", "Tynion IV, James", "Tynion, James IV"],
+    "sources": ["https://www.dc.com/graphic-novels/the-nice-house-on-the-lake-2021/the-nice-house-on-the-lake-the-deluxe-edition"],
+    "note": "Русское и английское написания подтверждены владельцем библиотеки; IV является частью имени."
+  },
+  {
+    "id": "sean-murphy",
+    "name": "Шон Мерфи",
+    "aliases": ["Sean Murphy", "Sean Gordon Murphy", "Шон Мёрфи", "Шон Гордон Мерфи", "Шон Гордон Мёрфи", "Murphy, Sean Gordon", "Murphy, Sean"],
+    "sources": ["https://www.dc.com/talent/sean-murphy", "https://azbooka.ru/books/betmen-belyy-rytsar"],
+    "note": "Автор White Knight и Punk Rock Jesus."
+  },
+  {
+    "id": "alvaro-martinez-bueno",
+    "name": "Álvaro Martínez Bueno",
+    "aliases": ["Alvaro Martinez Bueno", "Alvaro Martino Bueno"],
+    "sources": ["https://www.dc.com/graphic-novels/the-nice-house-on-the-lake-2021/the-nice-house-on-the-lake-the-deluxe-edition"],
+    "note": "Martino — ошибка метаданных имеющегося издания The Nice House on the Lake; правильное имя сверено с DC."
+  }
+]

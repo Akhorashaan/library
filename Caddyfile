@@ -1,0 +1,22 @@
+{
+    auto_https disable_redirects
+    skip_install_trust
+    default_sni {$LIBRARY_HOST:192.168.0.117}
+}
+
+http://:80 {
+    handle /local-ca.crt {
+        root * /srv/https
+        header Content-Type application/x-x509-ca-cert
+        header Content-Disposition "attachment; filename=kartoteka-ca.crt"
+        file_server
+    }
+    handle {
+        reverse_proxy app:3017
+    }
+}
+
+https://{$LIBRARY_HOST:192.168.0.117}, https://localhost {
+    tls internal
+    reverse_proxy app:3017
+}

@@ -1,0 +1,64 @@
+name: kartoteka
+services:
+  app:
+    build:
+      context: .
+      args:
+        HTTP_PROXY: ${HTTP_PROXY:-}
+        HTTPS_PROXY: ${HTTPS_PROXY:-}
+        http_proxy: ${HTTP_PROXY:-}
+        https_proxy: ${HTTPS_PROXY:-}
+        NO_PROXY: ${NO_PROXY:-}
+        no_proxy: ${NO_PROXY:-}
+    init: true
+    restart: always
+    environment:
+      NODE_ENV: production
+      PORT: 3017
+      DB_PATH: /app/data/kartoteka.db
+      COVERS_DIR: /app/data/covers
+      GOOGLE_BOOKS_KEY: ${GOOGLE_BOOKS_KEY:-}
+    volumes:
+      - ./data:/app/data
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3017/api/health').then(r => { if (!r.ok) process.exit(1) }).catch(() => process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      start_period: 20s
+      retries: 3
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+  https:
+    image: caddy:2-alpine
+    restart: always
+    depends_on:
+      app:
+        condition: service_healthy
+    ports:
+      - "${LIBRARY_PORT:-5183}:80"
+      - "${LIBRARY_HTTPS_PORT:-5184}:443"
+    environment:
+      LIBRARY_HOST: ${LIBRARY_HOST:-192.168.0.117}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./data/https-public:/srv/https:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1/api/health"]
+      interval: 30s
+      timeout: 5s
+      start_period: 10s
+      retries: 3
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  caddy_data:
+  caddy_config:

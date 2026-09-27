@@ -1,0 +1,327 @@
+/* ==========================================================================
+   Картотека — стили прототипа.
+   Компоненты отсюда переезжают в apps/web как есть; токены — из tokens.css.
+   ========================================================================== */
+
+/* ===== База ===== */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--board); color:var(--ink);
+  font-family:var(--font-sans); font-size:15px; line-height:1.5;
+  transition:background .35s, color .35s;
+}
+/* Зерно бумаги: одна текстура на всё приложение, поверх любого фона */
+body::before{
+  content:''; position:fixed; inset:0; z-index:9999; pointer-events:none;
+  opacity:var(--grain-opacity); mix-blend-mode:var(--grain-blend);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+h1,h2,h3{margin:0;font-weight:400}
+p{margin:0}
+ul{margin:0;padding:0;list-style:none}
+button{font:inherit;color:inherit;background:none;border:none;padding:0;cursor:pointer}
+
+/* ===== Каркас страницы-превью ===== */
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px 96px}
+.page-head{padding:56px 0 40px;border-bottom:1px solid var(--rule)}
+.page-head .kicker{font-family:var(--font-mono);font-size:11px;letter-spacing:var(--tracking-stamp);text-transform:uppercase;color:var(--ink-soft)}
+.page-head h1{font-family:var(--font-display);font-size:clamp(44px,8vw,76px);line-height:.95;letter-spacing:.01em;margin:14px 0 12px}
+.page-head p{font-family:var(--font-serif);font-size:17px;color:var(--ink-soft);max-width:54ch}
+section{padding:52px 0;border-bottom:1px solid var(--rule)}
+.sec-label{display:flex;align-items:baseline;gap:14px;margin-bottom:26px;flex-wrap:wrap}
+.sec-label .num{font-family:var(--font-mono);font-size:11px;color:var(--stamp);letter-spacing:.1em}
+.sec-label h2{font-family:var(--font-display);font-size:30px}
+.sec-label .note{font-family:var(--font-serif);font-style:italic;color:var(--ink-soft);font-size:15px}
+
+.theme-toggle{position:fixed;top:16px;right:16px;z-index:10000;display:flex;gap:2px;
+  background:var(--paper-raised);border:1px solid var(--rule);border-radius:var(--radius);
+  box-shadow:var(--shadow-card);padding:3px}
+.theme-toggle button{padding:7px 13px;font-family:var(--font-mono);font-size:10px;
+  letter-spacing:var(--tracking-stamp);text-transform:uppercase;color:var(--ink-soft);border-radius:2px}
+.theme-toggle button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+
+/* ===== Палитра ===== */
+.swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:10px}
+.sw{border:1px solid var(--rule);border-radius:var(--radius);overflow:hidden;background:var(--paper)}
+.sw .chip{height:64px}
+.sw .meta{padding:8px 10px 10px;font-family:var(--font-mono);font-size:10.5px;line-height:1.55}
+.sw .meta b{display:block;font-weight:400;color:var(--ink)}
+.sw .meta span{color:var(--ink-faint)}
+
+/* ===== Типографика ===== */
+.type-row{display:grid;grid-template-columns:132px 1fr;gap:20px;padding:18px 0;border-top:1px solid var(--rule)}
+.type-row:first-child{border-top:none}
+.type-row .tag{font-family:var(--font-mono);font-size:10px;letter-spacing:var(--tracking-stamp);
+  text-transform:uppercase;color:var(--ink-faint);padding-top:8px}
+
+/* ===== Элементы ===== */
+.specimens{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:26px}
+.spec h3{font-family:var(--font-mono);font-size:10px;letter-spacing:var(--tracking-stamp);
+  text-transform:uppercase;color:var(--ink-faint);margin-bottom:14px}
+.spec-body{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+
+/* Штампы — статус как оттиск, а не цветная точка */
+.stamp{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:10px;
+  letter-spacing:var(--tracking-stamp);text-transform:uppercase;padding:4px 9px;
+  border:1.5px solid currentColor;border-radius:2px;transform:rotate(-2.5deg);opacity:.92}
+.stamp--read{color:var(--stamp);background:var(--stamp-wash)}
+.stamp--now{color:var(--stamp-ink);background:var(--stamp-ink-wash)}
+.stamp--queue{color:var(--ink-soft);background:transparent;border-style:dashed}
+.stamp--lent{color:var(--amber);background:var(--amber-wash)}
+.stamp--have{color:var(--sage);background:var(--sage-wash)}
+.stamp--mini{font-size:8.5px;padding:2.5px 6px;border-width:1.2px}
+
+/* Кнопки */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--font-sans);
+  font-size:14px;padding:10px 18px;border-radius:var(--radius);border:1px solid transparent;
+  transition:transform .12s, box-shadow .12s}
+.btn:active{transform:translateY(1px)}
+.btn--primary{background:var(--ink);color:var(--paper);box-shadow:var(--shadow-card)}
+.btn--stamp{background:var(--stamp);color:#FBF7EE;box-shadow:var(--shadow-card)}
+.btn--ghost{border-color:var(--rule-strong);color:var(--ink)}
+.btn--quiet{color:var(--ink-soft)}
+.btn--sm{font-size:12.5px;padding:7px 13px}
+
+/* Поля ввода */
+.field label{display:block;font-family:var(--font-mono);font-size:10px;letter-spacing:var(--tracking-stamp);
+  text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
+.input{width:100%;background:var(--paper-raised);border:1px solid var(--rule);border-radius:var(--radius);
+  padding:10px 12px;font-family:var(--font-mono);font-size:14px;color:var(--ink);letter-spacing:.04em}
+.input::placeholder{color:var(--ink-faint)}
+.input:focus{outline:none;border-color:var(--stamp);box-shadow:0 0 0 3px var(--stamp-wash)}
+
+/* Обложка-заглушка: типографская, а не серый прямоугольник */
+.cover{position:relative;border-radius:2px;overflow:hidden;flex:none;
+  background:linear-gradient(150deg,var(--c1),var(--c2));box-shadow:var(--shadow-card);
+  display:flex;flex-direction:column;justify-content:space-between;padding:8px 7px;color:#F6EFE0}
+.cover::after{content:'';position:absolute;left:0;top:0;bottom:0;width:5px;
+  background:linear-gradient(90deg,rgba(0,0,0,.30),rgba(0,0,0,0))}
+.cover .t{font-family:var(--font-serif);font-size:9px;line-height:1.2;font-weight:700;
+  text-shadow:0 1px 1px rgba(0,0,0,.28);padding-left:5px}
+.cover .a{font-family:var(--font-mono);font-size:6.5px;letter-spacing:.06em;text-transform:uppercase;
+  opacity:.82;padding-left:5px}
+.c-a{--c1:#7A2E28;--c2:#4A1A16}
+.c-b{--c1:#2E4A5C;--c2:#182B38}
+.c-c{--c1:#5B5230;--c2:#332D18}
+.c-d{--c1:#46344F;--c2:#271B2E}
+.c-e{--c1:#2F4D3A;--c2:#182B20}
+.c-f{--c1:#6B4522;--c2:#3A2411}
+
+/* ===== Макет телефона ===== */
+.screens{display:flex;gap:26px;overflow-x:auto;padding:6px 2px 22px;scroll-snap-type:x mandatory}
+.screen{scroll-snap-align:start;flex:none;margin:0}
+.screen > figcaption{font-family:var(--font-mono);font-size:10px;letter-spacing:var(--tracking-stamp);
+  text-transform:uppercase;color:var(--ink-soft);margin-bottom:10px}
+.screen > figcaption b{color:var(--stamp);font-weight:400}
+.phone{width:378px;height:784px;border-radius:26px;overflow:hidden;position:relative;
+  background:var(--board);border:1px solid var(--rule-strong);box-shadow:var(--shadow-lift);
+  display:flex;flex-direction:column}
+.phone .body{flex:1;overflow:hidden;position:relative}
+
+/* --- Шапка приложения --- */
+.app-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:16px 16px 12px;background:var(--board);border-bottom:1px solid var(--rule)}
+.app-bar .title{font-family:var(--font-display);font-size:22px;letter-spacing:.02em}
+.app-bar .sub{font-family:var(--font-mono);font-size:9.5px;letter-spacing:var(--tracking-stamp);
+  text-transform:uppercase;color:var(--ink-faint);margin-top:1px}
+.icon-btn{width:34px;height:34px;display:grid;place-items:center;border-radius:var(--radius);
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft);flex:none}
+.icon-btn svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:1.6}
+
+/* --- Поиск и фасеты --- */
+.search-row{padding:12px 16px 0}
+.search{display:flex;align-items:center;gap:9px;background:var(--paper-raised);
+  border:1px solid var(--rule);border-radius:var(--radius);padding:9px 11px}
+.search svg{width:15px;height:15px;stroke:var(--ink-faint);fill:none;stroke-width:1.7;flex:none}
+.search span{font-family:var(--font-mono);font-size:12.5px;color:var(--ink-faint)}
+.facets{display:flex;gap:7px;overflow-x:auto;padding:11px 16px 12px}
+.facet{flex:none;font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+  padding:5px 10px;border:1px solid var(--rule);border-radius:99px;color:var(--ink-soft);white-space:nowrap}
+.facet b{font-weight:400;color:var(--ink-faint);margin-left:5px}
+.facet[data-on]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.facet[data-on] b{color:var(--paper);opacity:.6}
+
+/* --- Ящик: список каталожных карточек --- */
+.drawer{padding:0 16px 96px;overflow-y:auto;height:100%}
+.drawer::-webkit-scrollbar,.queue::-webkit-scrollbar,.book-body::-webkit-scrollbar{width:0}
+.cat-card{position:relative;display:flex;gap:12px;background:var(--paper);border:1px solid var(--rule);
+  border-radius:var(--radius);box-shadow:var(--shadow-card);padding:11px 12px;margin-bottom:9px}
+/* Разлиновка карточки: гаснет под обложкой, чтобы не спорить с ней */
+.cat-card::before{content:'';position:absolute;inset:0;border-radius:var(--radius);pointer-events:none;
+  background:repeating-linear-gradient(to bottom,transparent 0,transparent 21px,var(--rule) 21px,var(--rule) 22px);
+  opacity:.30;-webkit-mask-image:linear-gradient(to right,transparent 0,#000 78px);
+  mask-image:linear-gradient(to right,transparent 0,#000 78px)}
+.cat-card > *{position:relative}
+.cat-card .cover{width:42px;height:62px}
+.cat-card .info{flex:1;min-width:0}
+.cat-card .bt{font-family:var(--font-serif);font-size:15px;font-weight:700;line-height:1.24;color:var(--ink);
+  overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.cat-card .ba{font-size:12.5px;color:var(--ink-soft);margin-top:2px}
+.cat-card .bm{font-family:var(--font-mono);font-size:9.5px;color:var(--ink-faint);margin-top:7px;
+  letter-spacing:.05em;display:flex;gap:9px;flex-wrap:wrap}
+.cat-card .bm i{font-style:normal;color:var(--rule-strong)}
+.cat-card .right{display:flex;flex-direction:column;align-items:flex-end;justify-content:space-between;
+  flex:none;gap:8px}
+/* Шифр — библиотечный индекс, выводится из фамилии автора */
+.shelfmark{font-family:var(--font-mono);font-size:9px;letter-spacing:.1em;color:var(--ink-faint);
+  border:1px solid var(--rule);border-radius:2px;padding:2px 5px;white-space:nowrap}
+
+/* Разделитель-язычок, как картонка между секциями ящика */
+.drawer-tab{display:flex;align-items:center;gap:10px;margin:16px 0 9px}
+.drawer-tab span{font-family:var(--font-mono);font-size:9.5px;letter-spacing:var(--tracking-stamp);
+  text-transform:uppercase;color:var(--ink-soft)}
+.drawer-tab hr{flex:1;border:none;border-top:1px solid var(--rule);margin:0}
+
+/* --- Нижняя навигация --- */
+.tabbar{display:flex;align-items:flex-end;justify-content:space-around;gap:4px;
+  padding:9px 10px 14px;background:var(--paper);border-top:1px solid var(--rule)}
+.tabbar a{display:flex;flex-direction:column;align-items:center;gap:4px;font-family:var(--font-mono);
+  font-size:8.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-faint);
+  text-decoration:none;padding:3px 8px;flex:1}
+.tabbar a svg{width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:1.5}
+.tabbar a[data-on]{color:var(--ink)}
+/* Скан — приподнят над панелью: главное действие приложения */
+.tabbar .scan{flex:none;margin-top:-26px}
+.tabbar .scan .disc{width:54px;height:54px;border-radius:50%;background:var(--stamp);color:#FBF7EE;
+  display:grid;place-items:center;box-shadow:var(--shadow-lift);border:2.5px solid var(--paper)}
+.tabbar .scan .disc svg{width:23px;height:23px;stroke-width:1.7}
+.tabbar .scan span{color:var(--stamp)}
+
+/* --- Экран сканера --- */
+.scanner{position:absolute;inset:0;background:#0C0A07;color:#F3ECDD;display:flex;flex-direction:column}
+.scanner .top{display:flex;justify-content:space-between;align-items:center;padding:16px;
+  font-family:var(--font-mono);font-size:10px;letter-spacing:var(--tracking-stamp);
+  text-transform:uppercase;color:#9C917E}
+.scanner .top button{color:#F3ECDD}
+.viewport{flex:1;position:relative;display:grid;place-items:center;overflow:hidden;
+  background:radial-gradient(120% 80% at 50% 45%,#2A2318,#0C0A07 72%)}
+.viewport .book-ghost{position:absolute;width:190px;height:270px;border-radius:3px;
+  background:linear-gradient(150deg,#3B3225,#1C1710);top:108px;transform:rotate(-3deg);
+  box-shadow:0 20px 50px rgba(0,0,0,.6)}
+.frame{position:relative;width:260px;height:150px;z-index:2}
+.frame i{position:absolute;width:30px;height:30px;border:2.5px solid var(--stamp)}
+.frame i:nth-child(1){top:0;left:0;border-right:none;border-bottom:none}
+.frame i:nth-child(2){top:0;right:0;border-left:none;border-bottom:none}
+.frame i:nth-child(3){bottom:0;left:0;border-right:none;border-top:none}
+.frame i:nth-child(4){bottom:0;right:0;border-left:none;border-top:none}
+.frame .beam{position:absolute;left:8px;right:8px;top:52%;height:2px;background:var(--stamp);
+  box-shadow:0 0 14px 2px rgba(168,52,42,.85);animation:sweep 2.1s ease-in-out infinite}
+@keyframes sweep{0%,100%{top:14%;opacity:.35}50%{top:84%;opacity:1}}
+@media (prefers-reduced-motion:reduce){.frame .beam{animation:none;top:50%}}
+/* Настоящий EAN-13 в кадре — рисуется скриптом */
+.barcode{position:absolute;z-index:3;top:calc(50% - 26px);left:50%;transform:translateX(-50%);
+  width:172px;height:52px;background:#F3ECDD;padding:5px 7px;border-radius:1px;
+  display:flex;align-items:stretch;gap:1.6px}
+.barcode b{display:block;background:#0C0A07}
+.scanner .hint{text-align:center;font-family:var(--font-serif);font-size:14px;color:#C9BCA3;
+  padding:20px 32px 12px;line-height:1.45}
+.scanner .actions{display:flex;gap:9px;padding:0 16px 22px}
+.scanner .actions .btn{flex:1;border-color:#4A4235;color:#F3ECDD}
+
+/* Лист с найденной книгой — выезжает поверх сканера */
+.sheet{position:absolute;left:0;right:0;bottom:0;background:var(--paper);
+  border-top:1px solid var(--rule-strong);border-radius:var(--radius-lg) var(--radius-lg) 0 0;
+  padding:16px;box-shadow:0 -14px 40px rgba(0,0,0,.5);color:var(--ink)}
+.sheet .grip{width:34px;height:3px;border-radius:2px;background:var(--rule);margin:0 auto 14px}
+.sheet .found{font-family:var(--font-mono);font-size:9.5px;letter-spacing:var(--tracking-stamp);
+  text-transform:uppercase;color:var(--sage);margin-bottom:11px;display:flex;align-items:center;gap:6px}
+.sheet .found svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2}
+.sheet .hit{display:flex;gap:13px;margin-bottom:15px}
+.sheet .hit .cover{width:58px;height:85px}
+.sheet .hit .bt{font-family:var(--font-serif);font-size:17px;font-weight:700;line-height:1.22}
+.sheet .hit .ba{font-size:13px;color:var(--ink-soft);margin-top:3px}
+.sheet .hit .bm{font-family:var(--font-mono);font-size:10px;color:var(--ink-faint);margin-top:8px;line-height:1.7}
+.sheet .row{display:flex;gap:9px}
+.sheet .row .btn{flex:1}
+.src{font-family:var(--font-mono);font-size:9px;color:var(--ink-faint);text-align:center;
+  margin-top:11px;letter-spacing:.05em}
+
+/* --- Экран книги --- */
+.book-hero{padding:20px 16px 16px;background:var(--board-deep);display:flex;gap:16px;
+  align-items:flex-end;border-bottom:1px solid var(--rule)}
+.book-hero .cover{width:104px;height:152px}
+.book-hero .bt{font-family:var(--font-display);font-size:26px;line-height:1.06}
+.book-hero .ba{font-family:var(--font-serif);font-style:italic;font-size:14px;color:var(--ink-soft);margin-top:5px}
+.book-hero .stamp{margin-top:11px}
+.book-body{overflow-y:auto;height:100%}
+/* Каталожная карточка — то место, где живут данные */
+.ledger{position:relative;background:var(--paper);border:1px solid var(--rule);border-radius:var(--radius);
+  box-shadow:var(--shadow-card);margin-top:14px;padding:13px 14px 20px}
+/* Отверстие под стержень каталожного ящика */
+.ledger::after{content:'';position:absolute;left:50%;bottom:6px;transform:translateX(-50%);
+  width:9px;height:9px;border-radius:50%;border:1px solid var(--rule);opacity:.7}
+.ledger h3{font-family:var(--font-mono);font-size:9.5px;letter-spacing:var(--tracking-stamp);
+  text-transform:uppercase;color:var(--ink-faint);margin-bottom:10px;padding-bottom:7px;
+  border-bottom:1px solid var(--rule)}
+.ledger dl{display:grid;grid-template-columns:96px 1fr;margin:0}
+.ledger dt{font-family:var(--font-mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--ink-faint);padding:6px 0;border-bottom:1px solid var(--rule)}
+.ledger dd{margin:0;padding:6px 0;font-size:13.5px;border-bottom:1px solid var(--rule);color:var(--ink)}
+.ledger dd.mono{font-family:var(--font-mono);font-size:12px;letter-spacing:.05em}
+.ledger dl > *:nth-last-child(-n+2){border-bottom:none}
+/* Прогресс чтения */
+.progress .bar{height:7px;background:var(--board-deep);border:1px solid var(--rule);
+  border-radius:99px;overflow:hidden}
+.progress .bar i{display:block;height:100%;background:var(--stamp-ink);width:43%}
+.progress .lbl{display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:9.5px;
+  color:var(--ink-soft);margin-top:6px;letter-spacing:.05em}
+.note{font-family:var(--font-serif);font-size:13.5px;line-height:1.62;color:var(--ink-soft);font-style:italic}
+.rating{display:flex;gap:4px;color:var(--stamp)}
+.rating svg{width:15px;height:15px}
+.label-mono{font-family:var(--font-mono);font-size:10px;letter-spacing:var(--tracking-stamp);
+  text-transform:uppercase;color:var(--ink-faint)}
+
+/* --- Список чтения --- */
+.list-head{padding:18px 16px 4px}
+.list-head h2{font-family:var(--font-display);font-size:28px}
+.list-head p{font-family:var(--font-mono);font-size:9.5px;letter-spacing:var(--tracking-stamp);
+  text-transform:uppercase;color:var(--ink-faint);margin-top:4px}
+.queue{padding:0 16px 96px;overflow-y:auto;height:100%}
+.now{background:var(--paper-raised);border:1px solid var(--rule-strong);border-radius:var(--radius);
+  box-shadow:var(--shadow-lift);padding:13px;margin:14px 0 6px;display:flex;gap:13px}
+.now .cover{width:56px;height:82px}
+.now .bt{font-family:var(--font-serif);font-size:15.5px;font-weight:700;line-height:1.22}
+.now .ba{font-size:12.5px;color:var(--ink-soft);margin-top:2px}
+.q-item{display:flex;align-items:center;gap:11px;background:var(--paper);border:1px solid var(--rule);
+  border-radius:var(--radius);padding:9px 11px;margin-bottom:7px}
+.q-item .n{font-family:var(--font-mono);font-size:13px;color:var(--ink-faint);width:20px;flex:none}
+.q-item .cover{width:32px;height:47px}
+.q-item .bt{font-family:var(--font-serif);font-size:13.5px;font-weight:700;line-height:1.24}
+.q-item .ba{font-size:11.5px;color:var(--ink-soft)}
+.q-item .grab{flex:none;display:grid;gap:3px;color:var(--rule-strong)}
+.q-item .grab i{display:block;width:13px;height:1px;background:currentColor}
+
+/* --- Десктоп --- */
+.desktop{border:1px solid var(--rule-strong);border-radius:var(--radius-lg);overflow:hidden;
+  box-shadow:var(--shadow-lift);background:var(--board);display:grid;
+  grid-template-columns:200px 1fr 268px;height:600px}
+.dt-side{border-right:1px solid var(--rule);padding:18px 14px;overflow-y:auto}
+.dt-side .brand{font-family:var(--font-display);font-size:20px;margin-bottom:2px}
+.dt-side .brand + p{font-family:var(--font-mono);font-size:8.5px;letter-spacing:var(--tracking-stamp);
+  text-transform:uppercase;color:var(--ink-faint);margin-bottom:22px}
+.dt-side h4{font-family:var(--font-mono);font-size:9px;letter-spacing:var(--tracking-stamp);
+  text-transform:uppercase;color:var(--ink-faint);margin:18px 0 8px;font-weight:400}
+.dt-side li{font-size:13px;padding:5px 8px;border-radius:2px;color:var(--ink-soft);
+  display:flex;justify-content:space-between;gap:8px}
+.dt-side li b{font-family:var(--font-mono);font-size:10px;font-weight:400;color:var(--ink-faint)}
+.dt-side li[data-on]{background:var(--paper);color:var(--ink);box-shadow:var(--shadow-card)}
+.dt-main{padding:18px;overflow-y:auto}
+.dt-toolbar{display:flex;gap:10px;align-items:center;margin-bottom:18px}
+.dt-toolbar .search{flex:1}
+.spines{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:16px 14px}
+.spines figure{margin:0}
+.spines .cover{width:100%;aspect-ratio:2/3;height:auto}
+.spines figcaption{margin-top:7px}
+.spines .bt{font-family:var(--font-serif);font-size:12px;font-weight:700;line-height:1.24;
+  overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.spines .ba{font-size:10.5px;color:var(--ink-soft);margin-top:1px}
+.dt-detail{border-left:1px solid var(--rule);padding:18px 16px;overflow-y:auto;background:var(--board-deep)}
+.dt-detail .cover{width:96px;height:140px;margin-bottom:13px}
+.dt-detail .bt{font-family:var(--font-display);font-size:21px;line-height:1.1}
+.dt-detail .ba{font-family:var(--font-serif);font-style:italic;font-size:13px;color:var(--ink-soft);margin:4px 0 11px}
+/* Подставка под сеткой корешков — книги «стоят», а не висят */
+.shelf-rail{height:7px;background:linear-gradient(to bottom,var(--rule-strong),var(--board-deep));
+  border-radius:1px;margin:-4px 0 20px;box-shadow:0 3px 7px rgba(33,29,23,.16)}
+
+@media (max-width:900px){.desktop{display:none}}

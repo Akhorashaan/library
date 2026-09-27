@@ -1,0 +1,39 @@
+name: kartoteka-cloud
+services:
+  app:
+    extends:
+      file: compose.yaml
+      service: app
+  web:
+    image: caddy:2-alpine
+    restart: always
+    depends_on:
+      app:
+        condition: service_healthy
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      LIBRARY_DOMAIN: ${LIBRARY_DOMAIN:?Set LIBRARY_DOMAIN in .env.cloud}
+      ACME_EMAIL: ${ACME_EMAIL:?Set ACME_EMAIL in .env.cloud}
+      LIBRARY_USER: ${LIBRARY_USER:-owner}
+      LIBRARY_PASSWORD_HASH: ${LIBRARY_PASSWORD_HASH:?Set a Caddy password hash in .env.cloud}
+    volumes:
+      - ./Caddyfile.cloud:/etc/caddy/Caddyfile:ro
+      - cloud_caddy_data:/data
+      - cloud_caddy_config:/config
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1:2019/config/"]
+      interval: 30s
+      timeout: 5s
+      start_period: 10s
+      retries: 3
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  cloud_caddy_data:
+  cloud_caddy_config:

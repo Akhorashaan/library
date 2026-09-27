@@ -1,0 +1,119 @@
+/* ==========================================================================
+   Картотека — дизайн-токены
+   Метафора: библиотечный карточный каталог. Бумага, чернила, штампы.
+   Источник правды для @theme в Tailwind.
+   ========================================================================== */
+
+:root {
+  /* --- Поверхности: картон ящика и бумага карточек --- */
+  --board:        #E0D5C0;  /* фон приложения — картон ящика */
+  --board-deep:   #CFC2A8;  /* провалы, разделители ящиков */
+  --paper:        #F3ECDD;  /* карточка */
+  --paper-raised: #FBF7EE;  /* поднятая карточка, модалка, поле ввода */
+
+  /* --- Чернила --- */
+  --ink:       #211D17;  /* основной текст */
+  --ink-soft:  #6B6152;  /* вторичный: метаданные, подписи */
+  --ink-faint: #857A66;  /* третичный: плейсхолдеры, отключённое */
+
+  /* --- Линии --- */
+  --rule:        #C9BCA3;  /* разлиновка карточки, границы */
+  --rule-strong: #A89878;  /* акцентная линия, фокус-контур */
+
+  /* --- Штампы: смысловые акценты --- */
+  --stamp:       #A8342A;  /* красный — главный акцент, «прочитано», активное */
+  --stamp-ink:   #2D5068;  /* синий — служебные отметки, ссылки */
+  --sage:        #58683F;  /* зелёный — успех, «в наличии» */
+  --amber:       #9A6B14;  /* охра — предупреждение, «отдана» */
+
+  /* Фоны-плашки под штампы (полупрозрачные, ложатся на любую бумагу) */
+  --stamp-wash:     color-mix(in oklab, var(--stamp) 12%, transparent);
+  --stamp-ink-wash: color-mix(in oklab, var(--stamp-ink) 12%, transparent);
+  --sage-wash:      color-mix(in oklab, var(--sage) 14%, transparent);
+  --amber-wash:     color-mix(in oklab, var(--amber) 14%, transparent);
+
+  /* --- Типографика --- */
+  /* Все четыре — с полной кириллицей. PT Serif/Sans/Mono — одна суперсемья
+     Паратайпа, рисовались вместе и сочетаются по построению. */
+  --font-display: "Old Standard TT", "PT Serif", Georgia, serif; /* старопечатный титул */
+  --font-serif:   "PT Serif", Georgia, serif;                    /* названия книг, текст */
+  --font-sans:    "PT Sans", system-ui, sans-serif;              /* хром интерфейса */
+  --font-mono:    "PT Mono", ui-monospace, monospace;            /* ISBN, шифры, штампы */
+
+  --tracking-stamp: 0.14em;  /* разрядка для штампов и микро-заголовков */
+
+  /* --- Ритм --- */
+  --rule-step: 28px;   /* шаг разлиновки карточки; текст сидит на линейках */
+  --radius:    3px;    /* бумагу не скругляют; ровно настолько, чтобы не резалась */
+  --radius-lg: 5px;
+
+  /* --- Тени: бумага на бумаге, не стекло --- */
+  --shadow-card:  0 1px 0 rgba(33,29,23,.06), 0 2px 5px rgba(33,29,23,.09);
+  --shadow-lift:  0 2px 3px rgba(33,29,23,.08), 0 10px 26px rgba(33,29,23,.16);
+
+  /* --- Зерно бумаги --- */
+  --grain-opacity: .05;
+  --grain-blend: multiply;
+
+  color-scheme: light;
+}
+
+/* --- Ночной читальный зал -------------------------------------------------
+   Не инверсия: тёплая лампа над столом, бумага уходит в полумрак,
+   чернила становятся кремовыми. Штампы светлеют, чтобы держать контраст. */
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --board:        #14120E;
+    --board-deep:   #0D0B08;
+    --paper:        #221E18;
+    --paper-raised: #2C271F;
+
+    --ink:       #EDE4D2;
+    --ink-soft:  #A2967F;
+    --ink-faint: #9A8E79;
+
+    --rule:        #3A3329;
+    --rule-strong: #574C3C;
+
+    --stamp:     #DE7166;
+    --stamp-ink: #86ADCB;
+    --sage:      #9CB07C;
+    --amber:     #D4A24A;
+
+    --shadow-card: 0 1px 0 rgba(0,0,0,.30), 0 2px 6px rgba(0,0,0,.42);
+    --shadow-lift: 0 2px 4px rgba(0,0,0,.35), 0 12px 30px rgba(0,0,0,.55);
+
+    --grain-opacity: .07;
+    --grain-blend: overlay;
+
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --board:        #14120E;
+  --board-deep:   #0D0B08;
+  --paper:        #221E18;
+  --paper-raised: #2C271F;
+
+  --ink:       #EDE4D2;
+  --ink-soft:  #A2967F;
+  --ink-faint: #9A8E79;
+
+  --rule:        #3A3329;
+  --rule-strong: #574C3C;
+
+  --stamp:     #DE7166;
+  --stamp-ink: #86ADCB;
+  --sage:      #9CB07C;
+  --amber:     #D4A24A;
+
+  --shadow-card: 0 1px 0 rgba(0,0,0,.30), 0 2px 6px rgba(0,0,0,.42);
+  --shadow-lift: 0 2px 4px rgba(0,0,0,.35), 0 12px 30px rgba(0,0,0,.55);
+
+  --grain-opacity: .07;
+  --grain-blend: overlay;
+
+  color-scheme: dark;
+}

@@ -1,0 +1,10 @@
+{
+	email {$ACME_EMAIL}
+}
+
+{$LIBRARY_DOMAIN} {
+	basic_auth {
+		{$LIBRARY_USER} {$LIBRARY_PASSWORD_HASH}
+	}
+	reverse_proxy app:3017
+}
