@@ -1,0 +1,9 @@
+# For a VPS where a host-level reverse proxy already owns ports 80/443.
+name: kartoteka-cloud
+services:
+  app:
+    extends:
+      file: compose.yaml
+      service: app
+    ports:
+      - "127.0.0.1:${LIBRARY_UPSTREAM_PORT:-3017}:3017"
