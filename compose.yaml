@@ -4,6 +4,7 @@ services:
     build:
       context: .
       args:
+        APP_BASE_PATH: ${APP_BASE_PATH:-/}
         HTTP_PROXY: ${HTTP_PROXY:-}
         HTTPS_PROXY: ${HTTPS_PROXY:-}
         http_proxy: ${HTTP_PROXY:-}

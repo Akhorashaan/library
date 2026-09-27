@@ -5,6 +5,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends python3 make g+
 COPY package.json package-lock.json ./
 RUN npm ci
 COPY . .
+ARG APP_BASE_PATH=/
 RUN npm run build && npm prune --omit=dev
 
 FROM node:24-bookworm-slim AS runtime

@@ -35,7 +35,12 @@ export function Cover({ title, authors, src, className }: Props) {
   if (src) {
     return (
       <div className={`cover ${className ?? ''}`} style={{ padding: 0 }}>
-        <img src={src} alt="" loading="lazy" decoding="async" />
+        <img
+          src={src.startsWith('/covers/') ? `${import.meta.env.BASE_URL}${src.slice(1)}` : src}
+          alt=""
+          loading="lazy"
+          decoding="async"
+        />
       </div>
     );
   }

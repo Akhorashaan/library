@@ -6,6 +6,10 @@ import basicSsl from '@vitejs/plugin-basic-ssl';
 import { fileURLToPath } from 'node:url';
 
 const API_PORT = process.env.PORT ?? 3017;
+const basePath = process.env.APP_BASE_PATH || '/';
+if (!/^\/(?:[A-Za-z0-9_-]+\/)*$/.test(basePath)) {
+  throw new Error('APP_BASE_PATH must be / or a path such as /library/ with a trailing slash');
+}
 
 /**
  * Камеру браузер отдаёт только в защищённом контексте: HTTPS или localhost.
@@ -16,47 +20,53 @@ const API_PORT = process.env.PORT ?? 3017;
 const useHttps = process.env.HTTPS === '1';
 
 export default defineConfig({
+  base: basePath,
   plugins: [
     react(),
     tailwindcss(),
     ...(useHttps ? [basicSsl()] : []),
     VitePWA({
       registerType: 'autoUpdate',
+      scope: basePath,
+      useCredentials: true,
       includeAssets: ['favicon.svg'],
       manifest: {
         name: 'Картотека',
         short_name: 'Картотека',
         description: 'Домашняя библиотека: каталог, сканер ISBN, списки чтения',
         lang: 'ru',
-        start_url: '/',
+        id: basePath,
+        start_url: basePath,
+        scope: basePath,
         display: 'standalone',
         background_color: '#E0D5C0',
         theme_color: '#A8342A',
         icons: [
-          { src: '/favicon.svg', sizes: 'any', type: 'image/svg+xml', purpose: 'any' },
-          { src: '/favicon.svg', sizes: 'any', type: 'image/svg+xml', purpose: 'maskable' },
+          { src: `${basePath}favicon.svg`, sizes: 'any', type: 'image/svg+xml', purpose: 'any' },
+          { src: `${basePath}favicon.svg`, sizes: 'any', type: 'image/svg+xml', purpose: 'maskable' },
         ],
       },
       workbox: {
         // Оболочка приложения — в кэш, чтобы каталог открывался у полки,
         // куда не добивает домашний wifi.
         globPatterns: ['**/*.{js,css,html,svg,woff2}'],
-        navigateFallbackDenylist: [/^\/api/, /^\/covers/],
+        navigateFallback: `${basePath}index.html`,
+        navigateFallbackDenylist: [new RegExp(`^${basePath}(?:api|covers)(?:/|$)`)],
         runtimeCaching: [
           {
             // Обложки не меняются никогда — раз скачали, держим локально.
-            urlPattern: /\/covers\/.*/,
+            urlPattern: new RegExp(`^https?://[^/]+${basePath}covers/`),
             handler: 'CacheFirst',
             options: {
-              cacheName: 'covers',
+              cacheName: `kartoteka-covers-${basePath}`,
               expiration: { maxEntries: 4000, maxAgeSeconds: 60 * 60 * 24 * 365 },
             },
           },
           {
             // Каталог показываем из кэша сразу, обновляем в фоне.
-            urlPattern: /\/api\/(books|lists).*/,
+            urlPattern: new RegExp(`^https?://[^/]+${basePath}api/(?:books|lists)(?:[/?]|$)`),
             handler: 'StaleWhileRevalidate',
-            options: { cacheName: 'catalog' },
+            options: { cacheName: `kartoteka-catalog-${basePath}` },
           },
         ],
       },
@@ -73,8 +83,16 @@ export default defineConfig({
     port: useHttps ? 5184 : 5183,
     strictPort: true,
     proxy: {
-      '/api': { target: `http://localhost:${API_PORT}`, changeOrigin: true },
-      '/covers': { target: `http://localhost:${API_PORT}`, changeOrigin: true },
+      [`${basePath}api`]: {
+        target: `http://localhost:${API_PORT}`,
+        changeOrigin: true,
+        rewrite: (path) => `/${path.slice(basePath.length)}`,
+      },
+      [`${basePath}covers`]: {
+        target: `http://localhost:${API_PORT}`,
+        changeOrigin: true,
+        rewrite: (path) => `/${path.slice(basePath.length)}`,
+      },
     },
   },
   build: { outDir: 'dist/client', emptyOutDir: true },
