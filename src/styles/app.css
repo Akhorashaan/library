@@ -717,7 +717,6 @@ button:focus-visible, summary:focus-visible, a:focus-visible { outline: 2px soli
   .app-bar .title { font-size: 30px; }
   .drawer { padding: 0 32px; }
   .drawer--grid { gap: 12px 18px; }
-  .drawer--grid .drawer-tab { display: none; }
   .drawer-tab { margin: 20px 0 0; }
   .drawer--grid .cat-card { margin: 0; padding: 18px; gap: 16px; min-height: 158px; height: 100%; flex-wrap: wrap; }
   .cat-card > .cover { width: 68px; height: 100px; }
