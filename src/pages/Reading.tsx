@@ -67,8 +67,9 @@ export function Reading() {
 
       <main className="page">
         <div className="reading-actions reading-toolbar">
-          <button className="btn btn--primary" onClick={() => setEditing(null)}>Добавить прочитанную</button>
-          <button className="btn btn--ghost" onClick={() => navigate('/')}>Выбрать из библиотеки</button>
+          <button className="btn btn--primary" onClick={() => navigate('/')}>Добавить из библиотеки</button>
+          <button className="btn btn--ghost" onClick={() => setEditing(null)}>Добавить прочитанную</button>
+          <p className="reading-toolbar-hint">Для очереди откройте книгу в каталоге и нажмите «Добавить в очередь». Для книги вне библиотеки — «Добавить прочитанную».</p>
         </div>
         {editing !== undefined && <ExternalReadingForm key={editing?.id ?? 'new'} entry={editing} onClose={() => setEditing(undefined)} />}
         <div className="drawer reading-board">
@@ -78,7 +79,7 @@ export function Reading() {
 
           {data && data.now.length === 0 && order.length === 0 && done.length === 0 && (
             <Empty title="Список пуст">
-              Откройте книгу в каталоге и поставьте «Читаю» или «В очередь». Прочитанные книги вне библиотеки добавляйте кнопкой «Добавить прочитанную».
+              Откройте книгу в каталоге и поставьте «Читаю» или «Добавить в очередь». Прочитанные книги вне библиотеки добавляйте кнопкой «Добавить прочитанную».
             </Empty>
           )}
 

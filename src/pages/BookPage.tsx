@@ -9,7 +9,7 @@ import { Icons, LentStamp, Progress, Stamp, shortDate } from '@/components/ui';
 
 const STATUSES: Array<{ value: ReadingStatus; label: string }> = [
   { value: 'none', label: 'Не начата' },
-  { value: 'queued', label: 'В очередь' },
+  { value: 'queued', label: 'Добавить в очередь' },
   { value: 'reading', label: 'Читаю' },
   { value: 'read', label: 'Прочитана' },
   { value: 'abandoned', label: 'Бросил' },
@@ -86,8 +86,6 @@ export function BookPage() {
         </div>
 
         <div className="book-content">
-          <OrganizationEditor key={book.id} book={book} />
-          {book.series && <Link className="series-book-link" to={`/series?name=${encodeURIComponent(book.series)}`}>Собрана ли серия «{book.series}»? →</Link>}
           {confirmDelete && (
             <div className="ledger book-delete" style={{ borderColor: 'var(--stamp)' }}>
               <h3 style={{ color: 'var(--stamp)' }}>Убрать из каталога?</h3>
@@ -109,18 +107,22 @@ export function BookPage() {
           <div className="ledger">
             <h3>Чтение</h3>
 
-            <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', marginBottom: 14 }}>
+            <div className="book-reading-actions">
               {STATUSES.map((s) => (
                 <button
                   key={s.value}
                   className="facet"
                   data-on={book.status === s.value ? '' : undefined}
+                  aria-pressed={book.status === s.value}
+                  disabled={patch.isPending}
                   onClick={() => patch.mutate({ status: s.value })}
                 >
-                  {s.label}
+                  {s.value === 'queued' && book.status === 'queued' ? 'В очереди' : s.label}
                 </button>
               ))}
             </div>
+            {patch.isError && <p className="series-error" role="alert">Не удалось сохранить: {patch.error.message}</p>}
+            {(book.status === 'queued' || book.status === 'reading') && <Link className="reading-list-link" to="/reading">Открыть список чтения →</Link>}
 
             {(book.status === 'reading' || book.progress) && (
               <div style={{ marginBottom: 14 }}>
@@ -160,6 +162,9 @@ export function BookPage() {
               }}
             />
           </div>
+
+          <OrganizationEditor key={book.id} book={book} />
+          {book.series && <Link className="series-book-link" to={`/series?name=${encodeURIComponent(book.series)}`}>Собрана ли серия «{book.series}»? →</Link>}
 
           {/* ─────────────────────── Экземпляр ───────────────────────────── */}
           <div className="ledger">

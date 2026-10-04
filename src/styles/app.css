@@ -776,6 +776,11 @@ button:focus-visible, summary:focus-visible, a:focus-visible { outline: 2px soli
   .series-status-select { display: block; width: 100%; margin: 8px 0 18px; }
 }
 .reading-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.book-reading-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+.book-reading-actions .facet { min-height: 44px; white-space: normal; }
+.book-reading-actions .facet:disabled { cursor: wait; opacity: .6; }
+.reading-list-link { display: block; color: var(--stamp-ink); margin: 0 0 14px; text-decoration: underline; }
+.reading-toolbar-hint { flex-basis: 100%; color: var(--ink-soft); font-size: 13px; line-height: 1.5; }
 .reading-toolbar { margin: 16px 16px 22px; }
 .external-reading-form { background: var(--paper); border: 1px solid var(--rule-strong); padding: 22px; margin: 0 16px 24px; max-width: 720px; }
 .external-reading-form h2 { font-size: 21px; margin: 0 0 8px; }
