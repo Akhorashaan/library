@@ -7,6 +7,7 @@ import { lookupIsbn } from './metadata/index.js';
 import { shelfmark, sortKey } from './metadata/normalize.js';
 import { fetchCover } from './covers.js';
 import { authorFacets, authorSearchAlternatives, matchesAuthor, normalizeAuthors } from '../shared/authors.js';
+import { registerSeriesRoutes } from './series.js';
 
 /**
  * Снаружи книга — один плоский объект. Три таблицы внутри нужны, чтобы
@@ -27,6 +28,7 @@ function flatten(b: BookRow, c: CopyRow | undefined, r: ReadingRow | undefined) 
     series: b.series,
     seriesOrder: b.seriesOrder,
     seriesEnd: b.seriesEnd,
+    seriesPart: b.seriesPart,
     tags: b.tags,
     annotation: b.annotation,
     coverUrl: b.coverUrl,
@@ -62,9 +64,10 @@ function loadBooks(ids: number[]) {
 
 const nowIso = () => new Date().toISOString();
 
-function validateOrganization(d: { series?: string | null; seriesOrder?: number | null; seriesEnd?: number | null }) {
+function validateOrganization(d: { series?: string | null; seriesOrder?: number | null; seriesEnd?: number | null; seriesPart?: number | null }) {
   if (!d.series && (d.seriesOrder != null || d.seriesEnd != null)) return 'Укажите серию для номера книги';
   if (d.seriesEnd != null && (d.seriesOrder == null || d.seriesEnd < d.seriesOrder)) return 'Конец диапазона должен быть не меньше первого номера';
+  if (d.seriesPart != null && (!d.series || d.seriesOrder == null || (d.seriesEnd != null && d.seriesEnd !== d.seriesOrder))) return 'Часть можно указать только для одной книги с номером в серии';
   return null;
 }
 
@@ -78,6 +81,7 @@ const ORDER_BY: Record<string, string> = {
 };
 
 export async function registerRoutes(app: FastifyInstance) {
+  await registerSeriesRoutes(app);
   /* ───────────────────────────── каталог ───────────────────────────── */
 
   app.get('/api/books', async (req, reply) => {
@@ -201,6 +205,7 @@ export async function registerRoutes(app: FastifyInstance) {
         series: d.series ?? null,
         seriesOrder: d.seriesOrder ?? null,
         seriesEnd: d.seriesEnd ?? null,
+        seriesPart: d.seriesPart ?? null,
         tags: d.tags ?? [],
         annotation: d.annotation ?? null,
         coverUrl,
@@ -251,11 +256,11 @@ export async function registerRoutes(app: FastifyInstance) {
     if (!current) return reply.code(404).send({ error: 'Такой книги в каталоге нет' });
     if (d.authors !== undefined) d.authors = normalizeAuthors(d.authors);
 
-    if (d.series === null) { d.seriesOrder = null; d.seriesEnd = null; }
+    if (d.series === null) { d.seriesOrder = null; d.seriesEnd = null; d.seriesPart = null; }
     const organizationError = validateOrganization({ ...current, ...d });
     if (organizationError) return reply.code(400).send({ error: organizationError });
 
-    const bookFields = ['title', 'authors', 'publisher', 'year', 'pages', 'binding', 'genre', 'annotation', 'isbn', 'series', 'seriesOrder', 'seriesEnd', 'tags'] as const;
+    const bookFields = ['title', 'authors', 'publisher', 'year', 'pages', 'binding', 'genre', 'annotation', 'isbn', 'series', 'seriesOrder', 'seriesEnd', 'seriesPart', 'tags'] as const;
     const bookPatchData: Record<string, unknown> = {};
     for (const f of bookFields) if (d[f] !== undefined) bookPatchData[f] = d[f];
     // Шифр выводится из автора и названия — пересчитываем, если они менялись.

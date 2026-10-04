@@ -1,0 +1,2461 @@
+[
+  {
+    "name": "Сага о Видящих",
+    "publication": "finished",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Ученик убийцы"
+      },
+      {
+        "number": 2,
+        "part": null,
+        "title": "Королевский убийца"
+      },
+      {
+        "number": 3,
+        "part": null,
+        "title": "Странствия убийцы"
+      }
+    ],
+    "sources": [
+      "https://www.robinhobb.com/works.htm",
+      "https://azbooka.ru/books/stranstviya-ybiytsy-komplekt-v-2-tomakh"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "",
+    "coverage": {}
+  },
+  {
+    "name": "Сага о живых кораблях",
+    "publication": "finished",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Волшебный корабль"
+      },
+      {
+        "number": 2,
+        "part": null,
+        "title": "Безумный корабль"
+      },
+      {
+        "number": 3,
+        "part": null,
+        "title": "Корабль судьбы"
+      }
+    ],
+    "sources": [
+      "https://www.robinhobb.com/works.htm",
+      "https://azbooka.ru/books/saga-o-zhivykh-korablyakh-kniga-3-korabl-sudby-zjvx"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "",
+    "coverage": {}
+  },
+  {
+    "name": "Сага о Шуте и Убийце",
+    "publication": "finished",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Миссия шута"
+      },
+      {
+        "number": 2,
+        "part": null,
+        "title": "Золотой шут"
+      },
+      {
+        "number": 3,
+        "part": null,
+        "title": "Судьба шута"
+      }
+    ],
+    "sources": [
+      "https://www.robinhobb.com/works.htm",
+      "https://azbooka.ru/books/saga-o-shyte-i-ybiytse-kniga-1-missiya-shyta"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "",
+    "coverage": {}
+  },
+  {
+    "name": "Сага о Фитце и Шуте",
+    "publication": "finished",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Убийца шута"
+      },
+      {
+        "number": 2,
+        "part": null,
+        "title": "Странствия шута"
+      },
+      {
+        "number": 3,
+        "part": null,
+        "title": "Судьба убийцы"
+      }
+    ],
+    "sources": [
+      "https://www.robinhobb.com/works.htm"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "Три романа заключительной трилогии. Русские названия сверены с изданиями в библиотеке.",
+    "coverage": {}
+  },
+  {
+    "name": "Хроники Дождевых чащоб",
+    "publication": "finished",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Хранитель драконов"
+      },
+      {
+        "number": 2,
+        "part": null,
+        "title": "Драконья гавань"
+      },
+      {
+        "number": 3,
+        "part": null,
+        "title": "Город драконов"
+      },
+      {
+        "number": 4,
+        "part": null,
+        "title": "Кровь драконов"
+      }
+    ],
+    "sources": [
+      "https://www.robinhobb.com/works.htm",
+      "https://azbooka.ru/books/khroniki-dozhdevykh-chashchob-kniga-4-krov-drakonov"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "",
+    "coverage": {}
+  },
+  {
+    "name": "Гарри Поттер",
+    "publication": "finished",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Гарри Поттер и философский камень"
+      },
+      {
+        "number": 2,
+        "part": null,
+        "title": "Гарри Поттер и Тайная комната"
+      },
+      {
+        "number": 3,
+        "part": null,
+        "title": "Гарри Поттер и узник Азкабана"
+      },
+      {
+        "number": 4,
+        "part": null,
+        "title": "Гарри Поттер и Кубок огня"
+      },
+      {
+        "number": 5,
+        "part": null,
+        "title": "Гарри Поттер и Орден Феникса"
+      },
+      {
+        "number": 6,
+        "part": null,
+        "title": "Гарри Поттер и Принц-полукровка"
+      },
+      {
+        "number": 7,
+        "part": null,
+        "title": "Гарри Поттер и Дары Смерти"
+      }
+    ],
+    "sources": [
+      "https://azbooka.ru/books/garri-potter-komplekt-iz-7-knig-v-futlyare-hhjp"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "Основные семь романов. Пьеса «Проклятое дитя» и дополнительные книги о мире учитываются отдельно.",
+    "coverage": {}
+  },
+  {
+    "name": "Ветер и искры",
+    "publication": "finished",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Искатели ветра"
+      },
+      {
+        "number": 2,
+        "part": null,
+        "title": "Ветер полыни"
+      },
+      {
+        "number": 3,
+        "part": null,
+        "title": "Жнецы ветра"
+      },
+      {
+        "number": 4,
+        "part": null,
+        "title": "Искра и ветер"
+      }
+    ],
+    "sources": [
+      "https://author.today/u/alexey_pehov/series"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "",
+    "coverage": {}
+  },
+  {
+    "name": "Страж",
+    "publication": "finished",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Страж"
+      },
+      {
+        "number": 2,
+        "part": null,
+        "title": "Аутодафе"
+      },
+      {
+        "number": 3,
+        "part": null,
+        "title": "Золотые костры"
+      },
+      {
+        "number": 4,
+        "part": null,
+        "title": "Проклятый горн"
+      }
+    ],
+    "sources": [
+      "https://author.today/u/alexey_pehov/series"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "",
+    "coverage": {}
+  },
+  {
+    "name": "Птицы и солнцесветы",
+    "publication": "ongoing",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Птицеед"
+      },
+      {
+        "number": 2,
+        "part": null,
+        "title": "Птицелов"
+      }
+    ],
+    "sources": [
+      "https://author.today/u/alexey_pehov/series"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "",
+    "coverage": {}
+  },
+  {
+    "name": "Механизмы империи",
+    "publication": "finished",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Гамбит девятихвостого лиса"
+      },
+      {
+        "number": 2,
+        "part": null,
+        "title": "Стратагема ворона"
+      },
+      {
+        "number": 3,
+        "part": null,
+        "title": "Возрождённое орудие"
+      }
+    ],
+    "sources": [
+      "https://eksmo.ru/cicle/mekhanizmy-imperii-ID223/"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "Основная трилогия романов в русском переводе.",
+    "coverage": {}
+  },
+  {
+    "name": "Год крысы",
+    "publication": "finished",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Видунья"
+      },
+      {
+        "number": 2,
+        "part": null,
+        "title": "Путница"
+      }
+    ],
+    "sources": [
+      "https://www.armada.ru/Otryv/GK_Putni.pdf",
+      "https://www.litres.ru/audiobook/olga-gromyko/god-krysy-vidunya-39290628/"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "Оба романа дилогии входят в имеющийся сборник.",
+    "coverage": {}
+  },
+  {
+    "name": "Тёмные материалы Кёко Карасумы",
+    "publication": "ongoing",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Тёмные материалы Кёко Карасумы. Книга 1"
+      },
+      {
+        "number": 2,
+        "part": null,
+        "title": "Тёмные материалы Кёко Карасумы. Книга 2"
+      },
+      {
+        "number": 3,
+        "part": null,
+        "title": "Тёмные материалы Кёко Карасумы. Книга 3"
+      },
+      {
+        "number": 4,
+        "part": null,
+        "title": "Тёмные материалы Кёко Карасумы. Книга 4"
+      },
+      {
+        "number": 5,
+        "part": null,
+        "title": "Тёмные материалы Кёко Карасумы. Книга 5"
+      },
+      {
+        "number": 6,
+        "part": null,
+        "title": "Тёмные материалы Кёко Карасумы. Книга 6"
+      },
+      {
+        "number": 7,
+        "part": null,
+        "title": "Тёмные материалы Кёко Карасумы. Книга 7"
+      },
+      {
+        "number": 8,
+        "part": null,
+        "title": "Тёмные материалы Кёко Карасумы. Книга 8"
+      }
+    ],
+    "sources": [
+      "https://fantlab.ru/series7920"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "На русском изданы тома 1–8. Оригинальные тома 9–10 не переведены в этой серии; в список недостающих не включены. Русское издание остановлено.",
+    "coverage": {}
+  },
+  {
+    "name": "Марья Моревна",
+    "publication": "ongoing",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Марья Моревна. Том 1"
+      },
+      {
+        "number": 2,
+        "part": null,
+        "title": "Марья Моревна. Том 2"
+      }
+    ],
+    "sources": [
+      "https://www.mann-ivanov-ferber.ru/catalog/product/marya-morevna/",
+      "https://www.mann-ivanov-ferber.ru/catalog/product/maria-morevna-tom-2/"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "",
+    "coverage": {}
+  },
+  {
+    "name": "Ликорис",
+    "publication": "ongoing",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Ликорис. Книга 1"
+      },
+      {
+        "number": 2,
+        "part": null,
+        "title": "Ликорис. Книга 2"
+      }
+    ],
+    "sources": [
+      "https://bubble.ru/product/physical-likoris-kniga-1",
+      "https://bubble.ru/product/physical-likoris-kniga-2"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "",
+    "coverage": {}
+  },
+  {
+    "name": "Заговор единорогов",
+    "publication": "ongoing",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Наследие"
+      },
+      {
+        "number": 2,
+        "part": null,
+        "title": "Свои"
+      }
+    ],
+    "sources": [
+      "https://bubble.ru/category/pecatnye-komiksy/how-to-read"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "",
+    "coverage": {}
+  },
+  {
+    "name": "Избранница Луны",
+    "publication": "finished",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Избранница Луны"
+      }
+    ],
+    "sources": [
+      "https://fantlab.ru/blogarticle75232"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "Завершённая история в одном томе.",
+    "coverage": {}
+  },
+  {
+    "name": "Шуттовская рота",
+    "publication": "finished",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Шуттовская рота"
+      },
+      {
+        "number": 2,
+        "part": null,
+        "title": "Шуттовской рай"
+      },
+      {
+        "number": 3,
+        "part": null,
+        "title": "Шуттовские деньги"
+      },
+      {
+        "number": 4,
+        "part": null,
+        "title": "Дважды Шутт"
+      },
+      {
+        "number": 5,
+        "part": null,
+        "title": "Старого Шутта не перешутишь"
+      },
+      {
+        "number": 6,
+        "part": null,
+        "title": "Шуттовская миссия"
+      }
+    ],
+    "sources": [
+      "https://fantlab.ru/edition376330",
+      "https://fantlab.ru/edition399128"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "Шесть романов; два имеющихся сборника содержат по три романа.",
+    "coverage": {}
+  },
+  {
+    "name": "Сокол",
+    "publication": "ongoing",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Сокол. Том 1"
+      },
+      {
+        "number": 2,
+        "part": null,
+        "title": "Сокол. Том 2"
+      },
+      {
+        "number": 3,
+        "part": null,
+        "title": "Сокол. Том 3"
+      }
+    ],
+    "sources": [
+      "https://bubble.ru/category/pecatnye-komiksy/how-to-read",
+      "https://t.me/s/bubble_comics/11606"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "",
+    "coverage": {}
+  },
+  {
+    "name": "30 дней ночи",
+    "publication": "ongoing",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "30 дней ночи"
+      },
+      {
+        "number": 2,
+        "part": null,
+        "title": "Тёмные дни"
+      },
+      {
+        "number": 3,
+        "part": null,
+        "title": "Возвращение в Барроу"
+      }
+    ],
+    "sources": [
+      "https://news.xlm.ru/comics/196"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "Омнибус XL Media содержит всю исходную трилогию. Другие истории оригинальной франшизы в русский список не включены: опубликованные русские издания не найдены.",
+    "coverage": {
+      "9785919961550": [
+        "1",
+        "2",
+        "3"
+      ]
+    }
+  },
+  {
+    "name": "Акулы из стали",
+    "publication": "ongoing",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Акулы из стали"
+      },
+      {
+        "number": 2,
+        "part": null,
+        "title": "Туман"
+      },
+      {
+        "number": 3,
+        "part": null,
+        "title": "Аврал"
+      },
+      {
+        "number": 4,
+        "part": null,
+        "title": "Последний поход"
+      },
+      {
+        "number": 5,
+        "part": null,
+        "title": "Ноябрь"
+      },
+      {
+        "number": 6,
+        "part": null,
+        "title": "Соль, сталь и румб до Норда"
+      }
+    ],
+    "sources": [
+      "https://ast.ru/cycle/tsikl-akuly-iz-stali/",
+      "https://ast.ru/book/akuly-iz-stali-sol-stal-i-rumb-do-norda-850234/"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "Шестая книга вышла в 2026 году: расширенное переиздание «Норд, норд и немного вест» с шестью новыми рассказами. Старое название отдельно не дублируется.",
+    "coverage": {}
+  },
+  {
+    "name": "Американский вампир",
+    "publication": "ongoing",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Американский вампир. Книга 1"
+      },
+      {
+        "number": 2,
+        "part": null,
+        "title": "Американский вампир. Книга 2"
+      },
+      {
+        "number": 3,
+        "part": null,
+        "title": "Американский вампир. Книга 3"
+      },
+      {
+        "number": 4,
+        "part": null,
+        "title": "Американский вампир. Книга 4"
+      }
+    ],
+    "sources": [
+      "https://azbooka.ru/books/amerikanskiy-vampir-kniga-3",
+      "https://dc.fandom.com/ru/wiki/Список_комиксов_на_русском/Азбука"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "Четыре русских сборника «Азбуки», а не нумерация американских TPB. Книга 4 содержит Second Cycle №1–11. Русское издание продолжения American Vampire 1976 не найдено.",
+    "coverage": {}
+  },
+  {
+    "name": "Белорский цикл",
+    "publication": "finished",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Профессия: ведьма"
+      },
+      {
+        "number": 2,
+        "part": null,
+        "title": "Ведьма-хранительница"
+      },
+      {
+        "number": 3,
+        "part": null,
+        "title": "Верховная Ведьма"
+      },
+      {
+        "number": 4,
+        "part": null,
+        "title": "Ведьмины байки"
+      },
+      {
+        "number": 5,
+        "part": null,
+        "title": "Верные враги"
+      },
+      {
+        "number": 6,
+        "part": null,
+        "title": "Белорские хроники"
+      }
+    ],
+    "sources": [
+      "https://author.today/work/series/6161",
+      "https://www.chitai-gorod.ru/product/belorskij-cikl-tom-1-kollekcionnoe-izdanie-3154233"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "Сравнение по произведениям цикла, включая прежние русские издания. Первый коллекционный том Альпаки содержит два романа; комикс-адаптация учитывается отдельно.",
+    "coverage": {
+      "9785002422531": [
+        "1",
+        "2"
+      ]
+    }
+  },
+  {
+    "name": "Бэтмен: Белый рыцарь",
+    "publication": "ongoing",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Бэтмен. Белый Рыцарь"
+      },
+      {
+        "number": 2,
+        "part": null,
+        "title": "Бэтмен. Проклятие Белого Рыцаря"
+      },
+      {
+        "number": 3,
+        "part": null,
+        "title": "Бэтмен: Белый Рыцарь представляет: Харли Квинн"
+      }
+    ],
+    "sources": [
+      "https://azbooka.ru/books/betmen-belyy-rytsar",
+      "https://azbooka.ru/books/betmen-proklyatie-belogo-rytsarya",
+      "https://azbooka.ru/books/betmen-belyy-rytsar-predstavlyaet-kharli-kvinn"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "Включена опубликованная на русском история Харли Квинн из того же мира. Beyond the White Knight в русский список не включён: русское издание не найдено.",
+    "coverage": {}
+  },
+  {
+    "name": "Гиганты",
+    "publication": "ongoing",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Звёзды в наследство"
+      },
+      {
+        "number": 2,
+        "part": null,
+        "title": "Галантные гиганты Ганимеда"
+      },
+      {
+        "number": 3,
+        "part": null,
+        "title": "Звезда гигантов"
+      }
+    ],
+    "sources": [
+      "https://fantlab.ru/work470807",
+      "https://fantlab.ru/edition437330"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "Эксплорер Букс: первый роман — 2024, второй и третий — 2025. Имеющаяся книга ISBN 9785605192206 содержит только первый роман. Русские книжные издания Entoverse и Mission to Minerva не найдены.",
+    "coverage": {
+      "9785605192206": [
+        "1"
+      ]
+    }
+  },
+  {
+    "name": "Исчезнувшие цивилизации",
+    "publication": "finished",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Ацтеки. Империя крови и величия"
+      },
+      {
+        "number": 2,
+        "part": null,
+        "title": "Блестящее наследие Африки"
+      },
+      {
+        "number": 3,
+        "part": null,
+        "title": "В поисках Эльдорадо"
+      },
+      {
+        "number": 4,
+        "part": null,
+        "title": "Викинги. Набеги с севера"
+      },
+      {
+        "number": 5,
+        "part": null,
+        "title": "Греция. Храмы, надгробия и сокровища"
+      },
+      {
+        "number": 6,
+        "part": null,
+        "title": "Древняя Индия. Страна чудес"
+      },
+      {
+        "number": 7,
+        "part": null,
+        "title": "Затерянный мир майя"
+      },
+      {
+        "number": 8,
+        "part": null,
+        "title": "Инки. Владыки золота и наследники славы"
+      },
+      {
+        "number": 9,
+        "part": null,
+        "title": "Помпеи. Сгинувший город"
+      },
+      {
+        "number": 10,
+        "part": null,
+        "title": "Рим. Эхо имперской славы"
+      },
+      {
+        "number": 11,
+        "part": null,
+        "title": "Строители погребальных холмов и обитатели пещер"
+      },
+      {
+        "number": 12,
+        "part": null,
+        "title": "Удивительные эгейские царства"
+      },
+      {
+        "number": 13,
+        "part": null,
+        "title": "Шумер. Города Эдема"
+      },
+      {
+        "number": 14,
+        "part": null,
+        "title": "Этруски. Италийское жизнелюбие"
+      },
+      {
+        "number": 15,
+        "part": null,
+        "title": "Египет. Земля фараонов"
+      },
+      {
+        "number": 16,
+        "part": null,
+        "title": "Персы. Властители империи"
+      },
+      {
+        "number": 17,
+        "part": null,
+        "title": "Погребённые царства Китая"
+      },
+      {
+        "number": 18,
+        "part": null,
+        "title": "Рамсес II. Величие на берегах Нила"
+      }
+    ],
+    "sources": [
+      "https://bookinistic.narod.ru/links/history/ischeznuvshie_civilizcii.htm",
+      "https://search.rsl.ru/ru/record/01001757254"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "18 русских книг серии «Терра» / «ТОМ», включая поздние выпуски до 2004 года. Встречающийся список из 16 книг неполон. Номера здесь служат порядком списка: сами книги серии не нумерованы.",
+    "coverage": {
+      "5300008243": [
+        "4"
+      ]
+    }
+  },
+  {
+    "name": "Комиксы Сары Андерсен",
+    "publication": "ongoing",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Не хочу взрослеть. Моя жизнь в комиксах Сары Андерсен"
+      },
+      {
+        "number": 2,
+        "part": null,
+        "title": "Большой и мягкий комочек счастья"
+      },
+      {
+        "number": 3,
+        "part": null,
+        "title": "Дрессировщик котиков"
+      }
+    ],
+    "sources": [
+      "https://eksmo.ru/series/komiksy-sary-andersen-ITD3449/"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "Здесь цикл Sarah’s Scribbles: три найденных русских сборника. «Клыки» — отдельная история; планеры и настольные статусы не тома цикла. Русские издания Oddball и Adulthood Is a Gift не найдены.",
+    "coverage": {}
+  },
+  {
+    "name": "Конан-киммериец",
+    "publication": "ongoing",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Королева Чёрного побережья. Чёрный Колосс. По ту сторону Чёрной реки"
+      },
+      {
+        "number": 2,
+        "part": null,
+        "title": "Дочь ледяного великана. Алая цитадель. Тени в лунном свете"
+      },
+      {
+        "number": 3,
+        "part": null,
+        "title": "Красные гвозди. Люди чёрного круга. Людоеды Замбулы"
+      },
+      {
+        "number": 4,
+        "part": null,
+        "title": "Полный дом негодяев. Бог из чаши. Час Дракона"
+      }
+    ],
+    "sources": [
+      "https://tcpublishing.ru/conanthecimmerian",
+      "https://fantlab.ru/edition420583"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "Четыре опубликованных русских сборника Topcreator Publishing, по три французских графических романа в каждом. Имеющийся ISBN — сборник №2. Проза и другие комикс-адаптации Конана сюда не входят.",
+    "coverage": {
+      "9785604989005": [
+        "2"
+      ]
+    }
+  },
+  {
+    "name": "Королевская кровь",
+    "publication": "ongoing",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Королевская кровь - 1: Сорванный венец"
+      },
+      {
+        "number": 2,
+        "part": null,
+        "title": "Королевская кровь - 2: Скрытое пламя"
+      },
+      {
+        "number": 3,
+        "part": null,
+        "title": "Королевская кровь - 3: Проклятый трон"
+      },
+      {
+        "number": 4,
+        "part": null,
+        "title": "Королевская кровь - 4: Связанные судьбы"
+      },
+      {
+        "number": 5,
+        "part": null,
+        "title": "Королевская кровь - 5: Медвежье солнце"
+      },
+      {
+        "number": 6,
+        "part": null,
+        "title": "Королевская кровь - 6: Темное наследие"
+      },
+      {
+        "number": 7,
+        "part": null,
+        "title": "Королевская кровь - 7: Огненный путь"
+      },
+      {
+        "number": 8,
+        "part": null,
+        "title": "Королевская кровь - 8: Расколотый мир"
+      },
+      {
+        "number": 9,
+        "part": null,
+        "title": "Королевская кровь - 9: Горький пепел"
+      },
+      {
+        "number": 10,
+        "part": null,
+        "title": "Королевская кровь - 10: Стальные небеса"
+      },
+      {
+        "number": 11,
+        "part": null,
+        "title": "Королевская кровь - 11: Чужие боги"
+      },
+      {
+        "number": 12,
+        "part": 1,
+        "title": "Королевская кровь - 12: Вороново сердце. Часть 1"
+      },
+      {
+        "number": 12,
+        "part": 2,
+        "title": "Королевская кровь - 12: Вороново сердце. Часть 2"
+      }
+    ],
+    "sources": [
+      "https://www.litres.ru/book/irina-kotova/korolevskaya-krov-13-chast-2-73262468/",
+      "https://eksmo.ru/book/korolevskaya-krov-13-ITD1478450/"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "Бумажные русские издания: книги 1–11 и обе части книги 12. Книга 13 завершена электронно; у бумажной карточки Эксмо пока нет подтверждённого выхода (0 страниц). В недостающие бумажные книги она не включена.",
+    "coverage": {
+      "9785517101198": [
+        "1"
+      ],
+      "9785517101204": [
+        "2"
+      ],
+      "9785517101211": [
+        "3"
+      ],
+      "9785517105813": [
+        "4"
+      ],
+      "9785517105820": [
+        "5"
+      ],
+      "9785517105837": [
+        "6"
+      ],
+      "9785517105844": [
+        "7"
+      ],
+      "9785517105851": [
+        "8"
+      ],
+      "9785517105868": [
+        "9"
+      ],
+      "9785517105875": [
+        "10"
+      ],
+      "9785517114846": [
+        "11"
+      ],
+      "9785517131287": [
+        "12.1"
+      ],
+      "9785517132222": [
+        "12.2"
+      ]
+    }
+  },
+  {
+    "name": "Лотар",
+    "publication": "finished",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Жажда"
+      },
+      {
+        "number": 2,
+        "part": null,
+        "title": "Доказательство человечности"
+      },
+      {
+        "number": 3,
+        "part": null,
+        "title": "Собаки из дикого камня"
+      },
+      {
+        "number": 4,
+        "part": null,
+        "title": "Посох Гурама"
+      },
+      {
+        "number": 5,
+        "part": null,
+        "title": "Лотар-миротворец"
+      },
+      {
+        "number": 6,
+        "part": null,
+        "title": "Кожаные капюшоны"
+      },
+      {
+        "number": 7,
+        "part": null,
+        "title": "Устранитель зла"
+      },
+      {
+        "number": 8,
+        "part": null,
+        "title": "Выкуп"
+      }
+    ],
+    "sources": [
+      "https://fantlab.ru/edition12866"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "Шесть романов и две повести полностью собраны в имеющемся 960-страничном омнибусе. Номера обозначают порядок произведений в нём.",
+    "coverage": {
+      "5699049932": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8"
+      ]
+    }
+  },
+  {
+    "name": "Нечто убивает детей",
+    "publication": "ongoing",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Нечто убивает детей. Книга первая (выпуски 1–15)"
+      }
+    ],
+    "sources": [
+      "https://edgecomics.ru/product/nechto-ubivaet-detey-tpb",
+      "https://fantlab.ru/edition371464"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "Русский сборник Альпаки содержит три первых американских TPB (выпуски 1–15). Другие обложки и мягкий переплёт — переиздания того же содержания. Опубликованная русская книга 2 не найдена.",
+    "coverage": {}
+  },
+  {
+    "name": "Одиночка",
+    "publication": "ongoing",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Дорога мечей"
+      },
+      {
+        "number": 2,
+        "part": null,
+        "title": "Союз Проклятых"
+      },
+      {
+        "number": 3,
+        "part": null,
+        "title": "Хранитель Подземелья"
+      },
+      {
+        "number": 4,
+        "part": null,
+        "title": "Древо Страха"
+      },
+      {
+        "number": 5,
+        "part": null,
+        "title": "Ход мертвецов"
+      },
+      {
+        "number": 6,
+        "part": null,
+        "title": "Лёд и Гром"
+      }
+    ],
+    "sources": [
+      "https://alexkosh.ru/index.php?start=%251%24d",
+      "https://www.litres.ru/series/odinochka-441373/",
+      "https://alpacacomics.ru/"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "Для полки учтены шесть романов, опубликованных на бумаге. Продолжения 7–11 доступны электронно; заключительный пятитомник Альпаки у автора ещё указан как готовящийся. Оба имеющихся сборника закрывают книги 1–6.",
+    "coverage": {}
+  },
+  {
+    "name": "Профессия: ведьма (комиксы)",
+    "publication": "ongoing",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Профессия: ведьма. Том 1"
+      }
+    ],
+    "sources": [
+      "https://alpacacomics.ru/cat/russian/721-professija-vedma-tom-1.html"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "Отдельная комикс-адаптация, не весь прозаический Белорский цикл. Найден один опубликованный том; варианты обложки не новые тома.",
+    "coverage": {}
+  },
+  {
+    "name": "Смертельно прекрасна",
+    "publication": "ongoing",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Смертельно прекрасна. Книга 1"
+      },
+      {
+        "number": 2,
+        "part": null,
+        "title": "Смертельно прекрасна. Книга 2"
+      }
+    ],
+    "sources": [
+      "https://xlm.ru/comics/izdatel-xl-media",
+      "https://www.labirint.ru/series/38790/"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "Два русских тома XL Media, выпуски 1–10. Русское издание третьего оригинального тома не найдено.",
+    "coverage": {}
+  },
+  {
+    "name": "Смерть",
+    "publication": "finished",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Смерть. Цена жизни"
+      },
+      {
+        "number": 2,
+        "part": null,
+        "title": "Смерть. Время жизни"
+      }
+    ],
+    "sources": [
+      "https://azbooka.ru/books/smert-tsena-zhizni-vremya-zhizni-0e0n"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "Обе самостоятельные мини-серии о Смерти и дополнительные истории собраны в имеющемся издании. Полный цикл Sandman сюда не включён.",
+    "coverage": {
+      "9785389049291": [
+        "1",
+        "2"
+      ]
+    }
+  },
+  {
+    "name": "Союз «Волшебные Штаны»",
+    "publication": "ongoing",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Союз «Волшебные Штаны»"
+      },
+      {
+        "number": 2,
+        "part": null,
+        "title": "Второе лето Союза «Волшебные Штаны»"
+      },
+      {
+        "number": 3,
+        "part": null,
+        "title": "Третье лето Союза «Волшебные Штаны»"
+      }
+    ],
+    "sources": [
+      "https://ast.ru/book/soyuz-volshebnye-shtany-040740/",
+      "https://elib.bibliofedorovka-39.ru/lib/?e_kls=%D0%92%D0%BE%D0%BB%D1%88%D0%B5%D0%B1%D0%BD%D1%8B%D0%B5&e_viewdb=SVT"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "Учтены старые русские переводы АСТ, а не только новое издание Popcorn Books. Для четвёртой и пятой книг оригинала опубликованные русские издания не найдены.",
+    "coverage": {}
+  },
+  {
+    "name": "Хоукмун (комиксы)",
+    "publication": "finished",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Хоукмун. Книга 1 (оригинальные тома 1–2)"
+      },
+      {
+        "number": 2,
+        "part": null,
+        "title": "Хоукмун. Книга 2 (оригинальные тома 3–4)"
+      }
+    ],
+    "sources": [
+      "https://tcpublishing.ru/magazin_komiksov"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "Четыре завершённых оригинальных тома изданы по-русски в двух книгах Topcreator Publishing. Обе есть в библиотеке; проза Муркока считается отдельно.",
+    "coverage": {}
+  },
+  {
+    "name": "Шуруп",
+    "publication": "ongoing",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Шуруп"
+      },
+      {
+        "number": 2,
+        "part": null,
+        "title": "Шурупы"
+      }
+    ],
+    "sources": [
+      "https://author.today/work/371862",
+      "https://fantlab.ru/work1763220"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "Цикл Владимира Васильева также называется «Специалисты». Найдены два опубликованных романа, имеющиеся «Шурупы» — второй.",
+    "coverage": {}
+  },
+  {
+    "name": "Black Science",
+    "publication": "ongoing",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Чёрная наука. Книга 1. Как падать вечно"
+      },
+      {
+        "number": 2,
+        "part": null,
+        "title": "Чёрная наука. Книга 2. Добро пожаловать в Никуда"
+      }
+    ],
+    "sources": [
+      "https://www.labirint.ru/books/594875/",
+      "https://cbdb.ru/db/american_comics/4954-chernaya-nauka-kniga-2-dobro-pozhalovat-v-nikuda.html",
+      "https://imagecomics.com/comics/releases/black-science-compendium-tp"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "Найдены две русские книги «Фантастики Книжного Клуба» (выпуски 1–11). Английский Compendium содержит всю основную серию №1–43 и закрывает их по содержанию; русскоязычных экземпляров на полке это не добавляет.",
+    "coverage": {
+      "9781534399594": [
+        "1",
+        "2"
+      ]
+    }
+  },
+  {
+    "name": "East of West",
+    "publication": "ongoing",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Восток запада. Книга 1. Обещание"
+      }
+    ],
+    "sources": [
+      "https://fantlab.ru/edition141274",
+      "https://imagecomics.com/press-releases/east-of-west-series-tops-1-5-million-copies-sold-to-be-collected-into-paperback-compendium-edition-for-february-2025"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "Найдена одна вышедшая русская книга Viverra Publishing (№1–5). Вторая анонсировалась, но её выпуск не подтверждён. Английский End Times Compendium закрывает русский том по содержанию и содержит всю основную серию №1–45.",
+    "coverage": {
+      "9781534328297": [
+        "1"
+      ]
+    }
+  },
+  {
+    "name": "Sex Criminals",
+    "publication": "ongoing",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Секс-преступники. Одна необычная способность"
+      },
+      {
+        "number": 2,
+        "part": null,
+        "title": "Секс-преступники. Два мира, один коп"
+      },
+      {
+        "number": 3,
+        "part": null,
+        "title": "Секс-преступники. Трудности на троих"
+      }
+    ],
+    "sources": [
+      "https://eksmo.ru/series/komilfo-alternativnye-komiksy-ITD4650/",
+      "https://www.simonandschuster.com/books/Sex-Criminals-The-Complete-Edition/Matt-Fraction/Sex-Criminals/9781534327412"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "Три найденные русские книги Комильфо. Имеющееся английское полное издание содержит выпуски №1–30 и №69 и закрывает все три по содержанию. Русские экземпляры отдельно не подразумеваются.",
+    "coverage": {
+      "9781534327412": [
+        "1",
+        "2",
+        "3"
+      ]
+    }
+  },
+  {
+    "name": "20th Century Boys. Perfect Edition",
+    "publication": "untranslated",
+    "volumes": [],
+    "sources": [
+      "https://www.viz.com/manga-books/manga/20th-century-boys-the-perfect-edition-volume-1/product/5630"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "Поиск по оригинальному и русским вариантам названия не выявил опубликованного книжного издания на русском. В библиотеке — английское издание. Фанатские переводы, украинские издания и импорт с переведённой карточкой магазина не считаются русским выпуском. Это результат поиска на указанную дату, а не гарантия отсутствия перевода; полнота оригинала здесь не оценивается.",
+    "coverage": {}
+  },
+  {
+    "name": "Grim",
+    "publication": "untranslated",
+    "volumes": [],
+    "sources": [
+      "https://www.penguinrandomhouse.com/books/805974/grim-book-one-deluxe-edition-by-stephanie-phillips/"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "Поиск по оригинальному и русским вариантам названия не выявил опубликованного книжного издания на русском. В библиотеке — английское издание. Фанатские переводы, украинские издания и импорт с переведённой карточкой магазина не считаются русским выпуском. Это результат поиска на указанную дату, а не гарантия отсутствия перевода; полнота оригинала здесь не оценивается.",
+    "coverage": {}
+  },
+  {
+    "name": "Once Upon a Time at the End of the World",
+    "publication": "untranslated",
+    "volumes": [],
+    "sources": [
+      "https://www.penguinrandomhouse.com/books/800752/once-upon-a-time-at-the-end-of-the-world-deluxe-edition-by-jason-aaron/9798892153829/"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "Поиск по оригинальному и русским вариантам названия не выявил опубликованного книжного издания на русском. В библиотеке — английское издание. Фанатские переводы, украинские издания и импорт с переведённой карточкой магазина не считаются русским выпуском. Это результат поиска на указанную дату, а не гарантия отсутствия перевода; полнота оригинала здесь не оценивается.",
+    "coverage": {}
+  },
+  {
+    "name": "Poison Elves",
+    "publication": "untranslated",
+    "volumes": [],
+    "sources": [
+      "https://www.comics.org/series/32336/"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "Поиск по оригинальному и русским вариантам названия не выявил опубликованного книжного издания на русском. В библиотеке — английское издание. Фанатские переводы, украинские издания и импорт с переведённой карточкой магазина не считаются русским выпуском. Это результат поиска на указанную дату, а не гарантия отсутствия перевода; полнота оригинала здесь не оценивается.",
+    "coverage": {}
+  },
+  {
+    "name": "Swing",
+    "publication": "untranslated",
+    "volumes": [],
+    "sources": [
+      "https://imagecomics.com/comics/releases/swing-vol1"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "Поиск по оригинальному и русским вариантам названия не выявил опубликованного книжного издания на русском. В библиотеке — английское издание. Фанатские переводы, украинские издания и импорт с переведённой карточкой магазина не считаются русским выпуском. Это результат поиска на указанную дату, а не гарантия отсутствия перевода; полнота оригинала здесь не оценивается.",
+    "coverage": {}
+  },
+  {
+    "name": "The Department of Truth",
+    "publication": "untranslated",
+    "volumes": [],
+    "sources": [
+      "https://www.simonandschuster.ca/books/The-Department-of-Truth-The-Complete-Conspiracy-Deluxe-Hardcover-Book-1/Martin-Simmonds/The-Department-of-Truth/9781534399723"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "Поиск по оригинальному и русским вариантам названия не выявил опубликованного книжного издания на русском. В библиотеке — английское издание. Фанатские переводы, украинские издания и импорт с переведённой карточкой магазина не считаются русским выпуском. Это результат поиска на указанную дату, а не гарантия отсутствия перевода; полнота оригинала здесь не оценивается.",
+    "coverage": {}
+  },
+  {
+    "name": "The Exterminators",
+    "publication": "untranslated",
+    "volumes": [],
+    "sources": [
+      "https://www.reedcomics.com/the-exterminators-30"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "Поиск по оригинальному и русским вариантам названия не выявил опубликованного книжного издания на русском. В библиотеке — английское издание. Фанатские переводы, украинские издания и импорт с переведённой карточкой магазина не считаются русским выпуском. Это результат поиска на указанную дату, а не гарантия отсутствия перевода; полнота оригинала здесь не оценивается.",
+    "coverage": {}
+  },
+  {
+    "name": "The Nice House on the Lake",
+    "publication": "untranslated",
+    "volumes": [],
+    "sources": [
+      "https://www.penguinrandomhouse.com/books/725742/the-nice-house-on-the-lake-the-deluxe-edition-by-james-tynion-iv/",
+      "https://vivat.com.ua/uk/product/mylyi-budynok-na-ozeri-1/"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "Поиск по оригинальному и русским вариантам названия не выявил опубликованного книжного издания на русском. В библиотеке — английское издание. Фанатские переводы, украинские издания и импорт с переведённой карточкой магазина не считаются русским выпуском. Это результат поиска на указанную дату, а не гарантия отсутствия перевода; полнота оригинала здесь не оценивается.",
+    "coverage": {}
+  },
+  {
+    "name": "Экслибриум",
+    "publication": "finished",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "...И дверь откроется"
+      },
+      {
+        "number": 2,
+        "part": null,
+        "title": "Костяной дом"
+      },
+      {
+        "number": 3,
+        "part": null,
+        "title": "Меж трёх огней"
+      },
+      {
+        "number": 4,
+        "part": null,
+        "title": "Соль на рану"
+      },
+      {
+        "number": 5,
+        "part": null,
+        "title": "Вот дом, который..."
+      },
+      {
+        "number": 6,
+        "part": null,
+        "title": "Бумажный порез"
+      },
+      {
+        "number": 7,
+        "part": null,
+        "title": "Сказочке конец"
+      },
+      {
+        "number": 8,
+        "part": null,
+        "title": "Переворот"
+      },
+      {
+        "number": 9,
+        "part": null,
+        "title": "Светлая полоса"
+      }
+    ],
+    "sources": [
+      "https://bubble.ru/category/pecatnye-komiksy/ekslibrium",
+      "https://bubble.ru/product/physical-ekslibrium-tom-1-i-dver-otkroetsia-1763",
+      "https://bubble.ru/product/physical-ekslibrium-tom-2-kostianoi-dom",
+      "https://bubble.ru/product/physical-ekslibrium-tom-3-mez-trex-ognei",
+      "https://bubble.ru/product/physical-ekslibrium-tom-4-sol-na-ranu",
+      "https://bubble.ru/product/physical-ekslibrium-tom-5-vot-dom-kotoryi",
+      "https://bubble.ru/product/physical-ekslibrium-tom-6-bumaznyi-porez",
+      "https://bubble.ru/product/physical-ekslibrium-tom-7-skazocke-konec-1470",
+      "https://bubble.ru/product/physical-ekslibrium-tom-8-perevorot",
+      "https://bubble.ru/product/physical-ekslibrium-tom-9-svetlaia-polosa"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "Основная первая серия: 9 томов, выпуски №1–50. «Жизнь вторая», предыстории и сборники «Легенды BUBBLE» считаются отдельно.",
+    "coverage": {}
+  },
+  {
+    "name": "Бесобой",
+    "publication": "finished",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Имя ему Бесобой"
+      },
+      {
+        "number": 2,
+        "part": null,
+        "title": "Лицо зверя"
+      },
+      {
+        "number": 3,
+        "part": null,
+        "title": "Три сестры"
+      },
+      {
+        "number": 4,
+        "part": null,
+        "title": "Балор"
+      },
+      {
+        "number": 5,
+        "part": null,
+        "title": "Метро"
+      },
+      {
+        "number": 6,
+        "part": null,
+        "title": "Стая"
+      },
+      {
+        "number": 7,
+        "part": null,
+        "title": "Жертвы обстоятельств"
+      },
+      {
+        "number": 8,
+        "part": null,
+        "title": "Гончие Ада"
+      },
+      {
+        "number": 9,
+        "part": null,
+        "title": "Чъреба"
+      }
+    ],
+    "sources": [
+      "https://bubble.ru/category/pecatnye-komiksy/besoboi",
+      "https://bubble.ru/product/physical-besoboi-tom-1-imia-emu-besoboi-2612",
+      "https://bubble.ru/product/physical-besoboi-tom-2-lico-zveria",
+      "https://bubble.ru/product/physical-besoboi-tom-3-tri-sestry",
+      "https://bubble.ru/product/physical-besoboi-tom-4-balor",
+      "https://bubble.ru/product/physical-besoboi-tom-5-metro",
+      "https://bubble.ru/product/physical-besoboi-tom-6-staia-1278",
+      "https://bubble.ru/product/physical-besoboi-tom-7-zertvy-obstoiatelstv",
+      "https://bubble.ru/product/physical-besoboi-tom-8-goncie-ada",
+      "https://bubble.ru/product/physical-besoboi-tom-9-ciereba"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "Первый цикл 2012–2016 годов, 9 нумерованных сборников. Второе дыхание и спецвыпуски в этот комплект не входят.",
+    "coverage": {}
+  },
+  {
+    "name": "Бесобой. Второе дыхание",
+    "publication": "finished",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Исход"
+      },
+      {
+        "number": 2,
+        "part": null,
+        "title": "Падение"
+      },
+      {
+        "number": 3,
+        "part": null,
+        "title": "Откровения"
+      },
+      {
+        "number": 4,
+        "part": null,
+        "title": "В расчёте"
+      },
+      {
+        "number": 5,
+        "part": null,
+        "title": "Воля Мёртвых"
+      },
+      {
+        "number": 6,
+        "part": null,
+        "title": "Зачистка"
+      },
+      {
+        "number": 7,
+        "part": null,
+        "title": "Бунт"
+      },
+      {
+        "number": 8,
+        "part": null,
+        "title": "Ва-банк"
+      },
+      {
+        "number": 9,
+        "part": null,
+        "title": "Смерть и Ангел"
+      },
+      {
+        "number": 10,
+        "part": null,
+        "title": "Война в Аду"
+      },
+      {
+        "number": 11,
+        "part": null,
+        "title": "Творец"
+      }
+    ],
+    "sources": [
+      "https://bubble.ru/category/pecatnye-komiksy/besoboi-vol2",
+      "https://bubble.ru/product/physical-besoboi-vol-2-tom-1-isxod",
+      "https://bubble.ru/product/physical-besoboi-vol-2-tom-2-padenie",
+      "https://bubble.ru/product/physical-besoboi-vol-2-tom-3-otkroveniia",
+      "https://bubble.ru/product/physical-besoboi-vol2-tom-4-v-rascete",
+      "https://bubble.ru/product/physical-besoboi-vol-2-tom-5-volia-mertvyx",
+      "https://bubble.ru/product/physical-besoboi-vol2-tom-6-zacistka",
+      "https://bubble.ru/product/physical-besoboi-vol2-tom-7-bunt",
+      "https://bubble.ru/product/physical-besoboi-vol2-tom-8-va-bank",
+      "https://bubble.ru/product/physical-besoboi-vol2-tom-9-smert-i-angel",
+      "https://bubble.ru/product/physical-besoboi-vol2-tom-10-voina-v-adu",
+      "https://bubble.ru/product/physical-besoboi-vol2-tom-11-tvorec"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "Второй цикл (Vol. 2), включая заключительный том 11 «Творец». Перезапуск «Бесобой 2025» — отдельная серия.",
+    "coverage": {}
+  },
+  {
+    "name": "Инок",
+    "publication": "finished",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Проданная реликвия. Часть 1"
+      },
+      {
+        "number": 2,
+        "part": null,
+        "title": "Проданная реликвия. Часть 2"
+      },
+      {
+        "number": 3,
+        "part": null,
+        "title": "Зверь во мне. Часть 1"
+      },
+      {
+        "number": 4,
+        "part": null,
+        "title": "Зверь во мне. Часть 2"
+      },
+      {
+        "number": 5,
+        "part": null,
+        "title": "Высокое напряжение"
+      },
+      {
+        "number": 6,
+        "part": null,
+        "title": "Сердце монстра"
+      },
+      {
+        "number": 7,
+        "part": null,
+        "title": "Мёртвая хватка"
+      },
+      {
+        "number": 8,
+        "part": null,
+        "title": "Путь к бессмертию"
+      }
+    ],
+    "sources": [
+      "https://bubble.ru/category/pecatnye-komiksy/inok",
+      "https://bubble.ru/product/physical-inok-tom-1-prodannaia-relikviia-cast-1-2456",
+      "https://bubble.ru/product/physical-inok-tom-2-prodannaia-relikviia-cast-2-2673",
+      "https://bubble.ru/product/physical-inok-tom-3-zver-vo-mne-cast-1",
+      "https://bubble.ru/product/physical-inok-tom-4-zver-vo-mne-cast-2",
+      "https://bubble.ru/product/physical-inok-tom-5-vysokoe-napriazenie",
+      "https://bubble.ru/product/physical-inok-tom-6-serdce-monstra",
+      "https://bubble.ru/product/physical-inok-tom-7-mertvaia-xvatka",
+      "https://bubble.ru/product/physical-inok-tom-8-put-k-bessmertiiu"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "8 нумерованных томов основной серии. «Инок против Бесобоя», «Штурм Берлина» и пародийные спецвыпуски изданы отдельно; кроссовер не сдвигает номера томов.",
+    "coverage": {}
+  },
+  {
+    "name": "Красная Фурия",
+    "publication": "finished",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "В поисках Грааля. Часть 1"
+      },
+      {
+        "number": 2,
+        "part": null,
+        "title": "В поисках грааля. Часть 2"
+      },
+      {
+        "number": 3,
+        "part": null,
+        "title": "Тёмное наследие. Часть 1"
+      },
+      {
+        "number": 4,
+        "part": null,
+        "title": "Тёмное наследие часть 2"
+      },
+      {
+        "number": 5,
+        "part": null,
+        "title": "Ничего личного, просто бизнес"
+      },
+      {
+        "number": 6,
+        "part": null,
+        "title": "Башня ворона"
+      },
+      {
+        "number": 7,
+        "part": null,
+        "title": "Майор Гром и Красная Фурия. В сердце тьмы"
+      },
+      {
+        "number": 8,
+        "part": null,
+        "title": "Агент Симмонс"
+      },
+      {
+        "number": 9,
+        "part": null,
+        "title": "Финальный рывок"
+      }
+    ],
+    "sources": [
+      "https://bubble.ru/category/pecatnye-komiksy/krasnaia-furiia",
+      "https://bubble.ru/product/physical-krasnaia-furiia-tom-1-v-poiskax-graalia-cast-1-2907",
+      "https://bubble.ru/product/physical-krasnaia-furiia-tom-2-v-poiskax-graalia-cast-2",
+      "https://bubble.ru/product/physical-krasnaia-furiia-tom-3-temnoe-nasledie-cast-1",
+      "https://bubble.ru/product/physical-krasnaia-furiia-tom-4-temnoe-nasledie-cast-2",
+      "https://bubble.ru/product/physical-krasnaia-furiia-tom-5-nicego-licnogo-prosto-biznes",
+      "https://bubble.ru/product/physical-krasnaia-furiia-tom-6-basnia-vorona",
+      "https://bubble.ru/product/physical-krasnaia-furiia-tom-9-finalnyi-ryvok",
+      "https://bubble.ru/product/physical-krasnaia-furiia-tom-8-agent-simmons",
+      "https://bubble.ru/product/physical-maior-grom-i-krasnaya-furiya-tom-7-v-serdce-tmy"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "Первый цикл: 9 томов. Том 7 — общий сборник с «Майором Громом». «Союзники» и поздние перезапуски считаются отдельно.",
+    "coverage": {}
+  },
+  {
+    "name": "Майор Гром",
+    "publication": "finished",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Чумной Доктор. Часть 1"
+      },
+      {
+        "number": 2,
+        "part": null,
+        "title": "Чумной Доктор. Часть 2"
+      },
+      {
+        "number": 3,
+        "part": null,
+        "title": "День святого Патрика"
+      },
+      {
+        "number": 4,
+        "part": null,
+        "title": "Как в сказке"
+      },
+      {
+        "number": 5,
+        "part": null,
+        "title": "Игра"
+      },
+      {
+        "number": 6,
+        "part": null,
+        "title": "Голоса"
+      },
+      {
+        "number": 7,
+        "part": null,
+        "title": "Майор Гром и Красная Фурия. В сердце тьмы"
+      },
+      {
+        "number": 8,
+        "part": null,
+        "title": "Последнее дело"
+      }
+    ],
+    "sources": [
+      "https://bubble.ru/category/pecatnye-komiksy/maior-grom",
+      "https://bubble.ru/product/physical-maior-grom-tom-1-chumnoi-doktor-chast-1",
+      "https://bubble.ru/product/physical-maior-grom-tom-2-chumnoi-doktor-chast-2",
+      "https://bubble.ru/product/physical-maior-grom-tom-3-den-svyatogo-patrika",
+      "https://bubble.ru/product/physical-maior-grom-tom-4-kak-v-skazke",
+      "https://bubble.ru/product/physical-maior-grom-tom-5-igra",
+      "https://bubble.ru/product/physical-maior-grom-tom-6-golosa",
+      "https://bubble.ru/product/physical-maior-grom-tom-8-poslednee-delo",
+      "https://bubble.ru/product/physical-maior-grom-i-krasnaya-furiya-tom-7-v-serdce-tmy"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "Первый цикл в 8 томах; том 7 — общий сборник с «Красной Фурией». «Игорь Гром» и «Майор Игорь Гром» — отдельные циклы. Учёт по печатным сборникам, частичные пересечения со сборниками «Времени Ворона» не заменяют отдельный том.",
+    "coverage": {}
+  },
+  {
+    "name": "Метеора",
+    "publication": "finished",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Самая опасная вещь в космосе"
+      },
+      {
+        "number": 2,
+        "part": null,
+        "title": "Блокада"
+      },
+      {
+        "number": 3,
+        "part": null,
+        "title": "Окончательное решение"
+      },
+      {
+        "number": 4,
+        "part": null,
+        "title": "Охота"
+      },
+      {
+        "number": 5,
+        "part": null,
+        "title": "Одной крови"
+      },
+      {
+        "number": 6,
+        "part": null,
+        "title": "Проверка пульса"
+      },
+      {
+        "number": 7,
+        "part": null,
+        "title": "Вольная птица"
+      },
+      {
+        "number": 8,
+        "part": null,
+        "title": "Король и плут"
+      },
+      {
+        "number": 9,
+        "part": null,
+        "title": "Стоп машина!"
+      }
+    ],
+    "sources": [
+      "https://bubble.ru/category/pecatnye-komiksy/meteora-15",
+      "https://bubble.ru/product/physical-meteora-tom-4-oxota",
+      "https://bubble.ru/product/physical-meteora-tom-2-blokada",
+      "https://bubble.ru/product/physical-meteora-tom-3-okoncatelnoe-resenie",
+      "https://bubble.ru/product/physical-meteora-tom-1-samaia-opasnaia-veshh-v-kosmose",
+      "https://bubble.ru/product/physical-meteora-tom-5-odnoi-krovi",
+      "https://bubble.ru/product/physical-meteora-tom-7-volnaia-ptica",
+      "https://bubble.ru/product/physical-meteora-tom-6-proverka-pulsa",
+      "https://bubble.ru/product/physical-meteora-tom-8-korol-i-plut",
+      "https://bubble.ru/product/physical-meteora-tom-9-stop-masina"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "9 томов основной завершённой серии. Отдельные истории, включая «Краденое солнце» и «Тео», не включены.",
+    "coverage": {}
+  },
+  {
+    "name": "Союзники",
+    "publication": "finished",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Перед рассветом"
+      },
+      {
+        "number": 2,
+        "part": null,
+        "title": "Условный рефлекс"
+      },
+      {
+        "number": 3,
+        "part": null,
+        "title": "Имаго"
+      },
+      {
+        "number": 4,
+        "part": null,
+        "title": "Без ума"
+      },
+      {
+        "number": 5,
+        "part": null,
+        "title": "Оборотная сторона"
+      },
+      {
+        "number": 6,
+        "part": null,
+        "title": "Работа над ошибками"
+      },
+      {
+        "number": 7,
+        "part": null,
+        "title": "Падение Голиафа"
+      },
+      {
+        "number": 8,
+        "part": null,
+        "title": "Цепная реакция"
+      }
+    ],
+    "sources": [
+      "https://bubble.ru/category/pecatnye-komiksy/soiuzniki",
+      "https://bubble.ru/product/physical-soiuzniki-tom-1-pered-rassvetom",
+      "https://bubble.ru/product/physical-soiuzniki-tom-2-uslovnyi-refleks",
+      "https://bubble.ru/product/physical-soiuzniki-tom-3-imago",
+      "https://bubble.ru/product/physical-soiuzniki-tom-4-bez-uma",
+      "https://bubble.ru/product/physical-soiuzniki-tom-5-oborotnaia-storona",
+      "https://bubble.ru/product/physical-soiuzniki-tom-6-rabota-nad-osibkami",
+      "https://bubble.ru/product/physical-soiuzniki-tom-7-padenie-goliafa",
+      "https://bubble.ru/product/physical-soiuzniki-tom-8-cepnaia-reakciia"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "Состав по 8 томам в мягком переплёте. Твёрдая книга 1 содержит тот же основной сюжет «Перед рассветом» и закрывает первый том.",
+    "coverage": {}
+  },
+  {
+    "name": "Мироходцы",
+    "publication": "finished",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Кровь богов"
+      },
+      {
+        "number": 2,
+        "part": null,
+        "title": "Луна"
+      },
+      {
+        "number": 3,
+        "part": null,
+        "title": "Лицом к лицу"
+      },
+      {
+        "number": 4,
+        "part": null,
+        "title": "Битва за Эдем"
+      }
+    ],
+    "sources": [
+      "https://bubble.ru/category/pecatnye-komiksy/miroxodcy",
+      "https://bubble.ru/product/physical-miroxodcy-tom-1-krov-bogov",
+      "https://bubble.ru/product/physical-miroxodcy-tom-2-luna",
+      "https://bubble.ru/product/physical-miroxodcy-tom-3-licom-k-licu",
+      "https://bubble.ru/product/physical-miroxodcy-tom-4-bitva-za-edem"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "Основная серия в 4 томах. Твёрдая книга 1 «Кровь богов» закрывает первый том; «Новая жизнь» — отдельный спецвыпуск.",
+    "coverage": {}
+  },
+  {
+    "name": "Пиджаки и револьверы",
+    "publication": "ongoing",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Ящик раздора"
+      },
+      {
+        "number": 2,
+        "part": null,
+        "title": "Праздник в красных тонах"
+      },
+      {
+        "number": 3,
+        "part": null,
+        "title": "Украденная магия"
+      },
+      {
+        "number": 4,
+        "part": null,
+        "title": "Кровные узы"
+      }
+    ],
+    "sources": [
+      "https://bubble.ru/category/pecatnye-komiksy/pidzaki-i-revolvery",
+      "https://bubble.ru/product/physical-pidzaki-i-revolvery-tom-1-iashhik-razdora",
+      "https://bubble.ru/product/physical-pidzaki-i-revolvery-tom-2-prazdnik-v-krasnyx-tonax-2162",
+      "https://bubble.ru/product/physical-pidzaki-i-revolvery-tom-3-ukradennaia-magiia",
+      "https://bubble.ru/product/physical-pidzaki-i-revolvery-tom-4-krovnye-uzy"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "Подтверждены 4 выпущенных печатных тома. Завершение серии издателем не заявлено.",
+    "coverage": {}
+  },
+  {
+    "name": "Время Ворона",
+    "publication": "finished",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Предыстория"
+      },
+      {
+        "number": 2,
+        "part": null,
+        "title": "Время Ворона"
+      },
+      {
+        "number": 3,
+        "part": null,
+        "title": "Эпилог"
+      }
+    ],
+    "sources": [
+      "https://bubble.ru/product/physical-vremia-vorona-predystoriia",
+      "https://bubble.ru/product/physical-vremia-vorona",
+      "https://bubble.ru/product/physical-vremia-vorona-epilog"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "Три самостоятельных сборника события. Связанные выпуски основных серий учитываются в соответствующих сериях.",
+    "coverage": {}
+  },
+  {
+    "name": "Игорь Гром",
+    "publication": "finished",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Находится на реконструкции"
+      },
+      {
+        "number": 2,
+        "part": null,
+        "title": "Голодные духи"
+      },
+      {
+        "number": 3,
+        "part": null,
+        "title": "Умный человек"
+      },
+      {
+        "number": 4,
+        "part": null,
+        "title": "Метод Локи"
+      },
+      {
+        "number": 5,
+        "part": null,
+        "title": "Повторяй за мной"
+      },
+      {
+        "number": 6,
+        "part": null,
+        "title": "Игра в солдатики"
+      },
+      {
+        "number": 7,
+        "part": null,
+        "title": "Гори-гори ясно"
+      },
+      {
+        "number": 8,
+        "part": null,
+        "title": "Вне закона"
+      },
+      {
+        "number": 9,
+        "part": null,
+        "title": "Мёртвая вода"
+      },
+      {
+        "number": 10,
+        "part": null,
+        "title": "Чужими глазами"
+      }
+    ],
+    "sources": [
+      "https://bubble.ru/category/pecatnye-komiksy/igor-grom-40",
+      "https://bubble.ru/product/digital-igor-grom-tom-10-cuzimi-glazami",
+      "https://www.labirint.ru/books/611245/"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "Состав по 10 томам основной серии. Твёрдая книга «Находится на реконструкции» закрывает начало цикла; новое «Полное издание» имеет другую нумерацию.",
+    "coverage": {}
+  },
+  {
+    "name": "Звёздный замок",
+    "publication": "ongoing",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "1869. Покорение космоса. Часть 1"
+      },
+      {
+        "number": 2,
+        "part": null,
+        "title": "1869. Покорение космоса. Часть 2"
+      },
+      {
+        "number": 3,
+        "part": null,
+        "title": "1870. Рыцари Марса"
+      },
+      {
+        "number": 4,
+        "part": null,
+        "title": "1870. Земляне на Марсе"
+      },
+      {
+        "number": 5,
+        "part": null,
+        "title": "Принцесса в Париже"
+      }
+    ],
+    "sources": [
+      "https://www.mann-ivanov-ferber.ru/catalog/product/zvezdnyij-zamok/",
+      "https://www.mann-ivanov-ferber.ru/catalog/product/zvezdnyj-zamok-princessa-v-parizhe-tom-5/",
+      "https://book24.ru/product/zvezdnyy-zamok-printsessa-v-parizhe-tom-5-5952171/"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "Учтены пять подтверждённых русских томов МИФ. Последующие тома оригинала не добавляются в список недостающего без подтверждённого русского издания.",
+    "coverage": {}
+  },
+  {
+    "name": "Хроники Сиалы",
+    "publication": "finished",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Крадущийся в тени"
+      },
+      {
+        "number": 2,
+        "part": null,
+        "title": "Джанга с тенями"
+      },
+      {
+        "number": 3,
+        "part": null,
+        "title": "Вьюга теней"
+      }
+    ],
+    "sources": [
+      "https://alpacacomics.ru/cat/artbook/719-kraduschijsja-v-teni-kollekcionnoe-izdanie.html",
+      "https://alpacacomics.ru/cat/artbook/901-dzhanga-s-tenjami-kollekcionnoe-izdanie.html",
+      "https://fantlab.ru/edition419782"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "Основная романная трилогия. Дополнительные рассказы, включая «Змейку», в комплект романов не входят.",
+    "coverage": {}
+  },
+  {
+    "name": "Диво Чудное",
+    "publication": "ongoing",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Диво Чудное. Том 1"
+      },
+      {
+        "number": 2,
+        "part": null,
+        "title": "Диво Чудное. Том 2"
+      },
+      {
+        "number": 3,
+        "part": null,
+        "title": "Диво Чудное. Том 3"
+      }
+    ],
+    "sources": [
+      "https://eksmo.ru/book/divo-chudnoe-tom-1-ITD958050/",
+      "https://eksmo.ru/book/divo-chudnoe-tom-2-ITD1093903/",
+      "https://amok.shop/product/divo-chudnoe-tom-3-exclusive-author-autograph"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "Третий том вышел в 2026 году (ISBN 9785042480126). Считаются тома энциклопедии «Диво Чудное», а не все книги вселенной «Сказки Старой Руси».",
+    "coverage": {}
+  },
+  {
+    "name": "Сказки (Артём Горчаков)",
+    "publication": "ongoing",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Сказки. Выпуск 1"
+      },
+      {
+        "number": 2,
+        "part": null,
+        "title": "Мордан. Выпуск 2"
+      },
+      {
+        "number": 3,
+        "part": null,
+        "title": "Сказки. Выпуск 3"
+      },
+      {
+        "number": 4,
+        "part": null,
+        "title": "Сказки. Выпуск 4"
+      }
+    ],
+    "sources": [
+      "https://fantlab.ru/publisher7130",
+      "https://www.labirint.ru/books/589006/"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "Подтверждены четыре русскоязычных выпуска Khan Comics. Переиздания тех же выпусков отдельно не считаются.",
+    "coverage": {}
+  },
+  {
+    "name": "Семь сыновей",
+    "publication": "ongoing",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Джайкарн. Глава первая"
+      }
+    ],
+    "sources": [
+      "https://www.1c-interes.ru/catalog/knigi/komiks_dzhaykarn_sem_synovey_glava_1/",
+      "https://www.livelib.ru/book/1002888682-sem-synovej-dzhajkarn-glava-pervaya-anastasiya-kim"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "Подтверждена одна печатная книга. Интернет-публикация отдельных страниц продолжения не считается выпущенным томом; завершение истории не подтверждено.",
+    "coverage": {}
+  },
+  {
+    "name": "Цезарь Великолепный",
+    "publication": "ongoing",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "С неба на землю"
+      }
+    ],
+    "sources": [
+      "https://www.labirint.ru/books/561030/",
+      "https://fantlab.ru/work776459"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "Подтверждён один печатный сборник, включающий три главы. Отдельные главы не считаются дополнительными томами; завершение истории не подтверждено.",
+    "coverage": {}
+  },
+  {
+    "name": "Сестра",
+    "publication": "ongoing",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Кукки"
+      }
+    ],
+    "sources": [
+      "https://bubble.ru/product/physical-sestra-kukki-1270",
+      "https://edgecomics.ru/product/legendy-bubble"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "Подтверждён один печатный сборник «Кукки» (2023). Одноимённый сингл 2019 года входит в историю и не считается отдельным томом.",
+    "coverage": {}
+  },
+  {
+    "name": "Тагар",
+    "publication": "finished",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Том 1"
+      },
+      {
+        "number": 2,
+        "part": null,
+        "title": "Том 2"
+      },
+      {
+        "number": 3,
+        "part": null,
+        "title": "Том 3"
+      },
+      {
+        "number": 4,
+        "part": null,
+        "title": "Том 4"
+      },
+      {
+        "number": 5,
+        "part": null,
+        "title": "Том 5"
+      },
+      {
+        "number": 6,
+        "part": null,
+        "title": "Том 6"
+      }
+    ],
+    "sources": [
+      "https://bubble.ru/category/pecatnye-komiksy/tagar",
+      "https://bubble.ru/product/physical-tagar-tom-1",
+      "https://bubble.ru/product/physical-tagar-tom-2-2448",
+      "https://bubble.ru/product/physical-tagar-tom-3",
+      "https://bubble.ru/product/physical-tagar-tom-4-2192",
+      "https://bubble.ru/product/physical-tagar-tom-5",
+      "https://bubble.ru/product/physical-tagar-tom-6"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "Завершённая серия из шести печатных томов. Том 5 вышел в 2022 году, заключительный том 6 — в 2025 году; прежний справочник из четырёх томов был неполным.",
+    "coverage": {}
+  },
+  {
+    "name": "Джек Сумасшедший король",
+    "publication": "finished",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Джек Сумасшедший король"
+      },
+      {
+        "number": 2,
+        "part": null,
+        "title": "Джек и тайна древнего замка"
+      },
+      {
+        "number": 3,
+        "part": null,
+        "title": "Джек на Востоке"
+      }
+    ],
+    "sources": [
+      "https://alpacacomics.ru/cat/artbook/778-dzhek-sumasshedshij-korol.html",
+      "https://fantlab.ru/edition449040",
+      "https://search.rsl.ru/ru/record/01000726537"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "Коллекционное издание Alpaca ISBN 9785002420483 содержит всю трилогию в одном томе.",
+    "coverage": {
+      "9785002420483": [
+        "1",
+        "2",
+        "3"
+      ]
+    }
+  },
+  {
+    "name": "Легендарные Кайфоломы",
+    "publication": "ongoing",
+    "volumes": [
+      {
+        "number": 1,
+        "part": null,
+        "title": "Легендарные Кайфоломы и их реальная жизнь"
+      },
+      {
+        "number": 2,
+        "part": null,
+        "title": "Национальный гимн"
+      }
+    ],
+    "sources": [
+      "https://www.labirint.ru/books/451323/",
+      "https://shop.garagemca.org/ru/books/comics-and-graphic-novels/40242.html",
+      "https://eksmo.ru/book/komplekt-iz-5-komiksov-komilfo-v-myagkoy-oblozhke-ITD1429729/"
+    ],
+    "checkedAt": "2026-09-29",
+    "note": "Подтверждены два самостоятельных русских сборника. «Национальный гимн» вышел в печати у Комильфо (ISBN 9785041653859); переиздания первого сборника с подзаголовком «Калифорния» не считаются третьей книгой.",
+    "coverage": {}
+  }
+]

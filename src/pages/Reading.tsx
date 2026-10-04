@@ -54,7 +54,7 @@ export function Reading() {
       </header>
 
       <main className="page">
-        <div className="drawer">
+        <div className="drawer reading-board">
           {isLoading && <p style={{ padding: '24px 0', color: 'var(--ink-soft)' }}>Достаём из ящика…</p>}
 
           {data && data.now.length === 0 && order.length === 0 && data.done.length === 0 && (
@@ -64,7 +64,7 @@ export function Reading() {
           )}
 
           {data && data.now.length > 0 && (
-            <>
+            <section className="reading-section">
               <div className="drawer-tab">
                 <span>Сейчас читаю</span>
                 <hr />
@@ -85,11 +85,11 @@ export function Reading() {
                   </div>
                 </button>
               ))}
-            </>
+            </section>
           )}
 
           {order.length > 0 && (
-            <>
+            <section className="reading-section">
               <div className="drawer-tab">
                 <span>Дальше · порядок можно менять</span>
                 <hr />
@@ -137,11 +137,11 @@ export function Reading() {
                   </span>
                 </div>
               ))}
-            </>
+            </section>
           )}
 
           {data && data.done.length > 0 && (
-            <>
+            <section className="reading-section">
               <div className="drawer-tab">
                 <span>Прочитано</span>
                 <hr />
@@ -159,7 +159,7 @@ export function Reading() {
                   </div>
                 </button>
               ))}
-            </>
+            </section>
           )}
         </div>
       </main>

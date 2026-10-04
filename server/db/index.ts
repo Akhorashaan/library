@@ -80,9 +80,11 @@ export function initSchema() {
   `);
 
   // Существующие записи сохраняются; FTS является производным индексом.
+  sqlite.exec('CREATE TABLE IF NOT EXISTS series_references (name TEXT PRIMARY KEY, payload TEXT NOT NULL)');
+  sqlite.exec('CREATE TABLE IF NOT EXISTS series_preferences (name TEXT PRIMARY KEY, following INTEGER NOT NULL DEFAULT 1 CHECK (following IN (0, 1)))');
   sqlite.transaction(() => {
     const columns = new Set((sqlite.pragma('table_info(books)') as { name: string }[]).map((c) => c.name));
-    for (const [name, type] of Object.entries({ series: 'TEXT', series_order: 'INTEGER', series_end: 'INTEGER', tags: "TEXT NOT NULL DEFAULT '[]'" })) {
+    for (const [name, type] of Object.entries({ series: 'TEXT', series_order: 'INTEGER', series_end: 'INTEGER', series_part: 'INTEGER', tags: "TEXT NOT NULL DEFAULT '[]'" })) {
       if (!columns.has(name)) sqlite.exec(`ALTER TABLE books ADD COLUMN ${name} ${type}`);
     }
     if (Number(sqlite.pragma('user_version', { simple: true })) < 1) {

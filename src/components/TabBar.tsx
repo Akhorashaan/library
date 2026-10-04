@@ -12,6 +12,7 @@ export function TabBar() {
 
   return (
     <nav className="tabbar">
+      <div className="nav-brand"><b>Картотека</b><span>Домашняя библиотека</span></div>
       <NavLink to="/" data-on={pathname === '/' || pathname.startsWith('/book') ? '' : undefined}>
         {Icons.catalog}
         <span>Каталог</span>
@@ -20,6 +21,11 @@ export function TabBar() {
       <NavLink to="/reading" data-on={pathname === '/reading' ? '' : undefined}>
         {Icons.list}
         <span>Список</span>
+      </NavLink>
+
+      <NavLink to="/series" data-on={pathname === '/series' ? '' : undefined}>
+        {Icons.catalog}
+        <span>Серии</span>
       </NavLink>
 
       <NavLink to="/scan" className="scan">

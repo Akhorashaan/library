@@ -32,10 +32,10 @@ export function BookCard({ book }: { book: Book }) {
         </div>
       </div>
 
-      <div className="right">
+      {(book.lentTo || book.status !== 'none') && <div className="right">
         {book.lentTo && <LentStamp to={book.lentTo} mini />}
         <Stamp status={book.status} date={book.finishedAt} mini />
-      </div>
+      </div>}
     </button>
   );
 }

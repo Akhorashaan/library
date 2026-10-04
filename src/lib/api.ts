@@ -1,4 +1,5 @@
 import type { BookInput, BookPatch, BookQuery, LookupResult, ReadingStatus, Stats, Unresolved } from '@shared/schema';
+import type { SeriesEntry, SeriesPreference, SeriesReference } from '@shared/series';
 
 export type Book = {
   id: number;
@@ -13,6 +14,7 @@ export type Book = {
   series: string | null;
   seriesOrder: number | null;
   seriesEnd: number | null;
+  seriesPart: number | null;
   tags: string[];
   annotation: string | null;
   coverUrl: string | null;
@@ -57,6 +59,9 @@ async function call<T>(path: string, init?: RequestInit): Promise<T> {
 }
 
 export const api = {
+  series: () => call<SeriesEntry[]>('/series'),
+  followSeries: (input: SeriesPreference) => call<SeriesPreference>('/series/preference', { method: 'PUT', body: JSON.stringify(input) }),
+  saveSeries: (input: SeriesReference) => call<SeriesReference>('/series/reference', { method: 'PUT', body: JSON.stringify(input) }),
   books: (params: Filters & { q?: string } = {}) => {
     const sp = new URLSearchParams();
     if (params.q?.trim()) sp.set('q', params.q.trim());

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate, useParams } from 'react-router';
+import { Link, useNavigate, useParams } from 'react-router';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import type { BookPatch, ReadingStatus } from '@shared/schema';
 import { api, type Book } from '@/lib/api';
@@ -72,7 +72,7 @@ export function BookPage() {
         </button>
       </header>
 
-      <main className="page">
+      <main className="page book-page">
         <div className="book-hero">
           <Cover title={book.title} authors={book.authors} src={book.coverUrl} />
           <div style={{ flex: 1, minWidth: 0 }}>
@@ -85,10 +85,11 @@ export function BookPage() {
           </div>
         </div>
 
-        <div style={{ padding: '0 16px 40px' }}>
+        <div className="book-content">
           <OrganizationEditor key={book.id} book={book} />
+          {book.series && <Link className="series-book-link" to={`/series?name=${encodeURIComponent(book.series)}`}>Собрана ли серия «{book.series}»? →</Link>}
           {confirmDelete && (
-            <div className="ledger" style={{ borderColor: 'var(--stamp)' }}>
+            <div className="ledger book-delete" style={{ borderColor: 'var(--stamp)' }}>
               <h3 style={{ color: 'var(--stamp)' }}>Убрать из каталога?</h3>
               <p style={{ fontFamily: 'var(--font-serif)', fontSize: 14, color: 'var(--ink-soft)', marginBottom: 12 }}>
                 Запись, заметки и отметки о чтении исчезнут. Сама книга, разумеется, останется на полке.
@@ -200,7 +201,7 @@ export function BookPage() {
           </div>
 
           {book.annotation && (
-            <div className="ledger">
+            <div className="ledger book-description">
               <h3>О книге</h3>
               <p className="note" style={{ fontStyle: 'normal' }}>{book.annotation}</p>
             </div>
@@ -243,7 +244,7 @@ function SourceCredits({ raw }: { raw: string }) {
   if (!by.size) return null;
 
   return (
-    <p style={{ fontFamily: 'var(--font-mono)', fontSize: 9.5, color: 'var(--ink-faint)', marginTop: 16, lineHeight: 1.8, letterSpacing: '.04em' }}>
+    <p className="source-credits" style={{ fontFamily: 'var(--font-mono)', fontSize: 9.5, color: 'var(--ink-faint)', marginTop: 16, lineHeight: 1.8, letterSpacing: '.04em' }}>
       {[...by.entries()].map(([src, fields]) => (
         <span key={src} style={{ display: 'block' }}>
           {NAMES[src] ?? src} → {fields.join(', ')}

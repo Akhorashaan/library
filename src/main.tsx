@@ -10,6 +10,7 @@ import { Reading } from './pages/Reading';
 import { BookPage } from './pages/BookPage';
 import { Scan } from './pages/Scan';
 import { Unresolved } from './pages/Unresolved';
+import { Series } from './pages/Series';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -33,6 +34,7 @@ createRoot(document.getElementById('root')!).render(
             <Routes>
               <Route path="/" element={<Catalog />} />
               <Route path="/reading" element={<Reading />} />
+              <Route path="/series" element={<Series />} />
               <Route path="/book/:id" element={<BookPage />} />
               <Route path="/scan" element={<Scan />} />
               <Route path="/unresolved" element={<Unresolved />} />

@@ -76,7 +76,8 @@ export function Catalog() {
         </button>
       </header>
 
-      <div style={{ padding: '12px 16px 0' }}>
+      <div className="catalog-controls">
+      <div className="catalog-search">
         <div className="search">
           {Icons.search}
           <input
@@ -127,6 +128,7 @@ export function Catalog() {
             </option>
           ))}
         </select>
+      </div>
       </div>
 
       {panelOpen && stats.data && (

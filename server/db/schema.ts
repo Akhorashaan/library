@@ -19,6 +19,7 @@ export const books = sqliteTable(
     series: text('series'),
     seriesOrder: integer('series_order'),
     seriesEnd: integer('series_end'),
+    seriesPart: integer('series_part'),
     tags: text('tags', { mode: 'json' }).$type<string[]>().notNull().default([]),
     annotation: text('annotation'),
     /** Локальный путь вида /covers/9785…jpg — на чужой CDN не ссылаемся. */
@@ -104,5 +105,9 @@ export const lookupCache = sqliteTable('lookup_cache', {
 });
 
 export type BookRow = typeof books.$inferSelect;
+export const seriesPreferences = sqliteTable('series_preferences', {
+  name: text('name').primaryKey(),
+  following: integer('following', { mode: 'boolean' }).notNull().default(true),
+});
 export type CopyRow = typeof copies.$inferSelect;
 export type ReadingRow = typeof reading.$inferSelect;

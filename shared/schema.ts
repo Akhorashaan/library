@@ -48,6 +48,7 @@ export const bookInput = z.object({
   series: z.string().trim().max(160).transform((s) => s || null).nullable().optional(),
   seriesOrder: z.number().int().positive().nullable().optional(),
   seriesEnd: z.number().int().positive().nullable().optional(),
+  seriesPart: z.number().int().min(1).max(1000).nullable().optional(),
   tags: z.array(tagName).max(30).transform((tags) => [...new Set(tags)]).optional(),
   annotation: z.string().nullable().optional(),
   coverUrl: z.string().nullable().optional(),
@@ -62,7 +63,8 @@ export const bookInput = z.object({
 });
 export type BookInput = z.infer<typeof bookInput>;
 
-export const bookPatch = bookInput.partial();
+// Creation defaults must not overwrite omitted fields during a partial edit.
+export const bookPatch = bookInput.partial().extend({ authors: z.string().optional(), status: ReadingStatus.optional() });
 export type BookPatch = z.infer<typeof bookPatch>;
 
 export const book = bookInput.extend({
