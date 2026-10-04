@@ -1,7 +1,9 @@
 import { z } from 'zod';
+import { isbnSchema } from './schema.js';
 
 /** A reading journal entry for a book that is not in the home library. */
 export const externalReadingInput = z.object({
+  isbn: z.preprocess(value => typeof value === 'string' && !value.trim() ? null : value, isbnSchema.nullable().optional()),
   title: z.string().trim().min(1, 'Укажите название книги').max(500),
   authors: z.string().trim().max(500).default(''),
   finishedAt: z.iso.date().nullable(),

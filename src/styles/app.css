@@ -791,6 +791,10 @@ button:focus-visible, summary:focus-visible, a:focus-visible { outline: 2px soli
 .reading-external-label { font-size: 11px; color: var(--stamp); margin-top: 5px; }
 .reading-note { color: var(--ink-soft); font-size: 13px; margin-top: 6px; white-space: pre-wrap; overflow-wrap: anywhere; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .reading-history .q-item { text-align: left; }
+.reading-isbn-row { display: flex; flex-wrap: wrap; gap: 10px; }
+.reading-isbn-row .input { flex: 1 1 180px; min-width: 0; }
+.reading-lookup-status { color: var(--ink-soft); font-size: 13px; margin-top: 8px; }
+.reading-lookup-status a { color: var(--stamp-ink); text-decoration: underline; }
 @media (min-width: 900px) {
   .reading-toolbar { margin: 24px 32px; }
   .external-reading-form { margin-left: 32px; margin-right: 32px; }

@@ -115,6 +115,7 @@ export type ReadingRow = typeof reading.$inferSelect;
 /** Journal entries do not create catalogue books or physical copies. */
 export const externalReading = sqliteTable('external_reading', {
   id: integer('id').primaryKey({ autoIncrement: true }),
+  isbn: text('isbn'),
   title: text('title').notNull(),
   authors: text('authors').notNull().default(''),
   finishedAt: text('finished_at'),

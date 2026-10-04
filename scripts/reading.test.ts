@@ -13,7 +13,19 @@ test('external reading survives migration, supports edits and stays out of the l
   const { registerRoutes } = await import('../server/routes.js');
   const app = Fastify();
   try {
+    // Upgrade the previously deployed journal, including entries without ISBN.
+    sqlite.exec(`CREATE TABLE external_reading (
+      id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT NOT NULL,
+      authors TEXT NOT NULL DEFAULT '', finished_at TEXT,
+      note TEXT NOT NULL DEFAULT '', created_at TEXT NOT NULL
+    ); INSERT INTO external_reading (title, authors, finished_at, note, created_at)
+      VALUES ('Старая запись', 'Автор', '2000-01-01', 'Сохранить заметку', '2000-01-02');`);
+    const legacy = sqlite.prepare('SELECT * FROM external_reading').get();
     initSchema();
+    assert.deepEqual(sqlite.prepare('SELECT * FROM external_reading').get(), { ...legacy, isbn: null });
+    initSchema();
+    assert.deepEqual(sqlite.prepare('SELECT * FROM external_reading').get(), { ...legacy, isbn: null });
+    sqlite.prepare('DELETE FROM external_reading').run();
     await registerRoutes(app);
     const library = await app.inject({ method: 'POST', url: '/api/books', payload: { title: 'На полке', status: 'read' } });
     assert.equal(library.statusCode, 201);
@@ -32,6 +44,31 @@ test('external reading survives migration, supports edits and stays out of the l
     initSchema();
     assert.deepEqual((await app.inject('/api/queue')).json().externalDone, [entry]);
     assert.equal((await app.inject('/api/queue')).json().done[0].id, library.json().id);
+
+    const isbn = '9785389074354';
+    const metadata = { isbn, found: true, title: 'Найденная книга', authors: 'Автор', publisher: null,
+      year: null, pages: null, binding: null, genre: null, annotation: null, coverUrl: null, sources: {}, tookMs: 0 };
+    sqlite.prepare('INSERT INTO lookup_cache (isbn, payload, fetched_at) VALUES (?, ?, ?)').run(isbn, JSON.stringify(metadata), new Date().toISOString());
+    const found = await app.inject(`/api/lookup/${isbn}`);
+    assert.equal(found.statusCode, 200);
+    assert.equal(found.json().title, metadata.title);
+    assert.equal(found.json().alreadyInLibrary, null);
+    const byIsbn = await app.inject({ method: 'PUT', url: `/api/reading/external/${entry.id}`, payload: { ...payload, title: found.json().title, authors: found.json().authors, isbn: '978-5-389-07435-4' } });
+    assert.equal(byIsbn.statusCode, 200, byIsbn.body);
+    assert.equal(byIsbn.json().isbn, isbn);
+    initSchema();
+    assert.equal((await app.inject('/api/queue')).json().externalDone[0].isbn, isbn);
+    assert.equal((await app.inject('/api/books')).json().length, 1);
+    const invalidIsbn = await app.inject({ method: 'POST', url: '/api/reading/external', payload: { ...payload, isbn: '123' } });
+    assert.equal(invalidIsbn.statusCode, 400);
+    const cleared = await app.inject({ method: 'PUT', url: `/api/reading/external/${entry.id}`, payload: { ...payload, isbn: '' } });
+    assert.equal(cleared.statusCode, 200);
+    assert.equal(cleared.json().isbn, null);
+    const isbn10 = await app.inject({ method: 'PUT', url: `/api/reading/external/${entry.id}`, payload: { ...payload, isbn: '0-8044-2957-x' } });
+    assert.equal(isbn10.statusCode, 200);
+    assert.equal(isbn10.json().isbn, '080442957X');
+    sqlite.prepare('UPDATE lookup_cache SET payload = ? WHERE isbn = ?').run(JSON.stringify({ ...metadata, found: false, title: null, authors: null }), isbn);
+    assert.equal((await app.inject(`/api/lookup/${isbn}`)).json().found, false);
 
     for (const patch of [{ title: '   ' }, { finishedAt: '2025-02-29' }, { finishedAt: 'yesterday' }, { note: 'x'.repeat(10001) }]) {
       const invalid = await app.inject({ method: 'POST', url: '/api/reading/external', payload: { ...payload, ...patch } });

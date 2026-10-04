@@ -90,8 +90,8 @@ export const api = {
 
   remove: (id: number) => call<{ ok: true }>(`/books/${id}`, { method: 'DELETE' }),
 
-  lookup: (isbn: string, fresh = false) =>
-    call<LookupResult>(`/lookup/${isbn}${fresh ? '?fresh=1' : ''}`),
+  lookup: (isbn: string, fresh = false, signal?: AbortSignal) =>
+    call<LookupResult>(`/lookup/${isbn}${fresh ? '?fresh=1' : ''}`, { signal }),
 
   queue: () => call<{ now: Book[]; queue: Book[]; done: Book[]; externalDone: ExternalReading[] }>('/queue'),
 

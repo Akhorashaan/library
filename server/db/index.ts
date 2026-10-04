@@ -92,6 +92,10 @@ export function initSchema() {
   sqlite.exec('CREATE TABLE IF NOT EXISTS series_references (name TEXT PRIMARY KEY, payload TEXT NOT NULL)');
   sqlite.exec('CREATE TABLE IF NOT EXISTS series_preferences (name TEXT PRIMARY KEY, following INTEGER NOT NULL DEFAULT 1 CHECK (following IN (0, 1)))');
   sqlite.transaction(() => {
+    const readingColumns = sqlite.pragma('table_info(external_reading)') as { name: string }[];
+    if (!readingColumns.some(column => column.name === 'isbn')) {
+      sqlite.exec('ALTER TABLE external_reading ADD COLUMN isbn TEXT');
+    }
     const columns = new Set((sqlite.pragma('table_info(books)') as { name: string }[]).map((c) => c.name));
     for (const [name, type] of Object.entries({ series: 'TEXT', series_order: 'INTEGER', series_end: 'INTEGER', series_part: 'INTEGER', tags: "TEXT NOT NULL DEFAULT '[]'" })) {
       if (!columns.has(name)) sqlite.exec(`ALTER TABLE books ADD COLUMN ${name} ${type}`);

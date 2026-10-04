@@ -21,7 +21,7 @@ export function Reading() {
   ].sort((a, b) => (b.finishedAt ?? '').localeCompare(a.finishedAt ?? '') || b.id - a.id);
   const years = [...new Set(done.flatMap(b => b.finishedAt ? [b.finishedAt.slice(0, 4)] : []))].sort().reverse();
   const shown = done.filter(b => (!year || b.finishedAt?.startsWith(year))
-    && `${b.title} ${b.authors}`.toLocaleLowerCase('ru').includes(search.trim().toLocaleLowerCase('ru')));
+    && `${b.title} ${b.authors} ${b.isbn ?? ''}`.toLocaleLowerCase('ru').includes(search.trim().toLocaleLowerCase('ru')));
 
   // Локальная копия очереди: перетаскивание должно откликаться мгновенно,
   // сервер узнаёт о новом порядке после того, как палец отпустили.
@@ -166,7 +166,7 @@ export function Reading() {
                 <hr />
               </div>
               <div className="reading-filters">
-                <input className="input" type="search" aria-label="Поиск в прочитанном" placeholder="Название или автор…" value={search} onChange={e => setSearch(e.target.value)} />
+                <input className="input" type="search" aria-label="Поиск в прочитанном" placeholder="Название, автор или ISBN…" value={search} onChange={e => setSearch(e.target.value)} />
                 <select className="input" aria-label="Год прочтения" value={year} onChange={e => setYear(e.target.value)}><option value="">Все годы</option>{years.map(y => <option key={y} value={y}>{y}</option>)}</select>
               </div>
               {!shown.length && <Empty title="Ничего не найдено"><button className="btn btn--quiet" onClick={() => { setYear(''); setSearch(''); }}>Сбросить фильтры</button></Empty>}
