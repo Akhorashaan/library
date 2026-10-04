@@ -111,3 +111,13 @@ export const seriesPreferences = sqliteTable('series_preferences', {
 });
 export type CopyRow = typeof copies.$inferSelect;
 export type ReadingRow = typeof reading.$inferSelect;
+
+/** Journal entries do not create catalogue books or physical copies. */
+export const externalReading = sqliteTable('external_reading', {
+  id: integer('id').primaryKey({ autoIncrement: true }),
+  title: text('title').notNull(),
+  authors: text('authors').notNull().default(''),
+  finishedAt: text('finished_at'),
+  note: text('note').notNull().default(''),
+  createdAt: text('created_at').notNull(),
+});

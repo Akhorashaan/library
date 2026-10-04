@@ -1,5 +1,6 @@
 import type { BookInput, BookPatch, BookQuery, LookupResult, ReadingStatus, Stats, Unresolved } from '@shared/schema';
 import type { SeriesEntry, SeriesPreference, SeriesReference } from '@shared/series';
+import type { ExternalReading, ExternalReadingInput } from '@shared/external-reading';
 
 export type Book = {
   id: number;
@@ -92,7 +93,14 @@ export const api = {
   lookup: (isbn: string, fresh = false) =>
     call<LookupResult>(`/lookup/${isbn}${fresh ? '?fresh=1' : ''}`),
 
-  queue: () => call<{ now: Book[]; queue: Book[]; done: Book[] }>('/queue'),
+  queue: () => call<{ now: Book[]; queue: Book[]; done: Book[]; externalDone: ExternalReading[] }>('/queue'),
+
+  createExternalReading: (input: ExternalReadingInput) =>
+    call<ExternalReading>('/reading/external', { method: 'POST', body: JSON.stringify(input) }),
+  updateExternalReading: (id: number, input: ExternalReadingInput) =>
+    call<ExternalReading>(`/reading/external/${id}`, { method: 'PUT', body: JSON.stringify(input) }),
+  removeExternalReading: (id: number) =>
+    call<{ ok: true }>(`/reading/external/${id}`, { method: 'DELETE' }),
 
   reorder: (ids: number[]) =>
     call<{ ok: true }>('/queue/reorder', { method: 'POST', body: JSON.stringify({ ids }) }),

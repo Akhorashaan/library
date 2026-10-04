@@ -8,6 +8,7 @@ import { shelfmark, sortKey } from './metadata/normalize.js';
 import { fetchCover } from './covers.js';
 import { authorFacets, authorSearchAlternatives, matchesAuthor, normalizeAuthors } from '../shared/authors.js';
 import { registerSeriesRoutes } from './series.js';
+import { listExternalReading, registerExternalReadingRoutes } from './external-reading.js';
 
 /**
  * Снаружи книга — один плоский объект. Три таблицы внутри нужны, чтобы
@@ -82,6 +83,7 @@ const ORDER_BY: Record<string, string> = {
 
 export async function registerRoutes(app: FastifyInstance) {
   await registerSeriesRoutes(app);
+  await registerExternalReadingRoutes(app);
   /* ───────────────────────────── каталог ───────────────────────────── */
 
   app.get('/api/books', async (req, reply) => {
@@ -337,12 +339,12 @@ export async function registerRoutes(app: FastifyInstance) {
       .from(reading)
       .where(eq(reading.status, 'read'))
       .orderBy(desc(reading.finishedAt))
-      .limit(12)
       .all();
     return {
       now: loadBooks(now.map((r) => r.id)),
       queue: loadBooks(rows.map((r) => r.id)),
       done: loadBooks(done.map((r) => r.id)),
+      externalDone: listExternalReading(),
     };
   });
 
@@ -442,7 +444,8 @@ export async function registerRoutes(app: FastifyInstance) {
           WHERE coalesce(r.status,'none') = 'none'`
       ),
       lent: one("SELECT count(*) n FROM copies WHERE lent_to IS NOT NULL AND lent_to <> ''"),
-      readThisYear: one("SELECT count(*) n FROM reading WHERE status='read' AND finished_at LIKE ?", `${year}%`),
+      readThisYear: one("SELECT count(*) n FROM reading WHERE status='read' AND finished_at LIKE ?", `${year}%`)
+        + one('SELECT count(*) n FROM external_reading WHERE finished_at LIKE ?', `${year}%`),
       unresolved: one('SELECT count(*) n FROM unresolved'),
       genres: facet('genre'),
       authors: authorFacets(sqlite.prepare('SELECT authors FROM books').all() as { authors: string }[]),

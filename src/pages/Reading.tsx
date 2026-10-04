@@ -4,12 +4,24 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { api, type Book } from '@/lib/api';
 import { Cover } from '@/components/Cover';
 import { Empty, LentStamp, Progress, shortDate } from '@/components/ui';
+import { ExternalReadingForm } from '@/components/ExternalReadingForm';
+import type { ExternalReading } from '@shared/external-reading';
 
 export function Reading() {
   const qc = useQueryClient();
   const navigate = useNavigate();
 
-  const { data, isLoading } = useQuery({ queryKey: ['queue'], queryFn: api.queue });
+  const { data, isLoading, error, refetch } = useQuery({ queryKey: ['queue'], queryFn: api.queue });
+  const [editing, setEditing] = useState<ExternalReading | null | undefined>(undefined);
+  const [search, setSearch] = useState('');
+  const [year, setYear] = useState('');
+  const done = [
+    ...(data?.done ?? []).map(book => ({ ...book, kind: 'library' as const })),
+    ...(data?.externalDone ?? []).map(book => ({ ...book, coverUrl: null, kind: 'external' as const })),
+  ].sort((a, b) => (b.finishedAt ?? '').localeCompare(a.finishedAt ?? '') || b.id - a.id);
+  const years = [...new Set(done.flatMap(b => b.finishedAt ? [b.finishedAt.slice(0, 4)] : []))].sort().reverse();
+  const shown = done.filter(b => (!year || b.finishedAt?.startsWith(year))
+    && `${b.title} ${b.authors}`.toLocaleLowerCase('ru').includes(search.trim().toLocaleLowerCase('ru')));
 
   // Локальная копия очереди: перетаскивание должно откликаться мгновенно,
   // сервер узнаёт о новом порядке после того, как палец отпустили.
@@ -54,12 +66,19 @@ export function Reading() {
       </header>
 
       <main className="page">
+        <div className="reading-actions reading-toolbar">
+          <button className="btn btn--primary" onClick={() => setEditing(null)}>Добавить прочитанную</button>
+          <button className="btn btn--ghost" onClick={() => navigate('/')}>Выбрать из библиотеки</button>
+        </div>
+        {editing !== undefined && <ExternalReadingForm key={editing?.id ?? 'new'} entry={editing} onClose={() => setEditing(undefined)} />}
         <div className="drawer reading-board">
           {isLoading && <p style={{ padding: '24px 0', color: 'var(--ink-soft)' }}>Достаём из ящика…</p>}
+          {error && <Empty title="Не удалось загрузить список">{error.message}<button className="btn btn--quiet" onClick={() => refetch()}>Повторить</button></Empty>}
+          {reorder.isError && <p role="alert">Не удалось сохранить порядок. Попробуйте ещё раз.</p>}
 
-          {data && data.now.length === 0 && order.length === 0 && data.done.length === 0 && (
+          {data && data.now.length === 0 && order.length === 0 && done.length === 0 && (
             <Empty title="Список пуст">
-              Откройте книгу в каталоге и поставьте «Читаю» или «В очередь» — она появится здесь.
+              Откройте книгу в каталоге и поставьте «Читаю» или «В очередь». Прочитанные книги вне библиотеки добавляйте кнопкой «Добавить прочитанную».
             </Empty>
           )}
 
@@ -140,22 +159,29 @@ export function Reading() {
             </section>
           )}
 
-          {data && data.done.length > 0 && (
-            <section className="reading-section">
+          {data && done.length > 0 && (
+            <section className="reading-section reading-history">
               <div className="drawer-tab">
-                <span>Прочитано</span>
+                <span>Прочитано · {done.length}</span>
                 <hr />
               </div>
-              {data.done.map((b) => (
-                <button key={b.id} className="q-item" onClick={() => navigate(`/book/${b.id}`)}>
+              <div className="reading-filters">
+                <input className="input" type="search" aria-label="Поиск в прочитанном" placeholder="Название или автор…" value={search} onChange={e => setSearch(e.target.value)} />
+                <select className="input" aria-label="Год прочтения" value={year} onChange={e => setYear(e.target.value)}><option value="">Все годы</option>{years.map(y => <option key={y} value={y}>{y}</option>)}</select>
+              </div>
+              {!shown.length && <Empty title="Ничего не найдено"><button className="btn btn--quiet" onClick={() => { setYear(''); setSearch(''); }}>Сбросить фильтры</button></Empty>}
+              {shown.map((b) => (
+                <button key={`${b.kind}-${b.id}`} className="q-item" onClick={() => b.kind === 'external' ? setEditing(b) : navigate(`/book/${b.id}`)}>
                   <span className="n" style={{ color: 'var(--stamp)' }}>✓</span>
                   <Cover title={b.title} authors={b.authors} src={b.coverUrl} />
                   <div style={{ flex: 1, minWidth: 0 }}>
                     <div className="bt">{b.title}</div>
                     <div className="ba">
                       {b.authors}
-                      {b.finishedAt && ` · ${shortDate(b.finishedAt)}`}
+                      {b.finishedAt && ` · ${shortDate(b.kind === 'external' ? `${b.finishedAt}T12:00:00` : b.finishedAt)}`}
                     </div>
+                    {b.kind === 'external' && <div className="reading-external-label">Вне библиотеки · изменить</div>}
+                    {b.note && <div className="reading-note">{b.note}</div>}
                   </div>
                 </button>
               ))}

@@ -62,6 +62,15 @@ export function initSchema() {
     CREATE INDEX IF NOT EXISTS reading_status_idx ON reading(status);
     CREATE INDEX IF NOT EXISTS reading_queue_idx ON reading(queue_pos);
 
+    CREATE TABLE IF NOT EXISTS external_reading (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      title TEXT NOT NULL,
+      authors TEXT NOT NULL DEFAULT '',
+      finished_at TEXT,
+      note TEXT NOT NULL DEFAULT '',
+      created_at TEXT NOT NULL
+    );
+
     -- Ключ по ISBN: дубликаты в стопке невозможны на уровне схемы,
     -- а не потому, что код не забыл проверить.
     CREATE TABLE IF NOT EXISTS unresolved (
