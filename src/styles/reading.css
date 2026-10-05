@@ -1,0 +1,80 @@
+/* A cover-first reading room. Scope the dark palette to this page. */
+.reading-page, .reading-header {
+  --ink: #f2eee7; --ink-soft: #b8bdc5; --ink-faint: #a0a8b3;
+  --paper: #242b35; --paper-raised: #29323e; --board: #171e28;
+  --board-deep: #111721; --rule: #394350; --rule-strong: #556273;
+  --stamp: #e5ad76; --stamp-ink: #f2c595; --sage: #a9c8b2;
+  color: var(--ink); background: var(--board);
+}
+.reading-header { border-bottom-color: #35404d; }
+.reading-page { background: radial-gradient(ellipse at 85% 0, #2b3b4d 0, transparent 600px), #171e28; }
+.reading-page .reading-toolbar { margin: 0; padding: 24px 16px 28px; }
+.reading-page .reading-toolbar-hint { margin-top: 12px; color: #b8bdc5; }
+.reading-page .btn--primary { background: #e5ad76; border-color: #e5ad76; color: #231b15; }
+.reading-page .btn--ghost { color: #f2eee7; border-color: #596676; background: #ffffff08; }
+.reading-page :focus-visible { outline: 3px solid #f2c595; outline-offset: 5px; }
+.reading-board { padding: 0 16px; display: grid; gap: 38px; }
+.reading-section { min-width: 0; }
+.reading-section-heading { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 18px; margin-bottom: 20px; }
+.reading-section-heading h2 { font-family: var(--font-display); font-size: 28px; line-height: 1.2; }
+.reading-section-heading h2 span { font: 13px var(--font-mono); color: #b8bdc5; vertical-align: middle; margin-left: 10px; }
+.reading-section-heading > p { font-size: 12px; color: #b8bdc5; }
+.reading-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 14px; align-items: start; }
+.reading-shelf { display: grid; grid-auto-flow: column; grid-auto-columns: min(70vw, 250px); gap: 22px; overflow-x: auto; scroll-snap-type: x proximity; padding: 8px 6px 20px; margin: -8px -6px -20px; scrollbar-color: #596676 transparent; }
+.reading-card { display: block; width: 100%; min-width: 0; text-align: left; border-radius: 6px; scroll-snap-align: start; }
+.reading-art { position: relative; border: 1px solid #ffffff1c; border-radius: 6px; background: #0e131c; box-shadow: 0 8px 22px #0006; transition: transform .18s ease, box-shadow .18s ease; }
+.reading-art .cover { width: 100%; aspect-ratio: 2 / 3; padding: 22px 18px; border-radius: 5px; box-shadow: none; }
+.reading-art .cover:has(img) { background: #0e131c; }
+.reading-art .cover img { object-fit: contain; }
+.reading-art .cover .t { font-size: clamp(18px, 2vw, 27px); }
+.reading-art .cover .a { font-size: 10px; margin-bottom: 22px; }
+.reading-badge { position: absolute; left: 8px; bottom: 8px; max-width: calc(100% - 16px); border-radius: 4px; background: #111923ed; color: #f1eee7; padding: 5px 8px; font-size: 11px; line-height: 1.35; box-shadow: 0 2px 8px #0005; }
+.reading-badge--done { color: #d1ebd8; }
+.reading-card-info { padding: 14px 2px 0; }
+.reading-card-info h3 { font-size: 16px; line-height: 1.35; font-weight: 600; overflow-wrap: anywhere; }
+.reading-author { font-size: 12px; color: #b8bdc5; line-height: 1.5; margin-top: 5px; }
+.reading-card-action { font-size: 11px; color: #e5ad76; margin-top: 9px; }
+.reading-card .progress { margin-top: 14px; }
+.reading-card .progress .lbl { color: #b8bdc5; }
+.reading-card:focus-visible .reading-art { box-shadow: 0 0 0 3px #e5ad76, 0 12px 28px #0008; }
+.reading-queue-card { min-width: 0; scroll-snap-align: start; }
+.reading-queue-card[data-dragging] { opacity: .4; }
+.reading-queue-card[data-over] .reading-art { outline: 3px solid #e5ad76; }
+.reading-order { display: flex; justify-content: space-between; gap: 8px; margin-top: 12px; border-top: 1px solid #394350; }
+.reading-order button { min-height: 44px; font-size: 12px; color: #e5ad76; }
+.reading-order button:disabled { color: #687482; cursor: default; }
+.reading-page .reading-filters { margin-bottom: 24px; }
+.reading-page .reading-filters .input { min-height: 46px; background: #ffffff08; border-color: #4b5868; color: #f2eee7; }
+.reading-page .reading-filters .input::placeholder { color: #aeb8c5; }
+.reading-page .reading-filters option { background: #242b35; }
+.reading-result-count { margin: -12px 0 20px; font-size: 12px; color: #b8bdc5; }
+.reading-dialog { margin: auto; padding: 0; width: min(720px, calc(100% - 24px)); max-height: calc(100dvh - 32px); color: var(--ink); background: var(--paper); border: 1px solid var(--rule); border-radius: 8px; box-shadow: 0 24px 100px #0008; }
+.reading-dialog::backdrop { background: #07101bba; backdrop-filter: blur(6px); }
+.reading-dialog .external-reading-form { border: 0; margin: 0; padding: 28px 22px; }
+.reading-dialog .external-reading-form h2 { padding-right: 36px; }
+.reading-dialog-close { position: absolute; right: 10px; top: 10px; width: 44px; height: 44px; font-size: 28px; z-index: 1; }
+.reading-cover-field { display: flex; gap: 16px; align-items: center; }
+.reading-cover-field .cover { width: 76px; height: 114px; padding: 8px; }
+.reading-cover-field .cover img { object-fit: contain; }
+.reading-cover-field .cover .t { font-size: 12px; }
+.reading-cover-field .cover .a { font-size: 7px; }
+.reading-cover-field .field { flex: 1; min-width: 0; }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .reading-card:hover .reading-art { transform: translateY(-5px); box-shadow: 0 0 0 2px #e5ad76, 0 16px 32px #0008; }
+}
+@media (min-width: 600px) {
+  .reading-grid { grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 34px 24px; }
+}
+@media (min-width: 900px) {
+  .reading-page .reading-toolbar { padding: 28px 32px 36px; }
+  .reading-board { padding: 0 32px; gap: 48px; }
+  .reading-section-heading h2 { font-size: 34px; }
+  .reading-grid { grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 36px 26px; }
+  .reading-card-info h3 { font-size: 18px; }
+}
+@media (max-width: 420px) {
+  .reading-page .reading-actions { display: grid; }
+  .reading-grid { gap: 26px 12px; }
+  .reading-card-info h3 { font-size: 14px; }
+  .reading-badge { font-size: 10px; left: 5px; bottom: 5px; padding: 4px 6px; max-width: calc(100% - 10px); }
+}

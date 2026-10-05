@@ -735,8 +735,6 @@ button:focus-visible, summary:focus-visible, a:focus-visible { outline: 2px soli
   .series-page { padding: 26px 32px 40px; }
   .series-toolbar .search { max-width: 440px; }
   .series-grid { gap: 22px; }
-  .reading-board { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 24px; align-items: start; }
-  .reading-board > .empty { grid-column: 1 / -1; }
   .reading-section { min-width: 0; }
   .reading-section .drawer-tab { margin-bottom: 20px; }
   .book-page { display: grid; grid-template-columns: minmax(240px, .75fr) minmax(0, 1.5fr); align-items: start; gap: 32px; padding: 28px 32px 40px; }
@@ -794,7 +792,6 @@ button:focus-visible, summary:focus-visible, a:focus-visible { outline: 2px soli
 .reading-filters select { width: auto; }
 .reading-external-label { font-size: 11px; color: var(--stamp); margin-top: 5px; }
 .reading-note { color: var(--ink-soft); font-size: 13px; margin-top: 6px; white-space: pre-wrap; overflow-wrap: anywhere; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-.reading-history .q-item { text-align: left; }
 .reading-isbn-row { display: flex; flex-wrap: wrap; gap: 10px; }
 .reading-isbn-row .input { flex: 1 1 180px; min-width: 0; }
 .reading-lookup-status { color: var(--ink-soft); font-size: 13px; margin-top: 8px; }

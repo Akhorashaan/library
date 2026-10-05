@@ -5,6 +5,8 @@
  * всегда одного цвета, а полка одного автора читается единым блоком.
  */
 
+import { useState } from 'react';
+
 const PALETTE = [
   ['#7A2E28', '#4A1A16'],
   ['#2E4A5C', '#182B38'],
@@ -31,8 +33,9 @@ type Props = {
 
 export function Cover({ title, authors, src, className }: Props) {
   const [c1, c2] = palette(authors?.trim() || title);
+  const [failedSrc, setFailedSrc] = useState<string | null>(null);
 
-  if (src) {
+  if (src && src !== failedSrc) {
     return (
       <div className={`cover ${className ?? ''}`} style={{ padding: 0 }}>
         <img
@@ -40,6 +43,7 @@ export function Cover({ title, authors, src, className }: Props) {
           alt=""
           loading="lazy"
           decoding="async"
+          onError={() => setFailedSrc(src)}
         />
       </div>
     );

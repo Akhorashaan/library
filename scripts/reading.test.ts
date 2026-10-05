@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtempSync, rmSync } from 'node:fs';
+import { mkdtempSync, readFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, resolve, sep } from 'node:path';
 import Fastify from 'fastify';
@@ -9,6 +9,7 @@ test('external reading survives migration, supports edits and stays out of the l
   const temp = mkdtempSync(join(tmpdir(), 'kartoteka-reading-'));
   assert(resolve(temp).startsWith(resolve(tmpdir()) + sep));
   process.env.DB_PATH = join(temp, 'test.db');
+  process.env.COVERS_DIR = join(temp, 'covers');
   const { sqlite, initSchema } = await import('../server/db/index.js');
   const { registerRoutes } = await import('../server/routes.js');
   const app = Fastify();
@@ -22,9 +23,9 @@ test('external reading survives migration, supports edits and stays out of the l
       VALUES ('Старая запись', 'Автор', '2000-01-01', 'Сохранить заметку', '2000-01-02');`);
     const legacy = sqlite.prepare('SELECT * FROM external_reading').get();
     initSchema();
-    assert.deepEqual(sqlite.prepare('SELECT * FROM external_reading').get(), { ...legacy, isbn: null });
+    assert.deepEqual(sqlite.prepare('SELECT * FROM external_reading').get(), { ...legacy, isbn: null, cover_url: null });
     initSchema();
-    assert.deepEqual(sqlite.prepare('SELECT * FROM external_reading').get(), { ...legacy, isbn: null });
+    assert.deepEqual(sqlite.prepare('SELECT * FROM external_reading').get(), { ...legacy, isbn: null, cover_url: null });
     sqlite.prepare('DELETE FROM external_reading').run();
     await registerRoutes(app);
     const library = await app.inject({ method: 'POST', url: '/api/books', payload: { title: 'На полке', status: 'read' } });
@@ -44,6 +45,36 @@ test('external reading survives migration, supports edits and stays out of the l
     initSchema();
     assert.deepEqual((await app.inject('/api/queue')).json().externalDone, [entry]);
     assert.equal((await app.inject('/api/queue')).json().done[0].id, library.json().id);
+
+    // A remote cover is stored locally, survives older clients and failed replacements,
+    // and can be explicitly removed without changing the reading date or note.
+    const originalFetch = globalThis.fetch;
+    const coverBytes = Buffer.alloc(4000, 42);
+    let coverPath: string;
+    try {
+      globalThis.fetch = async () => new Response(coverBytes, { headers: { 'content-type': 'image/jpeg' } });
+      const covered = await app.inject({ method: 'PUT', url: `/api/reading/external/${entry.id}`, payload: { ...payload, coverUrl: 'https://example.org/cover.jpg' } });
+      assert.equal(covered.statusCode, 200, covered.body);
+      coverPath = covered.json().coverUrl;
+      assert.match(coverPath, /^\/covers\/reading-.*\.jpg$/);
+      assert.deepEqual(readFileSync(join(process.env.COVERS_DIR!, coverPath.slice(8))), coverBytes);
+      const preserved = await app.inject({ method: 'PUT', url: `/api/reading/external/${entry.id}`, payload });
+      assert.equal(preserved.json().coverUrl, coverPath);
+      globalThis.fetch = async () => new Response('', { status: 404 });
+      const failed = await app.inject({ method: 'PUT', url: `/api/reading/external/${entry.id}`, payload: { ...payload, coverUrl: 'https://example.org/missing.jpg' } });
+      assert.equal(failed.statusCode, 422);
+      const afterFailure = (await app.inject('/api/queue')).json().externalDone[0];
+      assert.equal(afterFailure.coverUrl, coverPath);
+      assert.equal(afterFailure.finishedAt, payload.finishedAt);
+      assert.equal(afterFailure.note, payload.note);
+    } finally { globalThis.fetch = originalFetch; }
+    const local = await app.inject({ method: 'PUT', url: `/api/reading/external/${entry.id}`, payload: { ...payload, coverUrl: coverPath! } });
+    assert.equal(local.statusCode, 200);
+    for (const coverUrl of ['file:///etc/passwd', '/covers/../secret.jpg', 'javascript:alert(1)']) {
+      assert.equal((await app.inject({ method: 'POST', url: '/api/reading/external', payload: { ...payload, coverUrl } })).statusCode, 400);
+    }
+    const withoutCover = await app.inject({ method: 'PUT', url: `/api/reading/external/${entry.id}`, payload: { ...payload, coverUrl: null } });
+    assert.equal(withoutCover.json().coverUrl, null);
 
     const isbn = '9785389074354';
     const metadata = { isbn, found: true, title: 'Найденная книга', authors: 'Автор', publisher: null,

@@ -118,6 +118,7 @@ export const externalReading = sqliteTable('external_reading', {
   isbn: text('isbn'),
   title: text('title').notNull(),
   authors: text('authors').notNull().default(''),
+  coverUrl: text('cover_url'),
   finishedAt: text('finished_at'),
   note: text('note').notNull().default(''),
   createdAt: text('created_at').notNull(),

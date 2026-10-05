@@ -4,6 +4,7 @@ import { Link } from 'react-router';
 import { api } from '@/lib/api';
 import { externalReadingInput, type ExternalReading } from '@shared/external-reading';
 import { isbnSchema } from '@shared/schema';
+import { Cover } from './Cover';
 
 function today() {
   const date = new Date();
@@ -22,13 +23,14 @@ export function ExternalReadingForm({ entry, onClose }: { entry: ExternalReading
   const lookupRequest = useRef<AbortController | null>(null);
   const [title, setTitle] = useState(entry?.title ?? '');
   const [authors, setAuthors] = useState(entry?.authors ?? '');
+  const [coverUrl, setCoverUrl] = useState(entry?.coverUrl ?? '');
   const [finishedAt, setFinishedAt] = useState(entry ? entry.finishedAt ?? '' : today());
   const [note, setNote] = useState(entry?.note ?? '');
   const [validation, setValidation] = useState('');
   const [confirmDelete, setConfirmDelete] = useState(false);
-  const fields = useRef({ title, authors });
-  fields.current = { title, authors };
-  const autofilled = useRef({ title: '', authors: '' });
+  const fields = useRef({ title, authors, coverUrl });
+  fields.current = { title, authors, coverUrl };
+  const autofilled = useRef({ title: '', authors: '', coverUrl: '' });
   useEffect(() => { isbnInput.current?.focus(); }, []);
   useEffect(() => {
     if (!lookupEnabled) return;
@@ -48,6 +50,10 @@ export function ExternalReadingForm({ entry, onClose }: { entry: ExternalReading
         if (controller.signal.aborted) return;
         // A slow lookup must not overwrite edits made while it was running.
         if (result.found) {
+          if (fields.current.coverUrl === snapshot.coverUrl && result.coverUrl) {
+            setCoverUrl(result.coverUrl);
+            autofilled.current.coverUrl = result.coverUrl;
+          }
           if (fields.current.title === snapshot.title && result.title) {
             setTitle(result.title);
             autofilled.current.title = result.title;
@@ -90,7 +96,7 @@ export function ExternalReadingForm({ entry, onClose }: { entry: ExternalReading
   return <form className="external-reading-form" aria-label={entry ? 'Изменить запись' : 'Прочитанная книга вне библиотеки'} onSubmit={event => {
     event.preventDefault();
     if (lookupState === 'waiting' || lookupState === 'loading' || busy) return;
-    const parsed = externalReadingInput.safeParse({ isbn, title, authors, finishedAt: finishedAt || null, note });
+    const parsed = externalReadingInput.safeParse({ isbn, title, authors, coverUrl: coverUrl.trim() || null, finishedAt: finishedAt || null, note });
     if (!parsed.success) { setValidation(parsed.error.issues[0]?.message ?? 'Проверьте поля'); return; }
     setValidation('');
     (entry ? update : save).mutate(parsed.data);
@@ -112,6 +118,7 @@ export function ExternalReadingForm({ entry, onClose }: { entry: ExternalReading
             setValidation('');
             setTitle(current => current === autofilled.current.title ? '' : current);
             setAuthors(current => current === autofilled.current.authors ? '' : current);
+            setCoverUrl(current => current === autofilled.current.coverUrl ? '' : current);
           }} onKeyDown={e => {
             if (e.key === 'Enter') { e.preventDefault(); setLookupEnabled(true); setLookupAttempt(value => value + 1); }
           }} />
@@ -125,6 +132,10 @@ export function ExternalReadingForm({ entry, onClose }: { entry: ExternalReading
       </div>
       <div className="field"><label htmlFor="reading-title">Название *</label><input id="reading-title" className="input" required maxLength={500} value={title} onChange={e => setTitle(e.target.value)} /></div>
       <div className="field"><label htmlFor="reading-authors">Автор</label><input id="reading-authors" className="input" maxLength={500} value={authors} onChange={e => setAuthors(e.target.value)} /></div>
+      <div className="reading-cover-field">
+        <Cover title={title || 'Обложка'} authors={authors} src={coverUrl} />
+        <div className="field"><label htmlFor="reading-cover">Обложка</label><input id="reading-cover" className="input" placeholder="Ссылка на изображение" value={coverUrl} onChange={e => setCoverUrl(e.target.value)} /><small>Найдём вместе с ISBN. Можно вставить ссылку на другую обложку.</small></div>
+      </div>
       <div className="field"><label htmlFor="reading-finished">Дата прочтения</label><input id="reading-finished" className="input" type="date" value={finishedAt} onChange={e => setFinishedAt(e.target.value)} /><small>Можно оставить пустой, если не помните.</small></div>
       <div className="field"><label htmlFor="reading-note">Заметка</label><textarea id="reading-note" className="input" maxLength={10000} value={note} onChange={e => setNote(e.target.value)} /></div>
       {error && <p className="series-error" role="alert">{error}</p>}

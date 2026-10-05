@@ -96,6 +96,9 @@ export function initSchema() {
     if (!readingColumns.some(column => column.name === 'isbn')) {
       sqlite.exec('ALTER TABLE external_reading ADD COLUMN isbn TEXT');
     }
+    if (!readingColumns.some(column => column.name === 'cover_url')) {
+      sqlite.exec('ALTER TABLE external_reading ADD COLUMN cover_url TEXT');
+    }
     const columns = new Set((sqlite.pragma('table_info(books)') as { name: string }[]).map((c) => c.name));
     for (const [name, type] of Object.entries({ series: 'TEXT', series_order: 'INTEGER', series_end: 'INTEGER', series_part: 'INTEGER', tags: "TEXT NOT NULL DEFAULT '[]'" })) {
       if (!columns.has(name)) sqlite.exec(`ALTER TABLE books ADD COLUMN ${name} ${type}`);
